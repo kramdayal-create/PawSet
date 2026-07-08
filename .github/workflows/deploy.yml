@@ -42,6 +42,24 @@ jobs:
           vercel env pull .env.preview --environment=preview --yes --token "$VERCEL_TOKEN" || true
           touch .env.production .env.preview
 
+      - name: Check PawSet schema exists in Supabase
+        run: |
+          getvar() {
+            grep -E "^$1=" /tmp/docchase-env/.env.production | head -1 | cut -d= -f2- | sed -e 's/^"//' -e 's/"$//'
+          }
+          url=$(getvar NEXT_PUBLIC_SUPABASE_URL)
+          key=$(getvar NEXT_PUBLIC_SUPABASE_ANON_KEY)
+          code=$(curl -s -o /tmp/schema-check.json -w '%{http_code}' \
+            "$url/rest/v1/pets?select=id&limit=1" \
+            -H "apikey: $key" -H "Authorization: Bearer $key")
+          echo "HTTP $code"
+          cat /tmp/schema-check.json || true
+          if [ "$code" = "200" ]; then
+            echo "::notice::pets table exists — PawSet schema is applied"
+          else
+            echo "::warning::pets table probe returned HTTP $code — PawSet schema may not be applied (run supabase/migrations/0001_schema.sql)"
+          fi
+
       - name: Link PawSet project (created on first run)
         run: vercel link --yes --scope "$VERCEL_SCOPE" --project pawset --token "$VERCEL_TOKEN"
 
