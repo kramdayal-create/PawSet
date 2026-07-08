@@ -66,7 +66,8 @@ jobs:
       - name: Copy Supabase env vars to PawSet project
         env:
           # Optional GitHub-secret fallbacks for values missing from DocChase.
-          GH_SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          # Accept several likely secret names for the service-role key.
+          GH_SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_SERVICE_ROLE || secrets.SERVICE_ROLE_KEY || secrets.SUPABASE_KEY || secrets.SUPABASE_SECRET || secrets.SUPABASE }}
           GH_APP_SECRET: ${{ secrets.APP_SECRET }}
         run: |
           # Look for each var in DocChase production env, then preview env,
