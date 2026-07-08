@@ -1,0 +1,80 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  VERCEL_SCOPE: team_A7UzxmiDete44DbGVHO8kL28
+  # DocChase's Vercel project — Supabase env vars are copied from it on
+  # first deploy so PawSet talks to the same database it was built against.
+  DOCCHASE_PROJECT_ID: prj_4T8N8pV6rxZXwFAefST0bqLkXuV7
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check VERCEL_TOKEN
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::error::VERCEL_TOKEN secret is not set. Add it under Settings → Secrets and variables → Actions."
+            exit 1
+          fi
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+
+      - name: Pull env vars from DocChase project
+        run: |
+          mkdir -p /tmp/docchase-env/.vercel
+          cd /tmp/docchase-env
+          printf '{"orgId":"%s","projectId":"%s"}\n' "$VERCEL_SCOPE" "$DOCCHASE_PROJECT_ID" > .vercel/project.json
+          vercel env pull .env.pulled --environment=production --yes --token "$VERCEL_TOKEN" \
+            || vercel env pull .env.pulled --environment=preview --yes --token "$VERCEL_TOKEN" \
+            || true
+          touch .env.pulled
+
+      - name: Link PawSet project (created on first run)
+        run: vercel link --yes --scope "$VERCEL_SCOPE" --project pawset --token "$VERCEL_TOKEN"
+
+      - name: Copy Supabase env vars to PawSet project
+        run: |
+          copy_var() {
+            name="$1"
+            value=$(grep -E "^${name}=" /tmp/docchase-env/.env.pulled | head -1 | cut -d= -f2- | sed -e 's/^"//' -e 's/"$//')
+            if [ -n "$value" ]; then
+              printf '%s' "$value" | vercel env add "$name" production --force --token "$VERCEL_TOKEN" || true
+            else
+              echo "::warning::$name not found in DocChase env"
+              return 1
+            fi
+          }
+          copy_var NEXT_PUBLIC_SUPABASE_URL \
+            || printf '%s' "https://jjgutfdwsjjqvksjqtup.supabase.co" | vercel env add NEXT_PUBLIC_SUPABASE_URL production --force --token "$VERCEL_TOKEN"
+          copy_var NEXT_PUBLIC_SUPABASE_ANON_KEY \
+            || printf '%s' "placeholder-anon-key" | vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY production --force --token "$VERCEL_TOKEN"
+          copy_var SUPABASE_SERVICE_ROLE_KEY || true
+          copy_var APP_SECRET || true
+
+      - name: Deploy to production
+        run: |
+          url=$(vercel deploy --prod --yes --token "$VERCEL_TOKEN")
+          echo "PRODUCTION_URL=$url" >> "$GITHUB_ENV"
+          {
+            echo "## Production deployment"
+            echo ""
+            echo "$url"
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "Production URL: $url"
+
+      - name: Set NEXT_PUBLIC_APP_URL for future builds
+        run: |
+          printf '%s' "$PRODUCTION_URL" | vercel env add NEXT_PUBLIC_APP_URL production --force --token "$VERCEL_TOKEN" || true
