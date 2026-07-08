@@ -57,7 +57,7 @@ export default async function PetsPage() {
         <div className="space-y-3">
           {petList.map((pet) => (
             <Link key={pet.id} href={`/dashboard/pets/${pet.id}`}>
-              <div className="bg-card border border-border rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-4">
+              <div className="bg-card rounded-3xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-4">
                 <div className="text-2xl flex-shrink-0">
                   {pet.photo_url ? (
                     // eslint-disable-next-line @next/next/no-img-element

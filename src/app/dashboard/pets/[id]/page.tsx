@@ -117,8 +117,24 @@ export default async function PetDetailPage({
         </Link>
       </div>
 
+      {/* Vital stat chips */}
+      <div className="grid grid-cols-3 gap-3">
+        <div className="bg-card rounded-3xl px-4 py-3 shadow-card text-center">
+          <p className="text-[11px] text-muted-foreground">Species</p>
+          <p className="text-sm font-semibold text-foreground capitalize truncate">{pet.species}</p>
+        </div>
+        <div className="bg-card rounded-3xl px-4 py-3 shadow-card text-center">
+          <p className="text-[11px] text-muted-foreground">Age</p>
+          <p className="text-sm font-semibold text-foreground truncate">{pet.age_text || "—"}</p>
+        </div>
+        <div className="bg-card rounded-3xl px-4 py-3 shadow-card text-center">
+          <p className="text-[11px] text-muted-foreground">Sex</p>
+          <p className="text-sm font-semibold text-foreground capitalize truncate">{pet.sex || "—"}</p>
+        </div>
+      </div>
+
       {/* Completion score */}
-      <div className="bg-card border border-border rounded-xl p-4 shadow-card">
+      <div className="bg-card rounded-3xl p-4 shadow-card">
         <div className="flex items-center justify-between mb-2">
           <span className={cn("text-sm font-semibold", scoreColor(score.score))}>
             {pet.name}&apos;s plan is {score.score}% complete · {score.label}
@@ -174,7 +190,7 @@ export default async function PetDetailPage({
       {/* Tab content */}
       {activeTab === "overview" && (
         <div className="space-y-4">
-          <div className="bg-card border border-border rounded-xl p-5 shadow-card space-y-3">
+          <div className="bg-card rounded-3xl p-5 shadow-card space-y-3">
             <h2 className="font-semibold text-foreground">Basic details</h2>
             <dl className="grid sm:grid-cols-2 gap-x-8 gap-y-2.5 text-sm">
               {[
@@ -213,7 +229,7 @@ export default async function PetDetailPage({
               { tab: "share", label: "Share & print", done: false },
             ].map((item) => (
               <Link key={item.tab} href={`/dashboard/pets/${pet.id}?tab=${item.tab}`}>
-                <div className="bg-card border border-border rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-3">
+                <div className="bg-card rounded-3xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-3">
                   <div className={cn(
                     "w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-xs",
                     item.done ? "bg-success text-white" : "bg-muted text-muted-foreground",
@@ -230,7 +246,7 @@ export default async function PetDetailPage({
 
       {activeTab === "routine" && (
         <form action={upsertRoutineForPet} className="space-y-4">
-          <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+          <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
             <h2 className="font-semibold text-foreground">Feeding</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
@@ -256,7 +272,7 @@ export default async function PetDetailPage({
             </div>
           </div>
 
-          <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+          <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
             <h2 className="font-semibold text-foreground">Exercise & toileting</h2>
             <div className="space-y-1.5">
               <Label htmlFor="exercise_routine">Walk / exercise routine</Label>
@@ -268,7 +284,7 @@ export default async function PetDetailPage({
             </div>
           </div>
 
-          <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+          <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
             <h2 className="font-semibold text-foreground">Sleep & comfort</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
@@ -292,7 +308,7 @@ export default async function PetDetailPage({
 
       {activeTab === "behaviour" && (
         <form action={upsertBehaviourForPet} className="space-y-4">
-          <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+          <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
             <h2 className="font-semibold text-foreground">Personality & temperament</h2>
             <div className="space-y-1.5">
               <Label htmlFor="temperament">Temperament</Label>
@@ -310,7 +326,7 @@ export default async function PetDetailPage({
             </div>
           </div>
 
-          <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+          <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
             <h2 className="font-semibold text-foreground">Anxiety & triggers</h2>
             <div className="space-y-1.5">
               <Label htmlFor="anxiety_triggers">Anxiety triggers</Label>
@@ -328,7 +344,7 @@ export default async function PetDetailPage({
             </div>
           </div>
 
-          <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+          <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
             <h2 className="font-semibold text-foreground">Handling & safety</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
@@ -356,12 +372,12 @@ export default async function PetDetailPage({
 
       {activeTab === "medical" && (
         <form action={upsertMedicalForPet} className="space-y-4">
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800">
+          <div className="bg-paw-yellowsoft rounded-3xl p-4 text-sm text-warning-foreground">
             <p className="font-medium mb-0.5">Important</p>
             <p>PawSet stores your notes only — it does not provide veterinary advice or diagnose health conditions.</p>
           </div>
 
-          <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+          <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
             <h2 className="font-semibold text-foreground">Vet details</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
@@ -387,7 +403,7 @@ export default async function PetDetailPage({
             </div>
           </div>
 
-          <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+          <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
             <h2 className="font-semibold text-foreground">Health & medication</h2>
             <div className="space-y-1.5">
               <Label htmlFor="known_conditions">Known conditions</Label>
@@ -475,7 +491,7 @@ export default async function PetDetailPage({
                     {link.include_behaviour && <span className="text-xs bg-secondary px-2 py-0.5 rounded-full">Behaviour</span>}
                     {link.include_medical && <span className="text-xs bg-secondary px-2 py-0.5 rounded-full">Medical</span>}
                     {link.include_contacts && <span className="text-xs bg-secondary px-2 py-0.5 rounded-full">Contacts</span>}
-                    {link.include_access_notes && <span className="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Access notes</span>}
+                    {link.include_access_notes && <span className="text-xs bg-paw-yellowsoft text-warning-foreground px-2 py-0.5 rounded-full">Access notes</span>}
                   </div>
                   {link.is_active && (
                     <div className="flex gap-2 pt-1 border-t border-border">
@@ -497,7 +513,7 @@ export default async function PetDetailPage({
           )}
 
           {/* Create new share link */}
-          <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+          <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
             <div className="flex items-center gap-2">
               <Share2 className="h-4 w-4 text-primary" />
               <h2 className="font-semibold text-foreground">Create a share link</h2>
@@ -536,7 +552,7 @@ export default async function PetDetailPage({
                 </div>
               </div>
 
-              <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-xs text-amber-800">
+              <div className="bg-paw-yellowsoft rounded-2xl p-3 text-xs text-warning-foreground">
                 <p className="font-medium mb-0.5">Home access notes</p>
                 <p>Access notes are always hidden from shared links unless you deliberately choose to include them.</p>
               </div>

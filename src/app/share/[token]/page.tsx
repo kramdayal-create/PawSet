@@ -69,7 +69,7 @@ export default async function SharePage({ params }: { params: { token: string } 
   const today = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 
   const Section = ({ title, icon: Icon, children }: { title: string; icon: React.ElementType; children: React.ReactNode }) => (
-    <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-3">
+    <div className="bg-card rounded-3xl p-5 shadow-card space-y-3">
       <div className="flex items-center gap-2">
         <Icon className="h-4 w-4 text-primary" />
         <h2 className="font-semibold text-foreground">{title}</h2>
@@ -157,7 +157,7 @@ export default async function SharePage({ params }: { params: { token: string } 
               <Field label="Noise sensitivity" value={behaviour.noise_sensitivity} />
             </div>
             {behaviour.safety_notes && (
-              <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-800">
+              <div className="bg-paw-yellowsoft rounded-2xl p-3 text-sm text-warning-foreground">
                 <strong>Safety note:</strong> {behaviour.safety_notes}
               </div>
             )}
@@ -208,7 +208,7 @@ export default async function SharePage({ params }: { params: { token: string } 
                       <span className="text-xs bg-destructive/10 text-destructive px-2 py-0.5 rounded-full">Emergency</span>
                     )}
                     {c.has_home_access && (
-                      <span className="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full flex items-center gap-1">
+                      <span className="text-xs bg-paw-yellowsoft text-warning-foreground px-2 py-0.5 rounded-full flex items-center gap-1">
                         <Key className="h-2.5 w-2.5" />
                         Has key
                       </span>

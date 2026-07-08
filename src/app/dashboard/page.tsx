@@ -113,23 +113,29 @@ export default async function DashboardPage() {
 
       {/* Summary stats */}
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-        <div className="bg-card border border-border rounded-xl p-4 shadow-card">
-          <div className="flex items-center gap-2 text-muted-foreground text-xs mb-1">
-            <PawPrint className="h-3.5 w-3.5" />
+        <div className="bg-card rounded-3xl p-4 shadow-card">
+          <div className="flex items-center gap-2 text-muted-foreground text-xs mb-2">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-paw-yellowsoft text-foreground">
+              <PawPrint className="h-3.5 w-3.5" />
+            </span>
             Pets
           </div>
           <p className="text-2xl font-bold text-foreground">{petScores.length}</p>
         </div>
-        <div className="bg-card border border-border rounded-xl p-4 shadow-card">
-          <div className="flex items-center gap-2 text-muted-foreground text-xs mb-1">
-            <Phone className="h-3.5 w-3.5" />
+        <div className="bg-card rounded-3xl p-4 shadow-card">
+          <div className="flex items-center gap-2 text-muted-foreground text-xs mb-2">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-paw-skysoft text-foreground">
+              <Phone className="h-3.5 w-3.5" />
+            </span>
             Emergency contacts
           </div>
           <p className="text-2xl font-bold text-foreground">{emergencyContacts.length}</p>
         </div>
-        <div className="bg-card border border-border rounded-xl p-4 shadow-card col-span-2 sm:col-span-1">
-          <div className="flex items-center gap-2 text-muted-foreground text-xs mb-1">
-            <AlertTriangle className="h-3.5 w-3.5" />
+        <div className="bg-card rounded-3xl p-4 shadow-card col-span-2 sm:col-span-1">
+          <div className="flex items-center gap-2 text-muted-foreground text-xs mb-2">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-paw-limesoft text-foreground">
+              <AlertTriangle className="h-3.5 w-3.5" />
+            </span>
             Emergency plan
           </div>
           <p className="text-sm font-semibold text-foreground mt-0.5">
@@ -157,7 +163,7 @@ export default async function DashboardPage() {
 
           {petScores.map(({ pet, score }) => (
             <Link key={pet.id} href={`/dashboard/pets/${pet.id}`} className="block">
-              <div className="bg-card border border-border rounded-xl p-5 shadow-card hover:shadow-card-hover transition-shadow">
+              <div className="bg-card rounded-3xl p-5 shadow-card hover:shadow-card-hover transition-shadow">
                 <div className="flex items-start gap-4">
                   <div className="text-3xl flex-shrink-0">
                     {pet.photo_url ? (
@@ -226,9 +232,9 @@ export default async function DashboardPage() {
       <div className="grid sm:grid-cols-2 gap-3">
         {!emergencyContacts.length && (
           <Link href="/dashboard/contacts">
-            <div className="bg-card border border-border rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
-                <Users className="h-4 w-4 text-primary" />
+            <div className="bg-paw-skysoft rounded-3xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-card flex items-center justify-center flex-shrink-0">
+                <Users className="h-4 w-4 text-foreground" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-semibold text-foreground">Add emergency contact</p>
@@ -240,9 +246,9 @@ export default async function DashboardPage() {
         )}
         {!hasEmergencyPlan && (
           <Link href="/dashboard/emergency-plan">
-            <div className="bg-card border border-border rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
-                <AlertTriangle className="h-4 w-4 text-primary" />
+            <div className="bg-paw-limesoft rounded-3xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-card flex items-center justify-center flex-shrink-0">
+                <AlertTriangle className="h-4 w-4 text-foreground" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-semibold text-foreground">Set up emergency plan</p>
@@ -254,9 +260,9 @@ export default async function DashboardPage() {
         )}
         {hasPets && (
           <Link href={`/dashboard/pets/${petScores[0].pet.id}?tab=share`}>
-            <div className="bg-card border border-border rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
+            <div className="bg-paw-pinksoft rounded-3xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-card flex items-center justify-center flex-shrink-0">
+                <CheckCircle2 className="h-4 w-4 text-foreground" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-semibold text-foreground">Create sitter guide</p>

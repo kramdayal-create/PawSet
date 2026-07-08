@@ -69,7 +69,7 @@ export default async function SettingsPage({
       )}
 
       {/* Profile */}
-      <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+      <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
         <h2 className="font-semibold text-foreground">Your profile</h2>
         <form action={updateProfile} className="space-y-4">
           <div className="space-y-1.5">
@@ -91,7 +91,7 @@ export default async function SettingsPage({
       </div>
 
       {/* Privacy */}
-      <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-3">
+      <div className="bg-card rounded-3xl p-5 shadow-card space-y-3">
         <h2 className="font-semibold text-foreground">Privacy & data</h2>
         <div className="text-sm text-muted-foreground space-y-2">
           <p>Your pet information is private and only visible to you.</p>
@@ -101,7 +101,7 @@ export default async function SettingsPage({
       </div>
 
       {/* Account */}
-      <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-3">
+      <div className="bg-card rounded-3xl p-5 shadow-card space-y-3">
         <h2 className="font-semibold text-foreground">Account</h2>
         <form action={logOut}>
           <Button type="submit" variant="outline" className="w-full">

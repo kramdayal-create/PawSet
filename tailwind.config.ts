@@ -71,11 +71,25 @@ const config: Config = {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
         },
+        /* PawSet brand pastels (branding sheet) + soft card fills */
+        paw: {
+          sky: "#84E2FA",
+          pink: "#FF88D3",
+          lime: "#A6F686",
+          yellow: "#FFCD20",
+          skysoft: "#D9F3FD",
+          pinksoft: "#FFDDF1",
+          limesoft: "#E3FAD5",
+          yellowsoft: "#FFECB0",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "calc(var(--radius) - 4px)",
+        sm: "calc(var(--radius) - 8px)",
+        xl: "calc(var(--radius) + 0.25rem)",
+        "2xl": "calc(var(--radius) + 0.5rem)",
+        "3xl": "calc(var(--radius) + 0.75rem)",
       },
       keyframes: {
         "accordion-down": {

@@ -4,86 +4,86 @@
 
 @layer base {
   :root {
-    /* PawPlan — warm, calm, premium palette */
-    /* Cream background, sage greens, terracotta accents */
-    --background: 38 47% 94%;        /* cream #F7F1E8 */
-    --foreground: 0 0% 18%;          /* charcoal #2D2D2D */
+    /* PawSet — playful pastel palette on warm cream */
+    /* Brand: sky #84E2FA · pink #FF88D3 · lime #A6F686 · yellow #FFCD20 */
+    --background: 36 45% 96%;        /* warm cream #FAF6EF */
+    --foreground: 0 0% 10%;          /* near-black */
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 18%;
+    --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 18%;
+    --popover-foreground: 0 0% 10%;
 
-    /* Deep forest green — primary action */
-    --primary: 152 25% 24%;          /* #2F4F3E */
-    --primary-foreground: 38 47% 96%;
+    /* Black pill buttons — the mockups' primary action */
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 135 13% 88%;        /* light sage */
-    --secondary-foreground: 152 25% 22%;
-    --muted: 38 30% 90%;             /* warm muted */
+    --secondary: 322 100% 93%;       /* soft pink */
+    --secondary-foreground: 322 45% 25%;
+    --muted: 36 35% 91%;             /* warm muted */
     --muted-foreground: 0 0% 42%;
-    --accent: 32 34% 80%;            /* warm sand */
-    --accent-foreground: 0 0% 18%;
+    --accent: 195 90% 90%;           /* soft sky */
+    --accent-foreground: 0 0% 10%;
 
     /* Semantic */
     --destructive: 358 75% 56%;
     --destructive-foreground: 0 0% 100%;
-    --success: 152 45% 35%;
+    --success: 110 45% 36%;          /* readable lime-green */
     --success-foreground: 0 0% 100%;
-    --warning: 36 90% 50%;
-    --warning-foreground: 28 84% 12%;
-    --info: 210 70% 48%;
+    --warning: 47 100% 56%;          /* brand yellow #FFCD20 */
+    --warning-foreground: 36 90% 10%;
+    --info: 196 75% 40%;             /* readable sky */
     --info-foreground: 0 0% 100%;
 
-    --border: 32 22% 85%;
-    --input: 32 22% 85%;
-    --ring: 152 25% 30%;
-    --radius: 0.75rem;
+    --border: 36 25% 88%;
+    --input: 36 25% 85%;
+    --ring: 0 0% 9%;
+    --radius: 1.25rem;
 
-    /* Deep green sidebar — calm, premium */
-    --sidebar: 152 28% 18%;          /* very dark forest green */
-    --sidebar-foreground: 38 30% 78%;
-    --sidebar-accent: 152 22% 26%;
-    --sidebar-accent-foreground: 38 47% 96%;
-    --sidebar-border: 152 22% 24%;
+    /* Light chrome — white sidebar, pastel active states */
+    --sidebar: 0 0% 100%;
+    --sidebar-foreground: 0 0% 30%;
+    --sidebar-accent: 322 100% 93%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 36 25% 90%;
 
-    /* Terracotta highlight */
-    --terra: 17 48% 57%;             /* #C97C5D */
+    /* Brand pink highlight (legacy var name kept for compatibility) */
+    --terra: 322 85% 52%;
     --terra-foreground: 0 0% 100%;
   }
 
   .dark {
-    --background: 152 15% 8%;
-    --foreground: 38 30% 92%;
-    --card: 152 14% 11%;
-    --card-foreground: 38 30% 92%;
-    --popover: 152 14% 11%;
-    --popover-foreground: 38 30% 92%;
-    --primary: 135 20% 55%;
-    --primary-foreground: 152 25% 10%;
-    --secondary: 152 14% 18%;
-    --secondary-foreground: 38 30% 92%;
-    --muted: 152 12% 16%;
-    --muted-foreground: 38 16% 60%;
-    --accent: 32 20% 22%;
-    --accent-foreground: 38 30% 92%;
+    --background: 0 0% 9%;
+    --foreground: 36 30% 94%;
+    --card: 0 0% 12%;
+    --card-foreground: 36 30% 94%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 36 30% 94%;
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 322 40% 24%;
+    --secondary-foreground: 322 100% 90%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 36 12% 62%;
+    --accent: 196 40% 22%;
+    --accent-foreground: 36 30% 94%;
     --destructive: 358 68% 52%;
     --destructive-foreground: 0 0% 100%;
-    --success: 152 45% 42%;
-    --success-foreground: 0 0% 100%;
-    --warning: 36 90% 54%;
-    --warning-foreground: 28 84% 12%;
-    --info: 210 70% 52%;
-    --info-foreground: 0 0% 100%;
-    --border: 152 14% 18%;
-    --input: 152 14% 18%;
-    --ring: 135 20% 50%;
-    --sidebar: 152 20% 7%;
-    --sidebar-foreground: 38 22% 72%;
-    --sidebar-accent: 152 16% 14%;
-    --sidebar-accent-foreground: 38 30% 92%;
-    --sidebar-border: 152 16% 16%;
-    --terra: 17 40% 52%;
-    --terra-foreground: 0 0% 100%;
+    --success: 110 45% 48%;
+    --success-foreground: 0 0% 8%;
+    --warning: 47 100% 56%;
+    --warning-foreground: 36 90% 10%;
+    --info: 196 80% 60%;
+    --info-foreground: 0 0% 8%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 90%;
+    --sidebar: 0 0% 11%;
+    --sidebar-foreground: 36 15% 70%;
+    --sidebar-accent: 322 40% 24%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 16%;
+    --terra: 322 90% 66%;
+    --terra-foreground: 0 0% 8%;
   }
 }
 
@@ -108,21 +108,12 @@
 }
 
 @layer utilities {
-  /* PawPlan brand gradient — deep green to sage */
+  /* Primary action surface — solid black pill, per brand mockups */
   .bg-brand-gradient {
-    background-image: linear-gradient(
-      135deg,
-      hsl(152 28% 20%) 0%,
-      hsl(152 22% 30%) 50%,
-      hsl(135 16% 42%) 100%
-    );
+    background-image: linear-gradient(135deg, hsl(0 0% 16%) 0%, hsl(0 0% 5%) 100%);
   }
   .text-brand-gradient {
-    background-image: linear-gradient(
-      120deg,
-      hsl(152 28% 24%) 0%,
-      hsl(135 18% 38%) 100%
-    );
+    background-image: linear-gradient(120deg, hsl(0 0% 8%) 0%, hsl(322 60% 30%) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -138,13 +129,13 @@
   }
   .shadow-card {
     box-shadow:
-      0 1px 2px -1px hsl(0 0% 0% / 0.06),
-      0 4px 16px -6px hsl(152 25% 24% / 0.10);
+      0 1px 2px -1px hsl(0 0% 0% / 0.04),
+      0 8px 24px -12px hsl(30 40% 20% / 0.14);
   }
   .shadow-card-hover {
     box-shadow:
-      0 2px 4px -1px hsl(0 0% 0% / 0.08),
-      0 12px 28px -8px hsl(152 25% 24% / 0.16);
+      0 2px 4px -1px hsl(0 0% 0% / 0.06),
+      0 16px 32px -12px hsl(30 40% 20% / 0.20);
   }
   .print-only {
     display: none;

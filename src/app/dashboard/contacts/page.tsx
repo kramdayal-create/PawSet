@@ -75,17 +75,20 @@ export default async function ContactsPage({
       {/* Contact list */}
       {contacts.length > 0 && (
         <div className="space-y-3">
-          {contacts.map((contact) => (
-            <div key={contact.id} className="bg-card border border-border rounded-xl p-4 shadow-card">
+          {contacts.map((contact, i) => (
+            <div
+              key={contact.id}
+              className={`${["bg-paw-pinksoft", "bg-paw-yellowsoft", "bg-paw-skysoft", "bg-paw-limesoft"][i % 4]} rounded-3xl p-4 shadow-card`}
+            >
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-lg flex-shrink-0">
+                <div className="w-10 h-10 rounded-full bg-card flex items-center justify-center text-lg flex-shrink-0">
                   {contact.can_contact_in_emergency ? "⚡" : "👤"}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap">
                     <p className="font-semibold text-foreground">{contact.name}</p>
                     {contact.contact_type && (
-                      <span className="text-xs bg-secondary text-secondary-foreground px-2 py-0.5 rounded-full">
+                      <span className="text-xs bg-card text-foreground px-2 py-0.5 rounded-full">
                         {contact.contact_type}
                       </span>
                     )}
@@ -115,13 +118,13 @@ export default async function ContactsPage({
                       </span>
                     )}
                     {contact.has_home_access && (
-                      <span className="flex items-center gap-1 text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">
+                      <span className="flex items-center gap-1 text-xs bg-paw-yellowsoft text-warning-foreground px-2 py-0.5 rounded-full">
                         <Key className="h-2.5 w-2.5" />
                         Has spare key
                       </span>
                     )}
                     {contact.visible_in_shared_guide && (
-                      <span className="flex items-center gap-1 text-xs bg-secondary text-secondary-foreground px-2 py-0.5 rounded-full">
+                      <span className="flex items-center gap-1 text-xs bg-card text-foreground px-2 py-0.5 rounded-full">
                         <Eye className="h-2.5 w-2.5" />
                         Visible in guide
                       </span>
@@ -151,7 +154,7 @@ export default async function ContactsPage({
 
       {/* Add / Edit form */}
       {(searchParams.add || editContact || contacts.length === 0) && (
-        <div className="bg-card border border-border rounded-2xl p-5 shadow-card">
+        <div className="bg-card rounded-3xl p-5 shadow-card">
           <h2 className="font-semibold text-foreground mb-4">
             {editContact ? `Edit ${editContact.name}` : "Add a contact"}
           </h2>

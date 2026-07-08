@@ -32,7 +32,7 @@ export default function NewPetPage({
       )}
 
       <form action={createPet} className="space-y-6">
-        <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+        <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
           <h2 className="font-semibold text-foreground">Basic details</h2>
 
           <div className="grid sm:grid-cols-2 gap-4">
@@ -91,7 +91,7 @@ export default function NewPetPage({
           </div>
         </div>
 
-        <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+        <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
           <h2 className="font-semibold text-foreground">Additional details</h2>
 
           <div className="grid sm:grid-cols-2 gap-4">

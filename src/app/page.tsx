@@ -172,7 +172,7 @@ export default function HomePage() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s) => (
-            <div key={s.step} className="bg-card border border-border rounded-2xl p-5 shadow-card">
+            <div key={s.step} className="bg-card rounded-3xl p-5 shadow-card">
               <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm mb-4">
                 {s.step}
               </div>
@@ -224,7 +224,7 @@ export default function HomePage() {
               ))}
             </ul>
           </div>
-          <div className="bg-card border border-border rounded-2xl p-6 shadow-card">
+          <div className="bg-card rounded-3xl p-6 shadow-card">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-xl">
                 🐶

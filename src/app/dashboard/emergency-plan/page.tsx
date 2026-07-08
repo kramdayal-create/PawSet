@@ -53,7 +53,7 @@ export default async function EmergencyPlanPage({
       )}
 
       {contacts.length === 0 && (
-        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800">
+        <div className="bg-paw-yellowsoft rounded-3xl p-4 text-sm text-warning-foreground">
           <p className="font-medium mb-1">No contacts added yet</p>
           <p>
             <Link href="/dashboard/contacts" className="underline">Add your emergency contacts</Link>{" "}
@@ -64,7 +64,7 @@ export default async function EmergencyPlanPage({
 
       <form action={upsertEmergencyPlan} className="space-y-5">
         {/* Emergency contacts */}
-        <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+        <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
           <h2 className="font-semibold text-foreground">Emergency contacts</h2>
 
           {[
@@ -108,7 +108,7 @@ export default async function EmergencyPlanPage({
         </div>
 
         {/* Location information */}
-        <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+        <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
           <h2 className="font-semibold text-foreground">Pet care locations</h2>
           <p className="text-xs text-muted-foreground">Where to find key items in your home.</p>
 
@@ -145,7 +145,7 @@ export default async function EmergencyPlanPage({
         </div>
 
         {/* Access notes */}
-        <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+        <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
           <div className="flex items-start gap-2">
             <Shield className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
             <div>
@@ -165,7 +165,7 @@ export default async function EmergencyPlanPage({
         </div>
 
         {/* Authorisations */}
-        <div className="bg-card border border-border rounded-2xl p-5 shadow-card space-y-4">
+        <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
           <h2 className="font-semibold text-foreground">Authorisations & instructions</h2>
 
           <div className="space-y-1.5">
