@@ -42,7 +42,7 @@ export default async function PetsPage() {
           <p className="text-muted-foreground text-sm mt-1">
             {petList.length > 0
               ? `${petList.length} pet${petList.length !== 1 ? "s" : ""} in your care plan`
-              : "No pets added yet"}
+              : "Your furry family, all in one place"}
           </p>
         </div>
         <Link href="/dashboard/pets/new">
@@ -55,16 +55,16 @@ export default async function PetsPage() {
 
       {petList.length > 0 ? (
         <div className="space-y-3">
-          {petList.map((pet) => (
+          {petList.map((pet, i) => (
             <Link key={pet.id} href={`/dashboard/pets/${pet.id}`}>
               <div className="bg-card rounded-3xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-4">
-                <div className="text-2xl flex-shrink-0">
+                <div className={`flex h-12 w-12 items-center justify-center rounded-full ${["bg-paw-pinksoft", "bg-paw-yellowsoft", "bg-paw-skysoft", "bg-paw-limesoft"][i % 4]} text-2xl flex-shrink-0 overflow-hidden`}>
                   {pet.photo_url ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={pet.photo_url}
                       alt={pet.name}
-                      className="h-10 w-10 rounded-full object-cover"
+                      className="h-12 w-12 rounded-full object-cover"
                     />
                   ) : (
                     <span>{speciesEmoji[pet.species] ?? "🐾"}</span>
@@ -84,9 +84,9 @@ export default async function PetsPage() {
       ) : (
         <div className="bg-card border border-dashed border-border rounded-2xl p-10 text-center">
           <div className="text-4xl mb-4">🐾</div>
-          <h2 className="text-lg font-semibold text-foreground mb-2">No pets yet</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2">Who are we caring for?</h2>
           <p className="text-muted-foreground text-sm mb-6 max-w-sm mx-auto">
-            Add your first pet to start building their care plan.
+            Add your first pet and we\u2019ll build their care plan together \u2014 routines, vet info, and everything a sitter would need.
           </p>
           <Link href="/dashboard/pets/new">
             <Button size="lg" className="gap-2">

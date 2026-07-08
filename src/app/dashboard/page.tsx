@@ -9,10 +9,9 @@ import { calculateCompletion, scoreColor, scoreBgColor } from "@/lib/pawset/comp
 import type { Pet, PetRoutine, PetBehaviour, PetMedical, Contact } from "@/lib/pawset/types";
 import {
   PawPrint,
-  Users,
   AlertTriangle,
   Plus,
-  ArrowRight,
+  Check,
   CheckCircle2,
   ChevronRight,
   Phone,
@@ -34,11 +33,12 @@ async function getDashboardData() {
     userId = user.id;
   }
 
-  const [petsResult, contactsResult, planResult, profileResult] = await Promise.all([
+  const [petsResult, contactsResult, planResult, profileResult, shareLinksResult] = await Promise.all([
     supabase.from("pets").select("*").eq("user_id", userId).order("created_at"),
     supabase.from("contacts").select("*").eq("user_id", userId),
     supabase.from("emergency_plans").select("*").eq("user_id", userId).maybeSingle(),
     supabase.from("profiles").select("full_name").eq("id", userId).maybeSingle(),
+    supabase.from("share_links").select("id").eq("user_id", userId).limit(1),
   ]);
 
   const pets = (petsResult.data as Pet[]) ?? [];
@@ -70,7 +70,16 @@ async function getDashboardData() {
     emergencyContacts,
     plan: planResult.data,
     firstName: profileResult.data?.full_name?.split(" ")[0] ?? null,
+    hasShareLink: (shareLinksResult.data?.length ?? 0) > 0,
   };
+}
+
+function greeting(): string {
+  const hour = new Date().getHours();
+  if (hour < 5) return "Hello, night owl";
+  if (hour < 12) return "Good morning";
+  if (hour < 18) return "Good afternoon";
+  return "Good evening";
 }
 
 const speciesEmoji: Record<string, string> = {
@@ -93,21 +102,60 @@ export default async function DashboardPage() {
     );
   }
 
-  const { petScores, contacts, emergencyContacts, plan, firstName } = data;
+  const { petScores, contacts, emergencyContacts, plan, firstName, hasShareLink } = data;
   const hasPets = petScores.length > 0;
   const hasEmergencyPlan = Boolean(plan?.general_instructions || plan?.primary_contact_id);
+
+  const setupSteps = [
+    {
+      href: "/dashboard/pets/new",
+      emoji: "🐶",
+      title: "Add your first pet",
+      hint: "Name, species, and the basics",
+      done: hasPets,
+      fill: "bg-paw-pinksoft",
+    },
+    {
+      href: "/dashboard/contacts",
+      emoji: "⚡",
+      title: "Add an emergency contact",
+      hint: "Someone your pet can count on",
+      done: emergencyContacts.length > 0,
+      fill: "bg-paw-yellowsoft",
+    },
+    {
+      href: "/dashboard/emergency-plan",
+      emoji: "🚨",
+      title: "Create your emergency plan",
+      hint: "Who to call and what to do",
+      done: hasEmergencyPlan,
+      fill: "bg-paw-skysoft",
+    },
+    {
+      href: hasPets ? `/dashboard/pets/${petScores[0].pet.id}?tab=share` : "/dashboard/pets/new",
+      emoji: "💌",
+      title: "Share a sitter guide",
+      hint: "A care link for sitters & family",
+      done: hasShareLink,
+      fill: "bg-paw-limesoft",
+    },
+  ];
+  const doneCount = setupSteps.filter((s) => s.done).length;
+  const allDone = doneCount === setupSteps.length;
 
   return (
     <div className="space-y-8">
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold text-foreground">
-          {firstName ? `Welcome back, ${firstName}` : "Your pet plans"}
+          {firstName ? `${greeting()}, ${firstName} 👋` : `${greeting()} 👋`}
         </h1>
         <p className="text-muted-foreground mt-1 text-sm">
-          {hasPets
-            ? "Here's the status of your pet care plans."
-            : "Create your first pet plan to get started."}
+          {allDone
+            ? "Everything's in place — your pets are covered. 🎉"
+            : hasPets
+              ? "Here's how your pet care plans are looking."
+              : "Let's get your pet's backup plan set up — it only takes a few minutes."}
         </p>
       </div>
 
@@ -165,7 +213,7 @@ export default async function DashboardPage() {
             <Link key={pet.id} href={`/dashboard/pets/${pet.id}`} className="block">
               <div className="bg-card rounded-3xl p-5 shadow-card hover:shadow-card-hover transition-shadow">
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl flex-shrink-0">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-paw-yellowsoft text-2xl flex-shrink-0 overflow-hidden">
                     {pet.photo_url ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
@@ -199,7 +247,7 @@ export default async function DashboardPage() {
                       <Progress value={score.score} className="h-1.5" />
                       {score.missing.length > 0 && (
                         <p className="text-xs text-muted-foreground mt-1.5">
-                          Missing: {score.missing.slice(0, 2).join(", ")}
+                          Still to add: {score.missing.slice(0, 2).join(", ")}
                           {score.missing.length > 2 ? ` + ${score.missing.length - 2} more` : ""}
                         </p>
                       )}
@@ -228,51 +276,58 @@ export default async function DashboardPage() {
         </div>
       )}
 
-      {/* Quick actions */}
-      <div className="grid sm:grid-cols-2 gap-3">
-        {!emergencyContacts.length && (
-          <Link href="/dashboard/contacts">
-            <div className="bg-paw-skysoft rounded-3xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-card flex items-center justify-center flex-shrink-0">
-                <Users className="h-4 w-4 text-foreground" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold text-foreground">Add emergency contact</p>
-                <p className="text-xs text-muted-foreground">Someone your pet can count on</p>
-              </div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-            </div>
-          </Link>
-        )}
-        {!hasEmergencyPlan && (
-          <Link href="/dashboard/emergency-plan">
-            <div className="bg-paw-limesoft rounded-3xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-card flex items-center justify-center flex-shrink-0">
-                <AlertTriangle className="h-4 w-4 text-foreground" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold text-foreground">Set up emergency plan</p>
-                <p className="text-xs text-muted-foreground">Who to call and what to do</p>
-              </div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-            </div>
-          </Link>
-        )}
-        {hasPets && (
-          <Link href={`/dashboard/pets/${petScores[0].pet.id}?tab=share`}>
-            <div className="bg-paw-pinksoft rounded-3xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-card flex items-center justify-center flex-shrink-0">
-                <CheckCircle2 className="h-4 w-4 text-foreground" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold text-foreground">Create sitter guide</p>
-                <p className="text-xs text-muted-foreground">A shareable care link for sitters</p>
-              </div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-            </div>
-          </Link>
-        )}
-      </div>
+      {/* Setup checklist — stacked pastel cards with check circles */}
+      {allDone ? (
+        <div className="bg-paw-limesoft rounded-3xl p-5 shadow-card flex items-center gap-4">
+          <span className="text-3xl">🎉</span>
+          <div className="flex-1 min-w-0">
+            <p className="font-semibold text-foreground">You&apos;re all set!</p>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              Pets, contacts, emergency plan, and a sitter guide — everything&apos;s ready if
+              someone needs to step in.
+            </p>
+          </div>
+          <CheckCircle2 className="h-6 w-6 text-success flex-shrink-0" />
+        </div>
+      ) : (
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-foreground">Get set up</h2>
+            <span className="text-xs font-semibold text-muted-foreground bg-card rounded-full px-3 py-1 shadow-card">
+              {doneCount} of {setupSteps.length} done
+            </span>
+          </div>
+          <Progress value={(doneCount / setupSteps.length) * 100} className="h-2" />
+          <div className="space-y-2.5 pt-1">
+            {setupSteps.map((step) => (
+              <Link key={step.title} href={step.href} className="block">
+                <div
+                  className={`${step.fill} rounded-3xl px-4 py-3.5 shadow-card hover:shadow-card-hover transition-shadow flex items-center gap-3 ${step.done ? "opacity-70" : ""}`}
+                >
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-card text-lg flex-shrink-0">
+                    {step.emoji}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <p
+                      className={`text-sm font-semibold text-foreground ${step.done ? "line-through decoration-2" : ""}`}
+                    >
+                      {step.title}
+                    </p>
+                    <p className="text-xs text-muted-foreground">{step.hint}</p>
+                  </div>
+                  <span
+                    className={`flex h-7 w-7 items-center justify-center rounded-full flex-shrink-0 ${
+                      step.done ? "bg-paw-yellow text-foreground" : "bg-card text-transparent"
+                    }`}
+                  >
+                    <Check className="h-4 w-4" strokeWidth={3} />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
