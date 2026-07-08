@@ -11,7 +11,7 @@ permissions:
 
 env:
   # Accept the token from either an Actions secret or an Actions variable.
-  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN || vars.VERCEL_TOKEN }}
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN || secrets.VERCEL || vars.VERCEL_TOKEN }}
   VERCEL_SCOPE: team_A7UzxmiDete44DbGVHO8kL28
   # DocChase's Vercel project — Supabase env vars are copied from it on
   # first deploy so PawSet talks to the same database it was built against.
