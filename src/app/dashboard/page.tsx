@@ -9,7 +9,7 @@ import { calculateCompletion, scoreColor, scoreBgColor } from "@/lib/pawset/comp
 import type { Pet, PetRoutine, PetBehaviour, PetMedical, Contact } from "@/lib/pawset/types";
 import {
   PawPrint,
-  AlertTriangle,
+  ClipboardList,
   Plus,
   Check,
   CheckCircle2,
@@ -117,17 +117,17 @@ export default async function DashboardPage() {
     },
     {
       href: "/dashboard/contacts",
-      emoji: "⚡",
-      title: "Add an emergency contact",
+      emoji: "💛",
+      title: "Add a trusted contact",
       hint: "Someone your pet can count on",
       done: emergencyContacts.length > 0,
       fill: "bg-paw-yellowsoft",
     },
     {
       href: "/dashboard/emergency-plan",
-      emoji: "🚨",
-      title: "Create your emergency plan",
-      hint: "Who to call and what to do",
+      emoji: "📋",
+      title: "Set up your care plan",
+      hint: "The essentials, written down once",
       done: hasEmergencyPlan,
       fill: "bg-paw-skysoft",
     },
@@ -155,7 +155,7 @@ export default async function DashboardPage() {
             ? "Everything's in place — your pets are covered. 🎉"
             : hasPets
               ? "Here's how your pet care plans are looking."
-              : "Let's get your pet's backup plan set up — it only takes a few minutes."}
+              : "Let's get your pet's world organised — it only takes a few minutes."}
         </p>
       </div>
 
@@ -175,22 +175,22 @@ export default async function DashboardPage() {
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-paw-skysoft text-foreground">
               <Phone className="h-3.5 w-3.5" />
             </span>
-            Emergency contacts
+            Trusted contacts
           </div>
           <p className="text-2xl font-bold text-foreground">{emergencyContacts.length}</p>
         </div>
         <div className="bg-card rounded-3xl p-4 shadow-card col-span-2 sm:col-span-1">
           <div className="flex items-center gap-2 text-muted-foreground text-xs mb-2">
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-paw-limesoft text-foreground">
-              <AlertTriangle className="h-3.5 w-3.5" />
+              <ClipboardList className="h-3.5 w-3.5" />
             </span>
-            Emergency plan
+            Care plan
           </div>
           <p className="text-sm font-semibold text-foreground mt-0.5">
             {hasEmergencyPlan ? (
-              <span className="text-success">Set up</span>
+              <span className="text-success">Ready</span>
             ) : (
-              <span className="text-muted-foreground">Not set up</span>
+              <span className="text-muted-foreground">In progress</span>
             )}
           </p>
         </div>
@@ -283,8 +283,8 @@ export default async function DashboardPage() {
           <div className="flex-1 min-w-0">
             <p className="font-semibold text-foreground">You&apos;re all set!</p>
             <p className="text-xs text-muted-foreground mt-0.5">
-              Pets, contacts, emergency plan, and a sitter guide — everything&apos;s ready if
-              someone needs to step in.
+              Pets, people, and plans — anyone helping out will know exactly
+              what to do.
             </p>
           </div>
           <CheckCircle2 className="h-6 w-6 text-success flex-shrink-0" />

@@ -7,7 +7,7 @@ import {
   LayoutDashboard,
   PawPrint,
   Users,
-  AlertTriangle,
+  ClipboardList,
   Settings,
 } from "lucide-react";
 
@@ -15,7 +15,7 @@ const navLinks = [
   { href: "/dashboard", label: "Dashboard", short: "Home", icon: LayoutDashboard, chip: "bg-paw-pinksoft" },
   { href: "/dashboard/pets", label: "My Pets", short: "Pets", icon: PawPrint, chip: "bg-paw-yellowsoft" },
   { href: "/dashboard/contacts", label: "Contacts", short: "Contacts", icon: Users, chip: "bg-paw-skysoft" },
-  { href: "/dashboard/emergency-plan", label: "Emergency Plan", short: "Emergency", icon: AlertTriangle, chip: "bg-paw-limesoft" },
+  { href: "/dashboard/emergency-plan", label: "Care Plan", short: "Plan", icon: ClipboardList, chip: "bg-paw-limesoft" },
   { href: "/dashboard/settings", label: "Settings", short: "Settings", icon: Settings, chip: "bg-muted" },
 ];
 

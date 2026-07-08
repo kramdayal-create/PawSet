@@ -205,7 +205,7 @@ export default async function SharePage({ params }: { params: { token: string } 
                       <span className="text-xs bg-secondary px-2 py-0.5 rounded-full">{c.contact_type}</span>
                     )}
                     {c.can_contact_in_emergency && (
-                      <span className="text-xs bg-destructive/10 text-destructive px-2 py-0.5 rounded-full">Emergency</span>
+                      <span className="text-xs bg-paw-yellowsoft text-warning-foreground px-2 py-0.5 rounded-full">Call first</span>
                     )}
                     {c.has_home_access && (
                       <span className="text-xs bg-paw-yellowsoft text-warning-foreground px-2 py-0.5 rounded-full flex items-center gap-1">

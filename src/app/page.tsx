@@ -7,7 +7,6 @@ import {
   Share2,
   Phone,
   MapPin,
-  Clock,
   CheckCircle2,
   ArrowRight,
   Stethoscope,
@@ -27,13 +26,13 @@ const steps = [
   },
   {
     step: "3",
-    title: "Add emergency contacts",
-    description: "Your trusted backup people, vet details, and what to do if you are unreachable.",
+    title: "Add your people",
+    description: "Sitters, neighbours, family, and your vet — everyone who helps look after them.",
   },
   {
     step: "4",
     title: "Generate your plan",
-    description: "A shareable care guide and printable emergency card — ready whenever you need it.",
+    description: "A polished, shareable care guide plus a printable pocket card for your wallet.",
   },
 ];
 
@@ -50,8 +49,8 @@ const features = [
   },
   {
     icon: Users,
-    title: "Emergency contacts",
-    description: "Trusted people who can step in, with notes on who has keys and who to call first.",
+    title: "Your trusted circle",
+    description: "The people who help — with notes on who has keys and who to call first.",
   },
   {
     icon: Share2,
@@ -60,7 +59,7 @@ const features = [
   },
   {
     icon: FileText,
-    title: "Printable emergency card",
+    title: "Printable pocket card",
     description: "A card with key contacts and a link to your pet's care profile — for your wallet or phone.",
   },
   {
@@ -75,10 +74,10 @@ const included = [
   "Daily routine and feeding schedule",
   "Behaviour and temperament notes",
   "Vet and medical information",
-  "Emergency contacts",
+  "Trusted contacts",
   "Sitter handover guide",
   "Shareable care link",
-  "Printable emergency card",
+  "Printable pocket card",
   "Plan completion score",
   "Section-level privacy controls",
 ];
@@ -107,21 +106,21 @@ export default function HomePage() {
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 pt-20 pb-16 text-center">
         <div className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground rounded-full px-4 py-1.5 text-sm font-medium mb-6">
-          <span className="text-terra">🐕</span>
-          Peace of mind for solo pet parents
+          <span>🐾</span>
+          The home for your pet’s care
         </div>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-          Your pet&apos;s backup plan,{" "}
-          <span className="text-primary">ready before you need it.</span>
+          Everything your pet needs,{" "}
+          <span className="text-terra">in one lovely place.</span>
         </h1>
         <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-          Create a simple emergency and care plan so trusted people know exactly
-          how to care for your pet if you are away, delayed, or unreachable.
+          Routines, quirks, vet details, and the people who help — organised
+          into a beautiful care guide you can share in one tap.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link href="/signup">
             <Button size="lg" className="px-8">
-              Create my pet plan
+              Get started free
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
@@ -140,25 +139,23 @@ export default function HomePage() {
       <section className="bg-card border-y border-border py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <div className="flex items-center justify-center gap-2 text-terra mb-4">
-            <Clock className="h-5 w-5" />
-            <span className="font-semibold text-sm uppercase tracking-wider">The problem</span>
+            <Heart className="h-5 w-5" />
+            <span className="font-semibold text-sm uppercase tracking-wider">Why PawSet</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-            Pet information is scattered everywhere
+            One home for everything about them
           </h2>
           <p className="text-muted-foreground text-lg">
-            It lives across WhatsApp messages, notes apps, vet invoices, paper records, and
-            memory. In an emergency or when a sitter steps in, crucial details go missing —
-            creating stress for you and risk for your pet.
+            Feeding quirks, medication doses, the sitter&apos;s number, the vet&apos;s address —
+            it all lives in one calm, organised place instead of a dozen chats and notes apps.
           </p>
           <div className="mt-8 p-5 bg-background rounded-2xl border border-border text-left">
             <p className="text-foreground font-medium mb-2">
-              &ldquo;What happens to my pet if something happens to me?&rdquo;
+              &ldquo;Off for the weekend? Send your sitter one link.&rdquo;
             </p>
             <p className="text-muted-foreground text-sm">
-              PawSet gives you a practical safety net. Everything in one place,
-              ready to share with a trusted person — or a sitter, neighbour, or vet —
-              at any time.
+              Whoever steps in sees exactly what they need — routines, contacts,
+              and vet details. Nothing more, nothing less. You choose what’s shared.
             </p>
           </div>
         </div>
@@ -212,8 +209,8 @@ export default function HomePage() {
           <div>
             <h2 className="text-3xl font-bold text-foreground mb-4">What&apos;s included</h2>
             <p className="text-muted-foreground mb-8">
-              PawSet covers everything a backup carer or pet sitter needs to step in
-              confidently — from daily routines to emergency contacts and vet information.
+              Everything a sitter, friend, or family member needs to step in
+              confidently — from daily routines to trusted contacts and vet details.
             </p>
             <ul className="space-y-2.5">
               {included.map((item) => (
@@ -243,7 +240,7 @@ export default function HomePage() {
                 <p className="text-foreground">Morning and evening · 2 cups Royal Canin · Bowl away from fridge</p>
               </div>
               <div className="bg-background rounded-lg p-3 border border-border">
-                <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-1">Emergency contact</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-1">Trusted contact</p>
                 <p className="text-foreground">Sarah M. · 07700 900123 · Has spare key</p>
               </div>
               <div className="bg-background rounded-lg p-3 border border-border">
@@ -277,15 +274,14 @@ export default function HomePage() {
       {/* CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-20 text-center">
         <h2 className="text-3xl font-bold text-foreground mb-4">
-          Ready to create your pet&apos;s backup plan?
+          Ready to get their world in order?
         </h2>
         <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-          It takes about 15 minutes. When it&apos;s done, you&apos;ll have peace of mind
-          that your pet is covered — whatever happens.
+          About 15 minutes now — and every future handover becomes a single link.
         </p>
         <Link href="/signup">
           <Button size="lg" className="px-10">
-            Create my pet plan
+            Create our care guide
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </Link>
@@ -299,7 +295,7 @@ export default function HomePage() {
             <span className="font-semibold text-primary">PawSet</span>
           </div>
           <p className="text-sm text-muted-foreground">
-            Your pet&apos;s care plan, ready before you need it.
+            Everything your pet needs, in one place.
           </p>
           <div className="flex gap-4 text-sm text-muted-foreground">
             <Link href="/login" className="hover:text-foreground transition-colors">Sign in</Link>

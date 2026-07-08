@@ -9,9 +9,9 @@ const lexend = Lexend({
 });
 
 export const metadata: Metadata = {
-  title: "PawSet — Your pet's backup plan, ready before you need it",
+  title: "PawSet — Everything your pet needs, in one place",
   description:
-    "Create a simple emergency and care plan so trusted people know exactly how to care for your pet if you are away, delayed, or unreachable.",
+    "Organise your pet's routines, vet details, and trusted people into a beautiful care guide you can share with sitters and family in one tap.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

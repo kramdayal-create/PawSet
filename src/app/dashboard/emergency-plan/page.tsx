@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { env } from "@/lib/env";
 import { upsertEmergencyPlan } from "./actions";
 import type { Contact, EmergencyPlan } from "@/lib/pawset/types";
-import { AlertTriangle, Shield } from "lucide-react";
+import { Shield } from "lucide-react";
 import Link from "next/link";
 
 function db() {
@@ -38,17 +38,18 @@ export default async function EmergencyPlanPage({
     <div className="space-y-6 max-w-xl">
       <div>
         <div className="flex items-center gap-2 mb-1">
-          <AlertTriangle className="h-5 w-5 text-terra" />
-          <h1 className="text-2xl font-bold text-foreground">Emergency Plan</h1>
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-paw-limesoft text-base">📋</span>
+          <h1 className="text-2xl font-bold text-foreground">Care Plan</h1>
         </div>
         <p className="text-muted-foreground text-sm">
-          What should happen if you are unreachable. This stays private unless you share it.
+          The essentials for anyone stepping in — who to call, where things live,
+          what matters. Private unless you share it.
         </p>
       </div>
 
       {searchParams.saved && (
         <div className="p-3 rounded-lg bg-success/10 border border-success/20 text-success text-sm">
-          Emergency plan saved.
+          Care plan saved.
         </div>
       )}
 
@@ -56,7 +57,7 @@ export default async function EmergencyPlanPage({
         <div className="bg-paw-yellowsoft rounded-3xl p-4 text-sm text-warning-foreground">
           <p className="font-medium mb-1">No contacts added yet</p>
           <p>
-            <Link href="/dashboard/contacts" className="underline">Add your emergency contacts</Link>{" "}
+            <Link href="/dashboard/contacts" className="underline">Add your contacts</Link>{" "}
             first so you can select them below.
           </p>
         </div>
