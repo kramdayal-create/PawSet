@@ -67,7 +67,7 @@ jobs:
         env:
           # Optional GitHub-secret fallbacks for values missing from DocChase.
           # Accept several likely secret names for the service-role key.
-          GH_SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_SERVICE_ROLE || secrets.SERVICE_ROLE_KEY || secrets.SUPABASE_KEY || secrets.SUPABASE_SECRET || secrets.SUPABASE }}
+          GH_SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.PAWSET || secrets.SUPABASE_SERVICE_ROLE || secrets.SERVICE_ROLE_KEY || secrets.SUPABASE_KEY || secrets.SUPABASE_SECRET || secrets.SUPABASE }}
           GH_APP_SECRET: ${{ secrets.APP_SECRET }}
         run: |
           # Look for each var in DocChase production env, then preview env,
@@ -94,6 +94,20 @@ jobs:
           copy_var NEXT_PUBLIC_SUPABASE_ANON_KEY || true
           copy_var SUPABASE_SERVICE_ROLE_KEY || true
           copy_var APP_SECRET || true
+
+          # Verify the service-role key actually works against Supabase.
+          if [ -n "$GH_SUPABASE_SERVICE_ROLE_KEY" ]; then
+            url=$(grep -E '^NEXT_PUBLIC_SUPABASE_URL=' /tmp/docchase-env/.env.production | head -1 | cut -d= -f2- | sed -e 's/^"//' -e 's/"$//')
+            code=$(curl -s -o /dev/null -w '%{http_code}' \
+              "$url/rest/v1/pets?select=id&limit=1" \
+              -H "apikey: $GH_SUPABASE_SERVICE_ROLE_KEY" \
+              -H "Authorization: Bearer $GH_SUPABASE_SERVICE_ROLE_KEY")
+            if [ "$code" = "200" ]; then
+              echo "::notice::service-role key verified against Supabase"
+            else
+              echo "::warning::service-role key probe returned HTTP $code — the secret value may not be the service_role key"
+            fi
+          fi
 
       - name: Deploy to production
         run: |
