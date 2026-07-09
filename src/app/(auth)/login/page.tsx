@@ -22,8 +22,8 @@ export default function LoginPage({
             <span className="text-2xl">🐾</span>
             <span className="text-xl font-bold text-primary">PawSet</span>
           </Link>
-          <h1 className="text-2xl font-bold text-foreground">Welcome back</h1>
-          <p className="text-muted-foreground mt-1 text-sm">
+          <h1 className="text-3xl text-canvas">Welcome back</h1>
+          <p className="text-canvas-muted mt-1 text-sm">
             Sign in to manage your pet&apos;s care plan
           </p>
         </div>
@@ -72,7 +72,7 @@ export default function LoginPage({
           </form>
         </div>
 
-        <p className="text-center text-sm text-muted-foreground mt-6">
+        <p className="text-center text-sm text-canvas-muted mt-6">
           Don&apos;t have an account?{" "}
           <Link href="/signup" className="text-primary font-medium hover:underline">
             Create your pet plan

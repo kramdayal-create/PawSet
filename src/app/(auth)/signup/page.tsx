@@ -22,8 +22,8 @@ export default function SignupPage({
             <span className="text-2xl">🐾</span>
             <span className="text-xl font-bold text-primary">PawSet</span>
           </Link>
-          <h1 className="text-2xl font-bold text-foreground">Create your pet plan</h1>
-          <p className="text-muted-foreground mt-1 text-sm">
+          <h1 className="text-3xl text-canvas">Create your pet plan</h1>
+          <p className="text-canvas-muted mt-1 text-sm">
             Peace of mind for you and your pet — ready in minutes
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function SignupPage({
           </p>
         </div>
 
-        <p className="text-center text-sm text-muted-foreground mt-6">
+        <p className="text-center text-sm text-canvas-muted mt-6">
           Already have an account?{" "}
           <Link href="/login" className="text-primary font-medium hover:underline">
             Sign in

@@ -39,9 +39,9 @@ export default async function EmergencyPlanPage({
       <div>
         <div className="flex items-center gap-2 mb-1">
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-paw-limesoft text-base">📋</span>
-          <h1 className="text-2xl font-bold text-foreground">Care Plan</h1>
+          <h1 className="text-3xl text-canvas">Care Plan</h1>
         </div>
-        <p className="text-muted-foreground text-sm">
+        <p className="text-canvas-muted text-sm">
           The essentials for anyone stepping in — who to call, where things live,
           what matters. Private unless you share it.
         </p>

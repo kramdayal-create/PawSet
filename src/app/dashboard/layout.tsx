@@ -37,20 +37,23 @@ export default async function DashboardLayout({
     <div className="flex min-h-screen flex-col md:flex-row">
       {/* Desktop sidebar */}
       <aside className="hidden md:flex w-60 shrink-0 flex-col bg-sidebar text-sidebar-foreground border-r border-sidebar-border">
-        <div className="px-5 py-5">
-          <Link href="/dashboard" className="flex items-center gap-2">
-            <span className="text-2xl">🐾</span>
-            <span className="font-bold text-foreground text-xl">PawSet</span>
+        <div className="px-4 py-4">
+          <Link
+            href="/dashboard"
+            className="flex items-center gap-2 rounded-2xl bg-card px-3 py-2.5 shadow-card"
+          >
+            <span className="text-xl">🐾</span>
+            <span className="font-display text-lg tracking-wide text-card-foreground">PawSet</span>
           </Link>
         </div>
         <SidebarNav />
         <div className="border-t border-sidebar-border p-3">
           <div className="flex items-center gap-2.5 px-2 py-2 mb-1">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-paw-yellow text-xs font-bold text-foreground">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
               {initials(displayName)}
             </div>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-xs font-semibold text-foreground">{displayName}</p>
+              <p className="truncate text-xs font-semibold text-sidebar-foreground">{displayName}</p>
             </div>
           </div>
           <form action={logOut}>

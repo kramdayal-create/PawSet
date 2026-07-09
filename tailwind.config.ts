@@ -17,6 +17,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        display: ["var(--font-display)", "var(--font-sans)", ...fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -71,16 +72,17 @@ const config: Config = {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
         },
-        /* PawSet brand pastels (branding sheet) + soft card fills */
+        /* "Color Scheme" accent dots from the reference shot,
+           with faint cream tints for soft card fills. */
         paw: {
-          sky: "#84E2FA",
-          pink: "#FF88D3",
-          lime: "#A6F686",
-          yellow: "#FFCD20",
-          skysoft: "#D9F3FD",
-          pinksoft: "#FFDDF1",
-          limesoft: "#E3FAD5",
-          yellowsoft: "#FFECB0",
+          sky: "#4FA3DE",
+          pink: "#EE4B2B",
+          lime: "#74C043",
+          yellow: "#FFC93C",
+          skysoft: "#EAF3F7",
+          pinksoft: "#FBEEE6",
+          limesoft: "#EDF4E4",
+          yellowsoft: "#FBF1D8",
         },
       },
       borderRadius: {

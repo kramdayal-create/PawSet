@@ -147,10 +147,11 @@ export default async function DashboardPage() {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-foreground">
-          {firstName ? `${greeting()}, ${firstName} 👋` : `${greeting()} 👋`}
+        <p className="eyebrow text-xs text-canvas/80 mb-2">Dashboard</p>
+        <h1 className="text-3xl sm:text-4xl text-canvas">
+          {firstName ? `${greeting()}, ${firstName}` : greeting()}
         </h1>
-        <p className="text-muted-foreground mt-1 text-sm">
+        <p className="text-canvas-muted mt-2 text-sm">
           {allDone
             ? "Everything's in place — your pets are covered. 🎉"
             : hasPets
@@ -200,7 +201,7 @@ export default async function DashboardPage() {
       {hasPets ? (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-foreground">Your pets</h2>
+            <h2 className="text-xl text-canvas">Your pets</h2>
             <Link href="/dashboard/pets/new">
               <Button size="sm" variant="outline" className="gap-1.5">
                 <Plus className="h-3.5 w-3.5" />
@@ -292,8 +293,8 @@ export default async function DashboardPage() {
       ) : (
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-foreground">Get set up</h2>
-            <span className="text-xs font-semibold text-muted-foreground bg-card rounded-full px-3 py-1 shadow-card">
+            <h2 className="text-xl text-canvas">Get set up</h2>
+            <span className="text-xs font-semibold text-card-foreground bg-card rounded-full px-3 py-1 shadow-card">
               {doneCount} of {setupSteps.length} done
             </span>
           </div>

@@ -15,13 +15,13 @@ export default function NewPetPage({
     <div className="space-y-6 max-w-xl">
       <div className="flex items-center gap-3">
         <Link href="/dashboard/pets">
-          <Button variant="ghost" size="icon" className="h-8 w-8">
+          <Button variant="ghost" size="icon" className="h-9 w-9 rounded-full bg-card text-card-foreground shadow-card hover:bg-card">
             <ArrowLeft className="h-4 w-4" />
           </Button>
         </Link>
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Add a pet</h1>
-          <p className="text-muted-foreground text-sm mt-0.5">Basic details to get started</p>
+          <h1 className="text-3xl text-canvas">Add a pet</h1>
+          <p className="text-canvas-muted text-sm mt-0.5">Basic details to get started</p>
         </div>
       </div>
 

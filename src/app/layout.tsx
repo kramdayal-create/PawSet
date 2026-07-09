@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Lexend } from "next/font/google";
+import { Lexend, Anton } from "next/font/google";
 import "./globals.css";
 
 const lexend = Lexend({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const anton = Anton({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -16,9 +23,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={lexend.variable}>
+    <html lang="en" className={`${lexend.variable} ${anton.variable}`}>
       <body className="min-h-screen bg-background font-sans antialiased">
         {children}
+        <div className="page-frame" aria-hidden="true" />
       </body>
     </html>
   );

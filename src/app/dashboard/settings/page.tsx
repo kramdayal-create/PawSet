@@ -58,8 +58,8 @@ export default async function SettingsPage({
   return (
     <div className="space-y-6 max-w-xl">
       <div className="flex items-center gap-2">
-        <Settings className="h-5 w-5 text-muted-foreground" />
-        <h1 className="text-2xl font-bold text-foreground">Settings</h1>
+        <Settings className="h-5 w-5 text-canvas" />
+        <h1 className="text-3xl text-canvas">Settings</h1>
       </div>
 
       {searchParams.saved && (

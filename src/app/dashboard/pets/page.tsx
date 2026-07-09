@@ -38,8 +38,8 @@ export default async function PetsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">My Pets</h1>
-          <p className="text-muted-foreground text-sm mt-1">
+          <h1 className="text-3xl text-canvas">My Pets</h1>
+          <p className="text-canvas-muted text-sm mt-1">
             {petList.length > 0
               ? `${petList.length} pet${petList.length !== 1 ? "s" : ""} in your care plan`
               : "Your furry family, all in one place"}

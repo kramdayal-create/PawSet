@@ -94,7 +94,7 @@ export default async function SharePage({ params }: { params: { token: string } 
           <div className="text-4xl mb-2">
             {pet ? (speciesEmoji[pet.species] ?? "🐾") : "🐾"}
           </div>
-          <h1 className="text-2xl font-bold text-foreground">
+          <h1 className="text-3xl text-canvas">
             {shareLink.title || `${petName}'s Care Guide`}
           </h1>
           {pet && (

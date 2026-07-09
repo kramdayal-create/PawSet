@@ -4,86 +4,93 @@
 
 @layer base {
   :root {
-    /* PawSet — playful pastel palette on warm cream */
-    /* Brand: sky #84E2FA · pink #FF88D3 · lime #A6F686 · yellow #FFCD20 */
-    --background: 36 45% 96%;        /* warm cream #FAF6EF */
-    --foreground: 0 0% 10%;          /* near-black */
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    /* PawSet — bold editorial (Creative Mints "Oskar Kadera") */
+    /* Coral-red canvas · cream cards · yellow action · condensed display */
+    --background: 9 92% 60%;          /* coral red #F94E32 */
+    --foreground: 20 14% 15%;         /* dark ink — used INSIDE cream cards */
+    --card: 36 56% 96%;               /* cream #FBF6EC */
+    --card-foreground: 20 14% 15%;
+    --popover: 36 56% 96%;
+    --popover-foreground: 20 14% 15%;
 
-    /* Black pill buttons — the mockups' primary action */
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 100%;
+    /* Yellow — the action / highlight colour */
+    --primary: 43 100% 62%;           /* #FFC93C */
+    --primary-foreground: 20 24% 12%;
 
-    --secondary: 322 100% 93%;       /* soft pink */
-    --secondary-foreground: 322 45% 25%;
-    --muted: 36 35% 91%;             /* warm muted */
-    --muted-foreground: 0 0% 42%;
-    --accent: 195 90% 90%;           /* soft sky */
-    --accent-foreground: 0 0% 10%;
+    --secondary: 36 42% 91%;          /* warm cream chip */
+    --secondary-foreground: 20 14% 20%;
+    --muted: 36 34% 90%;
+    --muted-foreground: 22 8% 44%;    /* secondary text inside cards */
+    --accent: 43 100% 88%;            /* soft yellow */
+    --accent-foreground: 20 14% 16%;
 
     /* Semantic */
-    --destructive: 358 75% 56%;
+    --destructive: 8 78% 54%;
     --destructive-foreground: 0 0% 100%;
-    --success: 110 45% 36%;          /* readable lime-green */
+    --success: 96 52% 42%;            /* leaf green */
     --success-foreground: 0 0% 100%;
-    --warning: 47 100% 56%;          /* brand yellow #FFCD20 */
-    --warning-foreground: 36 90% 10%;
-    --info: 196 75% 40%;             /* readable sky */
+    --warning: 43 100% 55%;
+    --warning-foreground: 30 60% 12%;
+    --info: 202 74% 48%;
     --info-foreground: 0 0% 100%;
 
-    --border: 36 25% 88%;
-    --input: 36 25% 85%;
-    --ring: 0 0% 9%;
+    --border: 30 22% 86%;             /* card borders */
+    --input: 30 20% 82%;
+    --ring: 43 100% 52%;
     --radius: 1.25rem;
 
-    /* Light chrome — white sidebar, pastel active states */
-    --sidebar: 0 0% 100%;
-    --sidebar-foreground: 0 0% 30%;
-    --sidebar-accent: 322 100% 93%;
-    --sidebar-accent-foreground: 0 0% 9%;
-    --sidebar-border: 36 25% 90%;
+    /* Chrome — deep coral sidebar, white text, yellow active */
+    --sidebar: 9 86% 55%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-accent: 43 100% 62%;
+    --sidebar-accent-foreground: 20 24% 12%;
+    --sidebar-border: 9 78% 50%;
 
-    /* Brand pink highlight (legacy var name kept for compatibility) */
-    --terra: 322 85% 52%;
-    --terra-foreground: 0 0% 100%;
+    /* Accent word colour on the red canvas */
+    --terra: 43 100% 62%;             /* yellow */
+    --terra-foreground: 20 24% 12%;
+
+    /* Text placed directly on the coloured canvas */
+    --on-canvas: 0 0% 100%;
+    --on-canvas-muted: 24 60% 92%;
   }
 
   .dark {
-    --background: 0 0% 9%;
-    --foreground: 36 30% 94%;
-    --card: 0 0% 12%;
-    --card-foreground: 36 30% 94%;
-    --popover: 0 0% 12%;
-    --popover-foreground: 36 30% 94%;
-    --primary: 0 0% 96%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 322 40% 24%;
-    --secondary-foreground: 322 100% 90%;
-    --muted: 0 0% 16%;
-    --muted-foreground: 36 12% 62%;
-    --accent: 196 40% 22%;
-    --accent-foreground: 36 30% 94%;
-    --destructive: 358 68% 52%;
+    /* Cobalt-blue alternate (the shot's second colourway) */
+    --background: 231 68% 51%;        /* #2E48D8 */
+    --foreground: 20 14% 15%;
+    --card: 36 52% 96%;
+    --card-foreground: 20 14% 15%;
+    --popover: 36 52% 96%;
+    --popover-foreground: 20 14% 15%;
+    --primary: 12 88% 60%;            /* coral orange action on blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 36 40% 91%;
+    --secondary-foreground: 20 14% 20%;
+    --muted: 36 32% 90%;
+    --muted-foreground: 22 8% 44%;
+    --accent: 12 90% 90%;
+    --accent-foreground: 20 14% 16%;
+    --destructive: 8 78% 54%;
     --destructive-foreground: 0 0% 100%;
-    --success: 110 45% 48%;
-    --success-foreground: 0 0% 8%;
-    --warning: 47 100% 56%;
-    --warning-foreground: 36 90% 10%;
-    --info: 196 80% 60%;
-    --info-foreground: 0 0% 8%;
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 0 0% 90%;
-    --sidebar: 0 0% 11%;
-    --sidebar-foreground: 36 15% 70%;
-    --sidebar-accent: 322 40% 24%;
+    --success: 96 52% 42%;
+    --success-foreground: 0 0% 100%;
+    --warning: 43 100% 55%;
+    --warning-foreground: 30 60% 12%;
+    --info: 202 74% 48%;
+    --info-foreground: 0 0% 100%;
+    --border: 30 22% 86%;
+    --input: 30 20% 82%;
+    --ring: 12 88% 56%;
+    --sidebar: 231 60% 46%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-accent: 12 88% 60%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 0 0% 16%;
-    --terra: 322 90% 66%;
-    --terra-foreground: 0 0% 8%;
+    --sidebar-border: 231 55% 41%;
+    --terra: 12 90% 64%;
+    --terra-foreground: 0 0% 100%;
+    --on-canvas: 0 0% 100%;
+    --on-canvas-muted: 225 60% 90%;
   }
 }
 
@@ -95,7 +102,13 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  h1, h2, h3, h4, h5, h6 {
+  /* Condensed display type for headings (Creative Mints signature) */
+  h1, h2 {
+    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+    @apply tracking-tight;
+    letter-spacing: -0.01em;
+  }
+  h3, h4, h5, h6 {
     @apply tracking-tight;
   }
   .tabular-nums,
@@ -108,15 +121,25 @@
 }
 
 @layer utilities {
-  /* Primary action surface — solid black pill, per brand mockups */
+  /* Text sitting directly on the coloured canvas */
+  .text-canvas {
+    color: hsl(var(--on-canvas));
+  }
+  .text-canvas-muted {
+    color: hsl(var(--on-canvas-muted));
+  }
+  /* Uppercase wide label — the "ILLUSTRATOR" / "CHARACTER DESIGN" tag */
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 700;
+  }
+  /* Solid action surface (kept for the `brand` button variant) */
   .bg-brand-gradient {
-    background-image: linear-gradient(135deg, hsl(0 0% 16%) 0%, hsl(0 0% 5%) 100%);
+    background-color: hsl(var(--primary));
   }
   .text-brand-gradient {
-    background-image: linear-gradient(120deg, hsl(0 0% 8%) 0%, hsl(322 60% 30%) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: hsl(var(--terra));
   }
   .bg-terra {
     background-color: hsl(var(--terra));
@@ -129,19 +152,36 @@
   }
   .shadow-card {
     box-shadow:
-      0 1px 2px -1px hsl(0 0% 0% / 0.04),
-      0 8px 24px -12px hsl(30 40% 20% / 0.14);
+      0 2px 4px -2px hsl(9 60% 20% / 0.10),
+      0 12px 28px -10px hsl(9 60% 20% / 0.22);
   }
   .shadow-card-hover {
     box-shadow:
-      0 2px 4px -1px hsl(0 0% 0% / 0.06),
-      0 16px 32px -12px hsl(30 40% 20% / 0.20);
+      0 4px 8px -2px hsl(9 60% 20% / 0.14),
+      0 20px 40px -12px hsl(9 60% 20% / 0.30);
+  }
+  /* Thick white page frame — the shot's signature border */
+  .page-frame {
+    position: fixed;
+    inset: 0.5rem;
+    border: 4px solid #fff;
+    border-radius: 1.5rem;
+    pointer-events: none;
+    z-index: 40;
+  }
+  @media (min-width: 640px) {
+    .page-frame {
+      inset: 0.75rem;
+      border-width: 6px;
+      border-radius: 1.75rem;
+    }
   }
   .print-only {
     display: none;
   }
   @media print {
-    .no-print {
+    .no-print,
+    .page-frame {
       display: none !important;
     }
     .print-only {
