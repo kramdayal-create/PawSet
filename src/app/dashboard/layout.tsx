@@ -37,13 +37,10 @@ export default async function DashboardLayout({
     <div className="flex min-h-screen flex-col md:flex-row">
       {/* Desktop sidebar */}
       <aside className="hidden md:flex w-60 shrink-0 flex-col bg-sidebar text-sidebar-foreground border-r border-sidebar-border">
-        <div className="px-4 py-4">
-          <Link
-            href="/dashboard"
-            className="flex items-center gap-2 rounded-2xl bg-card px-3 py-2.5 shadow-card"
-          >
+        <div className="px-5 py-5">
+          <Link href="/dashboard" className="flex items-center gap-2">
             <span className="text-xl">🐾</span>
-            <span className="font-display text-lg tracking-wide text-card-foreground">PawSet</span>
+            <span className="font-display text-xl font-semibold text-foreground">PawSet</span>
           </Link>
         </div>
         <SidebarNav />

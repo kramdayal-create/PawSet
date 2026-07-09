@@ -109,7 +109,7 @@ export default function HomePage() {
           <span>🐾</span>
           The home for your pet’s care
         </div>
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl uppercase text-canvas leading-[0.95] mb-6">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl text-canvas leading-[1.05] mb-6">
           Everything your pet needs,{" "}
           <span className="text-terra">in one lovely place.</span>
         </h1>
@@ -164,7 +164,7 @@ export default function HomePage() {
       {/* How it works */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-20">
         <div className="text-center mb-12">
-          <h2 className="text-4xl uppercase text-canvas mb-3">How it works</h2>
+          <h2 className="text-4xl text-canvas mb-3">How it works</h2>
           <p className="text-canvas-muted">Create your complete pet plan in under 15 minutes.</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -184,7 +184,7 @@ export default function HomePage() {
       <section className="bg-card border-y border-border py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl uppercase text-foreground mb-3">Everything in one place</h2>
+            <h2 className="text-4xl text-foreground mb-3">Everything in one place</h2>
             <p className="text-muted-foreground">All the information a carer or sitter needs — organised and ready to share.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -207,7 +207,7 @@ export default function HomePage() {
       <section id="whats-included" className="max-w-5xl mx-auto px-4 sm:px-6 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-4xl uppercase text-canvas mb-4">What&apos;s included</h2>
+            <h2 className="text-4xl text-canvas mb-4">What&apos;s included</h2>
             <p className="text-canvas-muted mb-8">
               Everything a sitter, friend, or family member needs to step in
               confidently — from daily routines to trusted contacts and vet details.
@@ -273,7 +273,7 @@ export default function HomePage() {
 
       {/* CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-20 text-center">
-        <h2 className="text-4xl sm:text-5xl uppercase text-canvas mb-4">
+        <h2 className="text-4xl sm:text-5xl text-canvas mb-4">
           Ready to get their world in order?
         </h2>
         <p className="text-canvas-muted mb-8 max-w-xl mx-auto">

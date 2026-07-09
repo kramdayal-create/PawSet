@@ -4,93 +4,93 @@
 
 @layer base {
   :root {
-    /* PawSet — bold editorial (Creative Mints "Oskar Kadera") */
-    /* Coral-red canvas · cream cards · yellow action · condensed display */
-    --background: 9 92% 60%;          /* coral red #F94E32 */
-    --foreground: 20 14% 15%;         /* dark ink — used INSIDE cream cards */
-    --card: 36 56% 96%;               /* cream #FBF6EC */
-    --card-foreground: 20 14% 15%;
-    --popover: 36 56% 96%;
-    --popover-foreground: 20 14% 15%;
+    /* PawSet — warm, quiet, premium. Porcelain canvas · evergreen brand
+       · clay accent · serif display over a clean sans. */
+    --background: 40 30% 96%;         /* warm porcelain #F7F4EE */
+    --foreground: 40 8% 13%;          /* warm ink */
+    --card: 42 44% 99%;               /* soft white */
+    --card-foreground: 40 8% 13%;
+    --popover: 42 44% 99%;
+    --popover-foreground: 40 8% 13%;
 
-    /* Yellow — the action / highlight colour */
-    --primary: 43 100% 62%;           /* #FFC93C */
-    --primary-foreground: 20 24% 12%;
+    /* Evergreen — the brand / primary action */
+    --primary: 160 34% 21%;           /* #21473A */
+    --primary-foreground: 42 40% 97%;
 
-    --secondary: 36 42% 91%;          /* warm cream chip */
-    --secondary-foreground: 20 14% 20%;
-    --muted: 36 34% 90%;
-    --muted-foreground: 22 8% 44%;    /* secondary text inside cards */
-    --accent: 43 100% 88%;            /* soft yellow */
-    --accent-foreground: 20 14% 16%;
+    --secondary: 38 30% 91%;          /* warm sand surface */
+    --secondary-foreground: 40 10% 22%;
+    --muted: 40 22% 92%;
+    --muted-foreground: 40 6% 42%;
+    --accent: 30 42% 90%;             /* soft clay tint (hover surfaces) */
+    --accent-foreground: 40 10% 18%;
 
     /* Semantic */
-    --destructive: 8 78% 54%;
+    --destructive: 8 62% 52%;
     --destructive-foreground: 0 0% 100%;
-    --success: 96 52% 42%;            /* leaf green */
+    --success: 150 34% 34%;
     --success-foreground: 0 0% 100%;
-    --warning: 43 100% 55%;
-    --warning-foreground: 30 60% 12%;
-    --info: 202 74% 48%;
+    --warning: 34 74% 48%;
+    --warning-foreground: 34 60% 12%;
+    --info: 200 44% 40%;
     --info-foreground: 0 0% 100%;
 
-    --border: 30 22% 86%;             /* card borders */
-    --input: 30 20% 82%;
-    --ring: 43 100% 52%;
-    --radius: 1.25rem;
+    --border: 38 20% 88%;
+    --input: 38 20% 85%;
+    --ring: 160 34% 26%;
+    --radius: 1rem;
 
-    /* Chrome — deep coral sidebar, white text, yellow active */
-    --sidebar: 9 86% 55%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-accent: 43 100% 62%;
-    --sidebar-accent-foreground: 20 24% 12%;
-    --sidebar-border: 9 78% 50%;
+    /* Chrome — quiet near-white sidebar, evergreen active */
+    --sidebar: 42 40% 98%;
+    --sidebar-foreground: 40 8% 34%;
+    --sidebar-accent: 158 28% 90%;    /* soft green tint */
+    --sidebar-accent-foreground: 160 34% 22%;
+    --sidebar-border: 38 20% 90%;
 
-    /* Accent word colour on the red canvas */
-    --terra: 43 100% 62%;             /* yellow */
-    --terra-foreground: 20 24% 12%;
+    /* Warm clay accent (legacy var name kept) */
+    --terra: 18 46% 52%;              /* #C0714F */
+    --terra-foreground: 0 0% 100%;
 
-    /* Text placed directly on the coloured canvas */
-    --on-canvas: 0 0% 100%;
-    --on-canvas-muted: 24 60% 92%;
+    /* Text placed directly on the page canvas (light → dark ink) */
+    --on-canvas: 40 8% 13%;
+    --on-canvas-muted: 40 6% 42%;
   }
 
   .dark {
-    /* Cobalt-blue alternate (the shot's second colourway) */
-    --background: 231 68% 51%;        /* #2E48D8 */
-    --foreground: 20 14% 15%;
-    --card: 36 52% 96%;
-    --card-foreground: 20 14% 15%;
-    --popover: 36 52% 96%;
-    --popover-foreground: 20 14% 15%;
-    --primary: 12 88% 60%;            /* coral orange action on blue */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 36 40% 91%;
-    --secondary-foreground: 20 14% 20%;
-    --muted: 36 32% 90%;
-    --muted-foreground: 22 8% 44%;
-    --accent: 12 90% 90%;
-    --accent-foreground: 20 14% 16%;
-    --destructive: 8 78% 54%;
+    /* Deep, warm, green-tinted charcoal */
+    --background: 160 14% 8%;
+    --foreground: 40 22% 92%;
+    --card: 160 12% 12%;
+    --card-foreground: 40 22% 92%;
+    --popover: 160 12% 12%;
+    --popover-foreground: 40 22% 92%;
+    --primary: 150 30% 60%;           /* soft sage on dark */
+    --primary-foreground: 160 30% 10%;
+    --secondary: 160 10% 18%;
+    --secondary-foreground: 40 22% 92%;
+    --muted: 160 8% 17%;
+    --muted-foreground: 40 10% 62%;
+    --accent: 24 24% 22%;
+    --accent-foreground: 40 22% 92%;
+    --destructive: 8 60% 54%;
     --destructive-foreground: 0 0% 100%;
-    --success: 96 52% 42%;
+    --success: 150 34% 46%;
     --success-foreground: 0 0% 100%;
-    --warning: 43 100% 55%;
-    --warning-foreground: 30 60% 12%;
-    --info: 202 74% 48%;
+    --warning: 34 74% 54%;
+    --warning-foreground: 34 60% 10%;
+    --info: 200 48% 56%;
     --info-foreground: 0 0% 100%;
-    --border: 30 22% 86%;
-    --input: 30 20% 82%;
-    --ring: 12 88% 56%;
-    --sidebar: 231 60% 46%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-accent: 12 88% 60%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 231 55% 41%;
-    --terra: 12 90% 64%;
+    --border: 160 8% 20%;
+    --input: 160 8% 20%;
+    --ring: 150 30% 52%;
+    --sidebar: 160 12% 11%;
+    --sidebar-foreground: 40 14% 68%;
+    --sidebar-accent: 160 16% 18%;
+    --sidebar-accent-foreground: 150 30% 66%;
+    --sidebar-border: 160 8% 17%;
+    --terra: 20 60% 62%;
     --terra-foreground: 0 0% 100%;
-    --on-canvas: 0 0% 100%;
-    --on-canvas-muted: 225 60% 90%;
+    --on-canvas: 40 22% 92%;
+    --on-canvas-muted: 40 10% 64%;
   }
 }
 
@@ -102,13 +102,13 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  /* Condensed display type for headings (Creative Mints signature) */
-  h1, h2 {
-    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
-    @apply tracking-tight;
-    letter-spacing: -0.01em;
+  /* Elegant serif display for headings (Fraunces), clean sans for body */
+  h1, h2, h3 {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.015em;
   }
-  h3, h4, h5, h6 {
+  h4, h5, h6 {
     @apply tracking-tight;
   }
   .tabular-nums,
@@ -121,25 +121,28 @@
 }
 
 @layer utilities {
-  /* Text sitting directly on the coloured canvas */
+  /* Text sitting directly on the page canvas */
   .text-canvas {
     color: hsl(var(--on-canvas));
   }
   .text-canvas-muted {
     color: hsl(var(--on-canvas-muted));
   }
-  /* Uppercase wide label — the "ILLUSTRATOR" / "CHARACTER DESIGN" tag */
+  /* Small wide-tracked label */
   .eyebrow {
     text-transform: uppercase;
-    letter-spacing: 0.22em;
-    font-weight: 700;
+    letter-spacing: 0.16em;
+    font-weight: 600;
+    font-family: var(--font-sans);
   }
-  /* Solid action surface (kept for the `brand` button variant) */
+  .font-display {
+    font-family: var(--font-display), Georgia, serif;
+  }
   .bg-brand-gradient {
     background-color: hsl(var(--primary));
   }
   .text-brand-gradient {
-    color: hsl(var(--terra));
+    color: hsl(var(--primary));
   }
   .bg-terra {
     background-color: hsl(var(--terra));
@@ -150,38 +153,26 @@
   .border-terra {
     border-color: hsl(var(--terra));
   }
+  /* Soft, quiet elevation */
   .shadow-card {
     box-shadow:
-      0 2px 4px -2px hsl(9 60% 20% / 0.10),
-      0 12px 28px -10px hsl(9 60% 20% / 0.22);
+      0 1px 2px -1px hsl(40 20% 20% / 0.05),
+      0 8px 24px -14px hsl(40 20% 20% / 0.14);
   }
   .shadow-card-hover {
     box-shadow:
-      0 4px 8px -2px hsl(9 60% 20% / 0.14),
-      0 20px 40px -12px hsl(9 60% 20% / 0.30);
+      0 2px 4px -1px hsl(40 20% 20% / 0.07),
+      0 16px 36px -16px hsl(40 20% 20% / 0.22);
   }
-  /* Thick white page frame — the shot's signature border */
+  /* Frame from the previous theme — retired */
   .page-frame {
-    position: fixed;
-    inset: 0.5rem;
-    border: 4px solid #fff;
-    border-radius: 1.5rem;
-    pointer-events: none;
-    z-index: 40;
-  }
-  @media (min-width: 640px) {
-    .page-frame {
-      inset: 0.75rem;
-      border-width: 6px;
-      border-radius: 1.75rem;
-    }
+    display: none;
   }
   .print-only {
     display: none;
   }
   @media print {
-    .no-print,
-    .page-frame {
+    .no-print {
       display: none !important;
     }
     .print-only {

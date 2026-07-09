@@ -37,14 +37,16 @@ export function SidebarNav() {
             className={cn(
               "group flex items-center gap-3 rounded-full px-3 py-2 text-sm font-medium transition-colors",
               active
-                ? "bg-sidebar-accent text-sidebar-accent-foreground font-semibold shadow-card"
-                : "text-sidebar-foreground/90 hover:bg-white/10 hover:text-sidebar-foreground",
+                ? "bg-sidebar-accent text-sidebar-accent-foreground font-semibold"
+                : "text-sidebar-foreground hover:bg-muted hover:text-foreground",
             )}
           >
             <span
               className={cn(
-                "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-foreground transition-colors",
-                active ? "bg-card" : "bg-white/15 text-sidebar-foreground",
+                "flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors",
+                active
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted text-sidebar-foreground group-hover:bg-secondary",
               )}
             >
               <link.icon className="h-4 w-4" />

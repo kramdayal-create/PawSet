@@ -72,17 +72,17 @@ const config: Config = {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
         },
-        /* "Color Scheme" accent dots from the reference shot,
-           with faint cream tints for soft card fills. */
+        /* Restrained warm accents: evergreen, clay, sage, amber —
+           with barely-there tints for soft surfaces. */
         paw: {
-          sky: "#4FA3DE",
-          pink: "#EE4B2B",
-          lime: "#74C043",
-          yellow: "#FFC93C",
-          skysoft: "#EAF3F7",
-          pinksoft: "#FBEEE6",
-          limesoft: "#EDF4E4",
-          yellowsoft: "#FBF1D8",
+          sky: "#5E8E86",    /* dusty teal */
+          pink: "#C0714F",   /* clay */
+          lime: "#4E7A5E",   /* evergreen */
+          yellow: "#C7973F", /* muted amber */
+          skysoft: "#E7EEEB",
+          pinksoft: "#F3E7DE",
+          limesoft: "#E7EFE7",
+          yellowsoft: "#F2EBD9",
         },
       },
       borderRadius: {

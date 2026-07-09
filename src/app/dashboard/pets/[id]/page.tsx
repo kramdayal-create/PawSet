@@ -162,7 +162,7 @@ export default async function PetDetailPage({
       )}
 
       {/* Tabs */}
-      <div className="border-b border-white/25 overflow-x-auto">
+      <div className="border-b border-border overflow-x-auto">
         <div className="flex gap-0 min-w-max">
           {[
             { key: "overview", label: "Overview" },
