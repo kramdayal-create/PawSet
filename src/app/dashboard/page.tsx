@@ -110,8 +110,8 @@ export default async function DashboardPage() {
     {
       href: "/dashboard/pets/new",
       emoji: "🐶",
-      title: "Add your first pet",
-      hint: "Name, species, and the basics",
+      title: "Add your first furbaby",
+      hint: "Their name, kind, and the basics",
       done: hasPets,
       fill: "bg-paw-pinksoft",
     },
@@ -119,7 +119,7 @@ export default async function DashboardPage() {
       href: "/dashboard/contacts",
       emoji: "💛",
       title: "Add a trusted contact",
-      hint: "Someone your pet can count on",
+      hint: "Someone they can count on",
       done: emergencyContacts.length > 0,
       fill: "bg-paw-yellowsoft",
     },
@@ -153,10 +153,10 @@ export default async function DashboardPage() {
         </h1>
         <p className="text-canvas-muted mt-2 text-sm">
           {allDone
-            ? "Everything's in place — your pets are covered. 🎉"
+            ? "Everything's in place — your whole family's covered. 🎉"
             : hasPets
-              ? "Here's how your pet care plans are looking."
-              : "Let's get your pet's world organised — it only takes a few minutes."}
+              ? "Here's how your furbabies are looking today."
+              : "Let's get your furbaby's world organised — it only takes a few minutes."}
         </p>
       </div>
 
@@ -167,7 +167,7 @@ export default async function DashboardPage() {
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-paw-yellowsoft text-foreground">
               <PawPrint className="h-3.5 w-3.5" />
             </span>
-            Pets
+            Furbabies
           </div>
           <p className="text-2xl font-bold text-foreground">{petScores.length}</p>
         </div>
@@ -201,11 +201,11 @@ export default async function DashboardPage() {
       {hasPets ? (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl text-canvas">Your pets</h2>
+            <h2 className="text-xl text-canvas">Your furbabies</h2>
             <Link href="/dashboard/pets/new">
               <Button size="sm" variant="outline" className="gap-1.5">
                 <Plus className="h-3.5 w-3.5" />
-                Add pet
+                Add furbaby
               </Button>
             </Link>
           </div>
@@ -263,15 +263,15 @@ export default async function DashboardPage() {
         /* Empty state */
         <div className="bg-card border border-dashed border-border rounded-2xl p-10 text-center">
           <div className="text-4xl mb-4">🐾</div>
-          <h2 className="text-lg font-semibold text-foreground mb-2">Let&apos;s meet your pet</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2">Let&apos;s add your furbaby</h2>
           <p className="text-muted-foreground text-sm mb-6 max-w-sm mx-auto">
-            Add their details, routine, and the people who help — and you&apos;ll have a care
-            guide ready to share whenever someone steps in for you.
+            Add their details, routine, and the people who love them — and you&apos;ll have a
+            care guide ready to share the moment you have to leave them.
           </p>
           <Link href="/dashboard/pets/new">
             <Button size="lg" className="gap-2">
               <Plus className="h-4 w-4" />
-              Add my pet
+              Add my furbaby
             </Button>
           </Link>
         </div>

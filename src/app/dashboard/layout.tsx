@@ -76,7 +76,7 @@ export default async function DashboardLayout({
           <Link
             href="/dashboard/pets/new"
             className="flex h-9 w-9 items-center justify-center rounded-full bg-paw-yellowsoft text-foreground"
-            aria-label="Add a pet"
+            aria-label="Add a furbaby"
           >
             <PawPrint className="h-4 w-4" />
           </Link>

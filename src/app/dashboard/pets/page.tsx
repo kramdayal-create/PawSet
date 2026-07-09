@@ -38,17 +38,17 @@ export default async function PetsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl text-canvas">My Pets</h1>
+          <h1 className="text-3xl text-canvas">My Furbabies</h1>
           <p className="text-canvas-muted text-sm mt-1">
             {petList.length > 0
-              ? `${petList.length} pet${petList.length !== 1 ? "s" : ""} in your care plan`
-              : "Your furry family, all in one place"}
+              ? `${petList.length} furbab${petList.length !== 1 ? "ies" : "y"} in your care`
+              : "Your whole furry family, in one place"}
           </p>
         </div>
         <Link href="/dashboard/pets/new">
           <Button className="gap-2">
             <Plus className="h-4 w-4" />
-            Add pet
+            Add furbaby
           </Button>
         </Link>
       </div>
@@ -84,14 +84,14 @@ export default async function PetsPage() {
       ) : (
         <div className="bg-card border border-dashed border-border rounded-2xl p-10 text-center">
           <div className="text-4xl mb-4">🐾</div>
-          <h2 className="text-lg font-semibold text-foreground mb-2">Who are we caring for?</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2">Who&apos;s the newest family member?</h2>
           <p className="text-muted-foreground text-sm mb-6 max-w-sm mx-auto">
             Add your first pet and we\u2019ll build their care plan together \u2014 routines, vet info, and everything a sitter would need.
           </p>
           <Link href="/dashboard/pets/new">
             <Button size="lg" className="gap-2">
               <Plus className="h-4 w-4" />
-              Add my pet
+              Add my furbaby
             </Button>
           </Link>
         </div>

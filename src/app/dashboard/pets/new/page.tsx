@@ -20,8 +20,8 @@ export default function NewPetPage({
           </Button>
         </Link>
         <div>
-          <h1 className="text-3xl text-canvas">Add a pet</h1>
-          <p className="text-canvas-muted text-sm mt-0.5">Basic details to get started</p>
+          <h1 className="text-3xl text-canvas">Add a furbaby</h1>
+          <p className="text-canvas-muted text-sm mt-0.5">The basics to get started</p>
         </div>
       </div>
 

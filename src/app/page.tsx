@@ -16,69 +16,69 @@ import {
 const steps = [
   {
     step: "1",
-    title: "Add your pet",
-    description: "Their name, photo, age, and the little details that make them them.",
+    title: "Add your furbaby",
+    description: "Their name, their face, and all the little things that make them family.",
   },
   {
     step: "2",
-    title: "Capture the routine",
-    description: "Meals, walks, meds, and the quirks only you would think to mention.",
+    title: "Capture their world",
+    description: "Meals, walks, meds, and the quirks only family would ever know.",
   },
   {
     step: "3",
     title: "Add their people",
-    description: "Your vet, sitter, neighbour, family — everyone in your pet\u2019s corner.",
+    description: "Your vet, sitter, dog walker, the grandparents — everyone who loves them too.",
   },
   {
     step: "4",
-    title: "Share with a tap",
-    description: "A clean care guide anyone can follow, plus a printable card for your wallet.",
+    title: "Share in one tap",
+    description: "A care guide anyone can follow, plus a wallet card for the just-in-case.",
   },
 ];
 
 const features = [
   {
     icon: Heart,
-    title: "Daily care, spelled out",
-    description: "Meals, walks, sleep, favourite toys, and the little habits a sitter would never guess.",
+    title: "Their daily rhythm",
+    description: "Meals, walks, naps, favourite toys, and the little habits a sitter could never guess.",
   },
   {
     icon: Stethoscope,
-    title: "Health, close at hand",
-    description: "Vet details, conditions, medications, and allergies \u2014 ready for a check-up or a scare.",
+    title: "Health, always ready",
+    description: "Vet, conditions, meds, and allergies — on hand for a check-up or a midnight worry.",
   },
   {
     icon: Users,
-    title: "The people who help",
-    description: "Everyone in your pet\u2019s corner, with notes on who has a key and who to call first.",
+    title: "Their whole village",
+    description: "Everyone who loves them too — with who has a spare key and who to call first.",
   },
   {
     icon: Share2,
-    title: "One link, share anywhere",
-    description: "A clean, read-only guide for sitters \u2014 and you decide exactly what they can see.",
+    title: "One link, total peace of mind",
+    description: "A read-only guide for whoever's watching them — and you choose exactly what shows.",
   },
   {
     icon: FileText,
-    title: "A card for your wallet",
-    description: "Key contacts and a link to the full profile \u2014 ready to print or keep on your phone.",
+    title: "For the just-in-case",
+    description: "Key contacts and a link to their full profile — for your wallet or your phone.",
   },
   {
     icon: Shield,
-    title: "Yours, and private",
-    description: "Everything stays private to you. Shared links reveal only what you choose \u2014 and switch off anytime.",
+    title: "Private, always",
+    description: "It's all yours. Shared links reveal only what you pick, and switch off in a tap.",
   },
 ];
 
 const included = [
-  "Pet profile with photo",
+  "Profile with photo & personality",
   "Daily routine & feeding schedule",
-  "Behaviour & temperament notes",
+  "Behaviour, quirks & comforts",
   "Vet & medical records",
-  "Your trusted contacts",
+  "Everyone in their village",
   "Sitter-ready care guide",
   "One-tap shareable link",
   "Printable wallet card",
-  "Care-plan completeness score",
+  "Care completeness score",
   "Full control over what's shared",
 ];
 
@@ -107,16 +107,16 @@ export default function HomePage() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 pt-20 pb-16 text-center">
         <div className="inline-flex items-center gap-2 bg-card text-card-foreground rounded-full px-4 py-1.5 text-xs font-semibold mb-6 shadow-card eyebrow">
           <span>🐾</span>
-          Made for people who love their pets
+          Because they're family, not pets
         </div>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl text-canvas leading-[1.05] mb-6">
-          So anyone can care for your pet{" "}
-          <span className="text-terra">exactly like you do.</span>
+          Whoever&apos;s watching your furbaby{" "}
+          <span className="text-terra">will care for them just like you.</span>
         </h1>
         <p className="text-lg sm:text-xl text-canvas-muted max-w-2xl mx-auto mb-10">
-          PawSet keeps your pet&apos;s routine, health, and favourite people in one
-          calm place — so a sitter, friend, or family member always knows exactly
-          what to do.
+          Their meals, their meds, their favourite spot on the couch, their vet,
+          their people — all in one place. Hand it to a sitter or your mum in one
+          tap, and never lie awake wondering if they got it right.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link href="/signup">
@@ -132,7 +132,7 @@ export default function HomePage() {
           </Link>
         </div>
         <p className="text-sm text-canvas-muted mt-4">
-          Free to start · No credit card · Ready in minutes
+          Free to start · No credit card · Ready before your next trip
         </p>
       </section>
 
@@ -144,20 +144,21 @@ export default function HomePage() {
             <span className="font-semibold text-sm uppercase tracking-wider">Why PawSet</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-            Everything you&apos;d tell a sitter, written down once
+            Everything about them, out of your head and into one calm place
           </h2>
           <p className="text-muted-foreground text-lg">
-            Feeding quirks, medication times, the vet&apos;s number, who has a spare key. Right now
-            it lives in your head and a dozen text threads. PawSet gathers it into one calm place
-            you&apos;ll actually keep up to date.
+            The feeding quirks. The 3pm meds. Which treats are a hard no. The vet&apos;s number and
+            the neighbour with the spare key. Right now it all lives in your memory and a mess of
+            text threads — until the one time you&apos;re not there. PawSet keeps it together, ready
+            to hand over.
           </p>
           <div className="mt-8 p-5 bg-paw-yellowsoft rounded-2xl text-left">
             <p className="text-foreground font-medium mb-2">
-              &ldquo;Going away this weekend? Just send one link.&rdquo;
+              &ldquo;Leaving them with a sitter? Just send one link.&rdquo;
             </p>
             <p className="text-muted-foreground text-sm">
-              Your sitter sees exactly what they need — the routine, the contacts, the vet —
-              and nothing you didn&apos;t choose to share.
+              They&apos;ll see exactly how your furbaby likes things — and you can finally relax,
+              knowing nothing got lost in translation.
             </p>
           </div>
         </div>
@@ -167,7 +168,7 @@ export default function HomePage() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-20">
         <div className="text-center mb-12">
           <h2 className="text-4xl text-canvas mb-3">How it works</h2>
-          <p className="text-canvas-muted">Set up in minutes. Ready whenever life calls you away.</p>
+          <p className="text-canvas-muted">Set it up once. Ready every time you have to leave them.</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s) => (
@@ -186,7 +187,7 @@ export default function HomePage() {
       <section className="bg-card border-y border-border py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl text-foreground mb-3">Everything their carer needs</h2>
+            <h2 className="text-4xl text-foreground mb-3">Everything their carer needs — nothing they don&apos;t</h2>
             <p className="text-muted-foreground">Organised, always current, and ready the moment you share it.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -211,8 +212,8 @@ export default function HomePage() {
           <div>
             <h2 className="text-4xl text-canvas mb-4">What&apos;s included</h2>
             <p className="text-canvas-muted mb-8">
-              From the morning routine to the vet&apos;s number, it&apos;s all here — and all
-              ready to hand over the moment someone steps in for you.
+              From their morning routine to the vet&apos;s number — everything whoever&apos;s
+              watching them could need, ready to hand over in a tap.
             </p>
             <ul className="space-y-2.5">
               {included.map((item) => (
@@ -276,11 +277,11 @@ export default function HomePage() {
       {/* CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-20 text-center">
         <h2 className="text-4xl sm:text-5xl text-canvas mb-4">
-          Peace of mind, in about ten minutes
+          Give them your care, even when you can&apos;t be there
         </h2>
         <p className="text-canvas-muted mb-8 max-w-xl mx-auto">
-          Set it up once, update it in seconds, and share it whenever you&apos;re away.
-          Your pet&apos;s in good hands — even when they&apos;re not yours.
+          Ten minutes now buys a lifetime of easier goodbyes. Set it up once, and every
+          trip, sitter, and just-in-case is already handled.
         </p>
         <Link href="/signup">
           <Button size="lg" className="px-10">
@@ -298,7 +299,7 @@ export default function HomePage() {
             <span className="font-display tracking-wide text-canvas">PawSet</span>
           </div>
           <p className="text-sm text-canvas-muted">
-            Your pet&apos;s whole world, in one place.
+            Because they&apos;re family.
           </p>
           <div className="flex gap-4 text-sm text-canvas-muted">
             <Link href="/login" className="hover:text-canvas transition-colors">Sign in</Link>
