@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { env } from "@/lib/env";
 import { signUp } from "../actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,6 +11,9 @@ export default function SignupPage({
 }: {
   searchParams: { error?: string };
 }) {
+  // Demo mode has no accounts — the dashboard is open.
+  if (env.bypassAuth) redirect("/dashboard");
+
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-sm">

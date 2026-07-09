@@ -2,8 +2,12 @@
 
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { env } from "@/lib/env";
 
 export async function signUp(formData: FormData) {
+  // Demo mode has no accounts — go straight to the dashboard.
+  if (env.bypassAuth) redirect("/dashboard");
+
   const email = String(formData.get("email") ?? "").trim();
   const password = String(formData.get("password") ?? "");
   const fullName = String(formData.get("full_name") ?? "").trim();
@@ -24,6 +28,8 @@ export async function signUp(formData: FormData) {
 }
 
 export async function logIn(formData: FormData) {
+  if (env.bypassAuth) redirect("/dashboard");
+
   const email = String(formData.get("email") ?? "").trim();
   const password = String(formData.get("password") ?? "");
   const next = String(formData.get("next") ?? "/dashboard");
@@ -37,6 +43,8 @@ export async function logIn(formData: FormData) {
 }
 
 export async function logOut() {
+  if (env.bypassAuth) redirect("/");
+
   const supabase = createClient();
   await supabase.auth.signOut();
   redirect("/login");
