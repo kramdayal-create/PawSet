@@ -16,9 +16,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "PawSet — Everything your pet needs, in one place",
+  title: "PawSet — So anyone can care for your pet like you do",
   description:
-    "Organise your pet's routines, vet details, and trusted people into a beautiful care guide you can share with sitters and family in one tap.",
+    "Keep your pet's routine, health, and favourite people in one calm place — and share a sitter-ready care guide in a single tap.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

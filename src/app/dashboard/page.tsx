@@ -263,10 +263,10 @@ export default async function DashboardPage() {
         /* Empty state */
         <div className="bg-card border border-dashed border-border rounded-2xl p-10 text-center">
           <div className="text-4xl mb-4">🐾</div>
-          <h2 className="text-lg font-semibold text-foreground mb-2">Create your first pet plan</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2">Let&apos;s meet your pet</h2>
           <p className="text-muted-foreground text-sm mb-6 max-w-sm mx-auto">
-            Add your pet&apos;s details, routine, vet information, and emergency contacts so
-            everything is ready if someone else needs to step in.
+            Add their details, routine, and the people who help — and you&apos;ll have a care
+            guide ready to share whenever someone steps in for you.
           </p>
           <Link href="/dashboard/pets/new">
             <Button size="lg" className="gap-2">

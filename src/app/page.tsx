@@ -17,69 +17,69 @@ const steps = [
   {
     step: "1",
     title: "Add your pet",
-    description: "Basic details, photo, microchip number, and insurance information.",
+    description: "Their name, photo, age, and the little details that make them them.",
   },
   {
     step: "2",
-    title: "Document their routine",
-    description: "Feeding schedule, walks, medication, behaviour notes — everything a carer needs.",
+    title: "Capture the routine",
+    description: "Meals, walks, meds, and the quirks only you would think to mention.",
   },
   {
     step: "3",
-    title: "Add your people",
-    description: "Sitters, neighbours, family, and your vet — everyone who helps look after them.",
+    title: "Add their people",
+    description: "Your vet, sitter, neighbour, family — everyone in your pet\u2019s corner.",
   },
   {
     step: "4",
-    title: "Generate your plan",
-    description: "A polished, shareable care guide plus a printable pocket card for your wallet.",
+    title: "Share with a tap",
+    description: "A clean care guide anyone can follow, plus a printable card for your wallet.",
   },
 ];
 
 const features = [
   {
     icon: Heart,
-    title: "Daily care instructions",
-    description: "Feeding, walks, sleep routine, favourite toys, and behaviour notes — all in one place.",
+    title: "Daily care, spelled out",
+    description: "Meals, walks, sleep, favourite toys, and the little habits a sitter would never guess.",
   },
   {
     icon: Stethoscope,
-    title: "Vet and medical details",
-    description: "Vet contact, known conditions, medications, allergies, and vaccination history.",
+    title: "Health, close at hand",
+    description: "Vet details, conditions, medications, and allergies \u2014 ready for a check-up or a scare.",
   },
   {
     icon: Users,
-    title: "Your trusted circle",
-    description: "The people who help — with notes on who has keys and who to call first.",
+    title: "The people who help",
+    description: "Everyone in your pet\u2019s corner, with notes on who has a key and who to call first.",
   },
   {
     icon: Share2,
-    title: "Shareable sitter guide",
-    description: "A clean read-only link for pet sitters — with controls over what information is shared.",
+    title: "One link, share anywhere",
+    description: "A clean, read-only guide for sitters \u2014 and you decide exactly what they can see.",
   },
   {
     icon: FileText,
-    title: "Printable pocket card",
-    description: "A card with key contacts and a link to your pet's care profile — for your wallet or phone.",
+    title: "A card for your wallet",
+    description: "Key contacts and a link to the full profile \u2014 ready to print or keep on your phone.",
   },
   {
     icon: Shield,
-    title: "Private by default",
-    description: "Your data is secure and private. Sensitive details are hidden from shared links unless you choose to include them.",
+    title: "Yours, and private",
+    description: "Everything stays private to you. Shared links reveal only what you choose \u2014 and switch off anytime.",
   },
 ];
 
 const included = [
   "Pet profile with photo",
-  "Daily routine and feeding schedule",
-  "Behaviour and temperament notes",
-  "Vet and medical information",
-  "Trusted contacts",
-  "Sitter handover guide",
-  "Shareable care link",
-  "Printable pocket card",
-  "Plan completion score",
-  "Section-level privacy controls",
+  "Daily routine & feeding schedule",
+  "Behaviour & temperament notes",
+  "Vet & medical records",
+  "Your trusted contacts",
+  "Sitter-ready care guide",
+  "One-tap shareable link",
+  "Printable wallet card",
+  "Care-plan completeness score",
+  "Full control over what's shared",
 ];
 
 export default function HomePage() {
@@ -107,15 +107,16 @@ export default function HomePage() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 pt-20 pb-16 text-center">
         <div className="inline-flex items-center gap-2 bg-card text-card-foreground rounded-full px-4 py-1.5 text-xs font-semibold mb-6 shadow-card eyebrow">
           <span>🐾</span>
-          The home for your pet’s care
+          Made for people who love their pets
         </div>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl text-canvas leading-[1.05] mb-6">
-          Everything your pet needs,{" "}
-          <span className="text-terra">in one lovely place.</span>
+          So anyone can care for your pet{" "}
+          <span className="text-terra">exactly like you do.</span>
         </h1>
         <p className="text-lg sm:text-xl text-canvas-muted max-w-2xl mx-auto mb-10">
-          Routines, quirks, vet details, and the people who help — organised
-          into a beautiful care guide you can share in one tap.
+          PawSet keeps your pet&apos;s routine, health, and favourite people in one
+          calm place — so a sitter, friend, or family member always knows exactly
+          what to do.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link href="/signup">
@@ -131,7 +132,7 @@ export default function HomePage() {
           </Link>
         </div>
         <p className="text-sm text-canvas-muted mt-4">
-          Free to get started · No credit card required
+          Free to start · No credit card · Ready in minutes
         </p>
       </section>
 
@@ -143,19 +144,20 @@ export default function HomePage() {
             <span className="font-semibold text-sm uppercase tracking-wider">Why PawSet</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-            One home for everything about them
+            Everything you&apos;d tell a sitter, written down once
           </h2>
           <p className="text-muted-foreground text-lg">
-            Feeding quirks, medication doses, the sitter&apos;s number, the vet&apos;s address —
-            it all lives in one calm, organised place instead of a dozen chats and notes apps.
+            Feeding quirks, medication times, the vet&apos;s number, who has a spare key. Right now
+            it lives in your head and a dozen text threads. PawSet gathers it into one calm place
+            you&apos;ll actually keep up to date.
           </p>
           <div className="mt-8 p-5 bg-paw-yellowsoft rounded-2xl text-left">
             <p className="text-foreground font-medium mb-2">
-              &ldquo;Off for the weekend? Send your sitter one link.&rdquo;
+              &ldquo;Going away this weekend? Just send one link.&rdquo;
             </p>
             <p className="text-muted-foreground text-sm">
-              Whoever steps in sees exactly what they need — routines, contacts,
-              and vet details. Nothing more, nothing less. You choose what’s shared.
+              Your sitter sees exactly what they need — the routine, the contacts, the vet —
+              and nothing you didn&apos;t choose to share.
             </p>
           </div>
         </div>
@@ -165,7 +167,7 @@ export default function HomePage() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-20">
         <div className="text-center mb-12">
           <h2 className="text-4xl text-canvas mb-3">How it works</h2>
-          <p className="text-canvas-muted">Create your complete pet plan in under 15 minutes.</p>
+          <p className="text-canvas-muted">Set up in minutes. Ready whenever life calls you away.</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s) => (
@@ -184,8 +186,8 @@ export default function HomePage() {
       <section className="bg-card border-y border-border py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl text-foreground mb-3">Everything in one place</h2>
-            <p className="text-muted-foreground">All the information a carer or sitter needs — organised and ready to share.</p>
+            <h2 className="text-4xl text-foreground mb-3">Everything their carer needs</h2>
+            <p className="text-muted-foreground">Organised, always current, and ready the moment you share it.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((f) => (
@@ -209,8 +211,8 @@ export default function HomePage() {
           <div>
             <h2 className="text-4xl text-canvas mb-4">What&apos;s included</h2>
             <p className="text-canvas-muted mb-8">
-              Everything a sitter, friend, or family member needs to step in
-              confidently — from daily routines to trusted contacts and vet details.
+              From the morning routine to the vet&apos;s number, it&apos;s all here — and all
+              ready to hand over the moment someone steps in for you.
             </p>
             <ul className="space-y-2.5">
               {included.map((item) => (
@@ -261,12 +263,12 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Shield className="h-5 w-5 text-primary" />
-            <span className="font-semibold text-foreground">Private and secure by default</span>
+            <span className="font-semibold text-foreground">Private by default, always</span>
           </div>
           <p className="text-muted-foreground">
-            Your pet&apos;s information is only visible to you. Shared links show only what you
-            choose to include. Sensitive details like home access notes are hidden unless you
-            explicitly enable them. You can revoke any shared link at any time.
+            Your pet&apos;s details are only ever visible to you. When you share, the link shows
+            just what you choose — sensitive things like spare-key notes stay hidden unless you
+            say so. Change your mind? Switch any link off in a tap.
           </p>
         </div>
       </section>
@@ -274,14 +276,15 @@ export default function HomePage() {
       {/* CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-20 text-center">
         <h2 className="text-4xl sm:text-5xl text-canvas mb-4">
-          Ready to get their world in order?
+          Peace of mind, in about ten minutes
         </h2>
         <p className="text-canvas-muted mb-8 max-w-xl mx-auto">
-          About 15 minutes now — and every future handover becomes a single link.
+          Set it up once, update it in seconds, and share it whenever you&apos;re away.
+          Your pet&apos;s in good hands — even when they&apos;re not yours.
         </p>
         <Link href="/signup">
           <Button size="lg" className="px-10">
-            Create our care guide
+            Get started free
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </Link>
@@ -295,7 +298,7 @@ export default function HomePage() {
             <span className="font-display tracking-wide text-canvas">PawSet</span>
           </div>
           <p className="text-sm text-canvas-muted">
-            Everything your pet needs, in one place.
+            Your pet&apos;s whole world, in one place.
           </p>
           <div className="flex gap-4 text-sm text-canvas-muted">
             <Link href="/login" className="hover:text-canvas transition-colors">Sign in</Link>

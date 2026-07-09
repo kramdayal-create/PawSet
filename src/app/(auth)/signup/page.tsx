@@ -24,7 +24,7 @@ export default function SignupPage({
           </Link>
           <h1 className="text-3xl text-canvas">Create your pet plan</h1>
           <p className="text-canvas-muted mt-1 text-sm">
-            Peace of mind for you and your pet — ready in minutes
+            Set up your pet\u2019s care guide in a few minutes
           </p>
         </div>
 
