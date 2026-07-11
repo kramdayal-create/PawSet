@@ -88,9 +88,8 @@ export default function HomePage() {
       {/* Nav */}
       <nav className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-          <Link href="/" className="flex items-baseline gap-2">
-            <span className="font-display text-2xl font-semibold tracking-wide text-card-foreground">Nami</span>
-            <span className="text-muted-foreground text-sm">波</span>
+          <Link href="/" className="flex items-baseline gap-1.5">
+            <span className="font-display text-2xl font-bold tracking-tight text-primary">PawSet</span>
           </Link>
           <div className="flex items-center gap-3">
             <Link href="/login">
@@ -140,7 +139,7 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <div className="flex items-center justify-center gap-2 text-terra mb-4">
             <Heart className="h-5 w-5" />
-            <span className="font-semibold text-sm uppercase tracking-wider">Why Nami</span>
+            <span className="font-semibold text-sm uppercase tracking-wider">Why PawSet</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
             Everything about them, out of your head and into one place
@@ -148,7 +147,7 @@ export default function HomePage() {
           <p className="text-muted-foreground text-lg">
             The feeding quirks. The 3pm medication. Which treats are a firm no. The vet&apos;s number,
             the neighbour with the spare key. Right now it lives in your memory and a scatter of text
-            threads — until the one time you are not there. Nami keeps it together, ready to hand over.
+            threads — until the one time you are not there. PawSet keeps it together, ready to hand over.
           </p>
           <div className="mt-8 p-5 bg-paw-yellowsoft rounded-2xl text-left">
             <p className="text-foreground font-medium mb-2">
@@ -292,9 +291,8 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="border-t border-border py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-baseline gap-2">
-            <span className="font-display text-lg font-semibold tracking-wide text-canvas">Nami</span>
-            <span className="text-canvas-muted text-xs">波</span>
+          <div className="flex items-baseline gap-1.5">
+            <span className="font-display text-lg font-bold text-primary">PawSet</span>
           </div>
           <p className="text-sm text-canvas-muted">
             Because they are family.

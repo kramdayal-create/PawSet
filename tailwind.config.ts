@@ -18,6 +18,7 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
         display: ["var(--font-display)", "var(--font-sans)", ...fontFamily.sans],
+        script: ["var(--font-script)", "cursive"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -72,17 +73,17 @@ const config: Config = {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
         },
-        /* Nami shibori accents: wave indigo, aged gold, slate, mist —
-           with barely-there tints for soft surfaces. */
+        /* Pawera accents: coral, honey, mint, navy —
+           with soft tints for surfaces and icon chips. */
         paw: {
-          sky: "#3E5CA8",    /* wave indigo */
-          pink: "#B89448",   /* aged gold */
-          lime: "#6C7DA8",   /* slate indigo */
-          yellow: "#C7A24E", /* light gold */
-          skysoft: "#E6ECF8",  /* morning mist */
-          pinksoft: "#F2ECDC",  /* gold tint */
-          limesoft: "#E9ECF3",  /* slate tint */
-          yellowsoft: "#F3ECD8", /* sand-gold */
+          pink: "#FF6B77",   /* paw coral */
+          yellow: "#FFD166", /* honey */
+          lime: "#7FCBA4",   /* mint (solid) */
+          sky: "#2F5E86",    /* navy-blue */
+          pinksoft: "#FFE3E5",   /* coral tint */
+          yellowsoft: "#FFF0CC",  /* honey tint */
+          limesoft: "#E3F4EA",   /* mint tint */
+          skysoft: "#E5ECF3",    /* soft blue */
         },
       },
       borderRadius: {

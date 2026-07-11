@@ -102,7 +102,7 @@ export default async function EmergencyCardPage({ params }: { params: { id: stri
           <div className="footer">
             Full care guide available at nami.pet
             <br />
-            Generated with Nami
+            Generated with PawSet
           </div>
         </div>
       </body>

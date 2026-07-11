@@ -4,93 +4,93 @@
 
 @layer base {
   :root {
-    /* Nami Pet Co. — Japanese indigo (shibori) · aged gold · washi ivory.
-       Cormorant Garamond display over Jost. Quiet, considered, premium. */
-    --background: 45 36% 96%;         /* Washi Ivory #F8F6F0 */
-    --foreground: 229 46% 13%;        /* Deep Indigo #0E1430 */
-    --card: 45 40% 99%;
-    --card-foreground: 229 46% 13%;
-    --popover: 45 40% 99%;
-    --popover-foreground: 229 46% 13%;
+    /* PawSet — Pawera theme: playful-premium. Warm cream · paw coral
+       · deep navy · honey · fresh mint. Fredoka + Manrope + Caveat. */
+    --background: 24 60% 97%;         /* Warm Cream #FFF7F2 */
+    --foreground: 210 62% 23%;        /* Deep Navy #163A5F */
+    --card: 0 0% 100%;
+    --card-foreground: 210 62% 23%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 62% 23%;
 
-    /* Wave Indigo — brand / primary action */
-    --primary: 227 66% 32%;           /* #1C3488 */
-    --primary-foreground: 45 36% 96%;
+    /* Paw Coral — primary action, highlights */
+    --primary: 355 100% 71%;          /* #FF6B77 */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 42 30% 88%;          /* Linen Sand #E8E2D4 */
-    --secondary-foreground: 229 40% 18%;
-    --muted: 42 26% 91%;
-    --muted-foreground: 224 16% 40%;
-    --accent: 41 46% 86%;             /* soft gold tint (hover surfaces) */
-    --accent-foreground: 229 40% 16%;
+    --secondary: 28 44% 93%;          /* soft warm cream */
+    --secondary-foreground: 210 50% 24%;
+    --muted: 28 32% 93%;
+    --muted-foreground: 210 14% 46%;
+    --accent: 42 100% 90%;            /* soft honey (hover surfaces) */
+    --accent-foreground: 210 50% 22%;
 
     /* Semantic */
-    --destructive: 8 60% 50%;
+    --destructive: 0 72% 56%;
     --destructive-foreground: 0 0% 100%;
-    --success: 158 38% 32%;
+    --success: 150 40% 38%;           /* mint-family green */
     --success-foreground: 0 0% 100%;
-    --warning: 38 56% 44%;
-    --warning-foreground: 40 60% 12%;
-    --info: 216 56% 50%;
+    --warning: 42 96% 56%;            /* honey */
+    --warning-foreground: 32 60% 16%;
+    --info: 208 58% 44%;
     --info-foreground: 0 0% 100%;
 
-    --border: 40 20% 85%;
-    --input: 40 20% 82%;
-    --ring: 227 66% 40%;
-    --radius: 1rem;
+    --border: 26 32% 88%;
+    --input: 26 30% 85%;
+    --ring: 355 90% 66%;
+    --radius: 1.25rem;
 
-    /* Chrome — deep indigo sidebar, ivory text, aged-gold active */
-    --sidebar: 229 48% 12%;
-    --sidebar-foreground: 45 22% 80%;
-    --sidebar-accent: 41 44% 52%;     /* Aged Gold */
-    --sidebar-accent-foreground: 229 48% 12%;
-    --sidebar-border: 229 38% 20%;
+    /* Chrome — deep navy nav, cream text, coral active */
+    --sidebar: 208 66% 14%;           /* #0D2B45 */
+    --sidebar-foreground: 26 36% 86%;
+    --sidebar-accent: 355 100% 71%;   /* coral active */
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 208 44% 24%;
 
-    /* Aged Gold accent (legacy var name kept) */
-    --terra: 36 52% 42%;              /* deepened #B89448 for text contrast */
-    --terra-foreground: 45 36% 96%;
+    /* Coral accent (legacy var name kept) */
+    --terra: 355 84% 65%;
+    --terra-foreground: 0 0% 100%;
 
-    /* Text placed directly on the page canvas (ivory → ink) */
-    --on-canvas: 229 46% 13%;
-    --on-canvas-muted: 224 16% 40%;
+    /* Text on the page canvas (cream → navy) */
+    --on-canvas: 210 62% 23%;
+    --on-canvas-muted: 210 16% 42%;
   }
 
   .dark {
-    /* Deep indigo canvas — the shibori night */
-    --background: 229 48% 10%;
-    --foreground: 45 30% 90%;
-    --card: 229 40% 14%;
-    --card-foreground: 45 30% 90%;
-    --popover: 229 40% 14%;
-    --popover-foreground: 45 30% 90%;
-    --primary: 216 70% 66%;
-    --primary-foreground: 229 48% 10%;
-    --secondary: 229 30% 20%;
-    --secondary-foreground: 45 30% 90%;
-    --muted: 229 26% 18%;
-    --muted-foreground: 221 22% 68%;
-    --accent: 41 40% 28%;
-    --accent-foreground: 45 30% 90%;
-    --destructive: 8 60% 56%;
+    /* Deep navy canvas */
+    --background: 208 60% 12%;
+    --foreground: 26 40% 92%;
+    --card: 208 48% 16%;
+    --card-foreground: 26 40% 92%;
+    --popover: 208 48% 16%;
+    --popover-foreground: 26 40% 92%;
+    --primary: 355 100% 72%;
+    --primary-foreground: 208 60% 12%;
+    --secondary: 208 40% 22%;
+    --secondary-foreground: 26 40% 92%;
+    --muted: 208 34% 20%;
+    --muted-foreground: 210 18% 70%;
+    --accent: 42 50% 26%;
+    --accent-foreground: 26 40% 92%;
+    --destructive: 0 70% 60%;
     --destructive-foreground: 0 0% 100%;
-    --success: 158 38% 46%;
-    --success-foreground: 0 0% 100%;
-    --warning: 41 60% 56%;
-    --warning-foreground: 40 60% 10%;
-    --info: 216 66% 64%;
-    --info-foreground: 229 48% 10%;
-    --border: 229 26% 22%;
-    --input: 229 26% 22%;
-    --ring: 216 70% 60%;
-    --sidebar: 229 52% 8%;
-    --sidebar-foreground: 45 20% 74%;
-    --sidebar-accent: 41 48% 56%;
-    --sidebar-accent-foreground: 229 52% 8%;
-    --sidebar-border: 229 30% 16%;
-    --terra: 41 58% 62%;
-    --terra-foreground: 229 48% 10%;
-    --on-canvas: 45 30% 90%;
-    --on-canvas-muted: 221 20% 70%;
+    --success: 150 42% 50%;
+    --success-foreground: 208 60% 10%;
+    --warning: 42 92% 60%;
+    --warning-foreground: 32 60% 12%;
+    --info: 208 64% 62%;
+    --info-foreground: 208 60% 10%;
+    --border: 208 34% 24%;
+    --input: 208 34% 24%;
+    --ring: 355 90% 66%;
+    --sidebar: 208 70% 9%;
+    --sidebar-foreground: 26 30% 82%;
+    --sidebar-accent: 355 100% 71%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 208 40% 16%;
+    --terra: 355 95% 72%;
+    --terra-foreground: 208 60% 10%;
+    --on-canvas: 26 40% 92%;
+    --on-canvas-muted: 210 18% 70%;
   }
 }
 
@@ -102,11 +102,11 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  /* Cormorant Garamond for headings; Jost for body/UI */
+  /* Fredoka (rounded, friendly) for headings; Manrope for body/UI */
   h1, h2, h3 {
-    font-family: var(--font-display), Georgia, serif;
+    font-family: var(--font-display), ui-rounded, system-ui, sans-serif;
     font-weight: 600;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
   }
   h4, h5, h6 {
     @apply tracking-tight;
@@ -129,12 +129,16 @@
   }
   .eyebrow {
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-weight: 500;
+    letter-spacing: 0.18em;
+    font-weight: 600;
     font-family: var(--font-sans);
   }
   .font-display {
-    font-family: var(--font-display), Georgia, serif;
+    font-family: var(--font-display), ui-rounded, system-ui, sans-serif;
+  }
+  /* Handwritten script for taglines (Caveat) */
+  .font-script {
+    font-family: var(--font-script), "Segoe Script", cursive;
   }
   .bg-brand-gradient {
     background-color: hsl(var(--primary));
@@ -151,16 +155,16 @@
   .border-terra {
     border-color: hsl(var(--terra));
   }
-  /* Quiet, refined elevation */
+  /* Warm, friendly elevation */
   .shadow-card {
     box-shadow:
-      0 1px 2px -1px hsl(229 40% 20% / 0.06),
-      0 10px 26px -14px hsl(229 40% 20% / 0.16);
+      0 1px 2px -1px hsl(210 40% 20% / 0.06),
+      0 10px 26px -14px hsl(355 40% 40% / 0.16);
   }
   .shadow-card-hover {
     box-shadow:
-      0 2px 4px -1px hsl(229 40% 20% / 0.08),
-      0 18px 40px -16px hsl(229 40% 20% / 0.26);
+      0 2px 4px -1px hsl(210 40% 20% / 0.08),
+      0 18px 40px -16px hsl(355 40% 40% / 0.24);
   }
   .page-frame {
     display: none;

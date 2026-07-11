@@ -153,7 +153,7 @@ export default async function PrintGuidePage({ params }: { params: { id: string 
         )}
 
         <div className="footer">
-          Generated with Nami · Last updated: {today}
+          Generated with PawSet · Last updated: {today}
           <br />
           Information provided by the pet owner. Not veterinary advice.
         </div>
