@@ -23,9 +23,9 @@ test("add a companion, then see it on the dashboard", async ({ page }) => {
   await page.getByLabel("Age").fill("3 years old");
   await page.getByRole("button", { name: "Save pet" }).click();
 
-  // Redirects to the new pet's page.
+  // Redirects to the new pet's page (subtitle joins breed · species · age).
   await expect(page.getByRole("heading", { name: petName })).toBeVisible();
-  await expect(page.getByText("Beagle", { exact: false })).toBeVisible();
+  await expect(page.getByText("Beagle · dog · 3 years old")).toBeVisible();
 
   // And it shows up in the family list.
   await page.goto("/dashboard/pets");
