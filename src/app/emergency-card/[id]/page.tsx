@@ -20,7 +20,7 @@ export default async function EmergencyCardPage({ params }: { params: { id: stri
   const supabase = db();
   const [petR, medicalR, contactsR, profileR] = await Promise.all([
     supabase.from("pets").select("*").eq("id", params.id).eq("user_id", userId).maybeSingle(),
-    supabase.from("pet_medical").select("vet_name, vet_phone, vet_practice").eq("pet_id", params.id).maybeSingle(),
+    supabase.from("pet_medical").select("vet_name, vet_phone, vet_practice, call_vet_if").eq("pet_id", params.id).maybeSingle(),
     supabase.from("contacts").select("*").eq("user_id", userId).eq("can_contact_in_emergency", true).order("created_at").limit(2),
     supabase.from("profiles").select("full_name").eq("id", userId).maybeSingle(),
   ]);
@@ -28,7 +28,7 @@ export default async function EmergencyCardPage({ params }: { params: { id: stri
   if (!petR.data) notFound();
 
   const pet = petR.data as Pet;
-  const medical = medicalR.data as Pick<PetMedical, "vet_name" | "vet_phone" | "vet_practice"> | null;
+  const medical = medicalR.data as Pick<PetMedical, "vet_name" | "vet_phone" | "vet_practice" | "call_vet_if"> | null;
   const contacts = (contactsR.data as Contact[]) ?? [];
   const ownerName = profileR.data?.full_name ?? "the pet owner";
 
@@ -49,6 +49,9 @@ export default async function EmergencyCardPage({ params }: { params: { id: stri
         .ec-card .section h2 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #666; margin: 0 0 0.4rem; }
         .ec-card .section p { margin: 0; font-size: 0.9rem; font-weight: bold; color: #2D2D2D; }
         .ec-card .section .sub { font-weight: normal; font-size: 0.8rem; color: #555; }
+        .ec-card .urgent { background: #FBEAEA; border: 1px solid #E4B7B7; border-radius: 8px; padding: 0.6rem 0.85rem; margin-bottom: 1rem; }
+        .ec-card .urgent h2 { color: #B23B3B; }
+        .ec-card .urgent p { font-weight: normal; font-size: 0.85rem; color: #7A2E2E; }
         .ec-card .footer { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid #e0d9d0; font-size: 0.7rem; color: #999; text-align: center; }
         @media print { .ec-wrap .buttons { display: none; } .ec-wrap { background: #fff; padding: 0; } .ec-card { box-shadow: none; } }
       `}</style>
@@ -94,6 +97,13 @@ export default async function EmergencyCardPage({ params }: { params: { id: stri
             <h2>Vet</h2>
             <p>{medical.vet_practice || medical.vet_name}</p>
             {medical.vet_phone && <p className="sub">{medical.vet_phone}</p>}
+          </div>
+        )}
+
+        {medical?.call_vet_if && (
+          <div className="section urgent">
+            <h2>Call the vet urgently if</h2>
+            <p>{medical.call_vet_if}</p>
           </div>
         )}
 

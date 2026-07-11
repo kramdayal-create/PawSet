@@ -31,6 +31,7 @@ export interface PetRoutine {
   food_type: string | null;
   portion_size: string | null;
   treat_rules: string | null;
+  unsafe_foods: string | null;
   water_notes: string | null;
   exercise_routine: string | null;
   toilet_routine: string | null;
@@ -54,6 +55,7 @@ export interface PetBehaviour {
   escape_risk: string | null;
   noise_sensitivity: string | null;
   safety_notes: string | null;
+  never_do_rules: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -72,6 +74,10 @@ export interface PetMedical {
   allergies: string | null;
   vaccination_notes: string | null;
   special_care_notes: string | null;
+  normal_signs: string | null;
+  unusual_signs: string | null;
+  call_owner_if: string | null;
+  call_vet_if: string | null;
   created_at: string;
   updated_at: string;
 }

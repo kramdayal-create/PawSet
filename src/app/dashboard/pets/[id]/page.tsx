@@ -273,6 +273,10 @@ export default async function PetDetailPage({
               <Label htmlFor="treat_rules">Treat rules</Label>
               <Input id="treat_rules" name="treat_rules" defaultValue={routine?.treat_rules ?? ""} placeholder="Max 3 small treats per day" />
             </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="unsafe_foods">Foods to avoid / never feed</Label>
+              <Textarea id="unsafe_foods" name="unsafe_foods" defaultValue={routine?.unsafe_foods ?? ""} rows={2} placeholder="No chocolate, grapes, raisins, onions or cooked bones. Allergic to chicken." />
+            </div>
           </div>
 
           <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
@@ -367,6 +371,10 @@ export default async function PetDetailPage({
                 <Input id="safety_notes" name="safety_notes" defaultValue={behaviour?.safety_notes ?? ""} placeholder="Will snap if startled while sleeping" />
               </div>
             </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="never_do_rules">Never-do rules</Label>
+              <Textarea id="never_do_rules" name="never_do_rules" defaultValue={behaviour?.never_do_rules ?? ""} rows={2} placeholder="Never let off the lead near roads. Never leave alone with young children. Never open the front door without leashing first." />
+            </div>
           </div>
 
           <Button type="submit" className="w-full">Save behaviour notes</Button>
@@ -433,6 +441,31 @@ export default async function PetDetailPage({
             <div className="space-y-1.5">
               <Label htmlFor="special_care_notes">Special care notes</Label>
               <Textarea id="special_care_notes" name="special_care_notes" defaultValue={medical?.special_care_notes ?? ""} rows={2} placeholder="Avoid running on hard surfaces. Wipe paws after outdoor walks due to pollen sensitivity." />
+            </div>
+          </div>
+
+          <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">
+            <div>
+              <h2 className="font-semibold text-foreground">When to get help</h2>
+              <p className="text-xs text-muted-foreground mt-0.5">Helps a sitter tell an off day from a real emergency.</p>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <Label htmlFor="normal_signs">This is normal for them</Label>
+                <Textarea id="normal_signs" name="normal_signs" defaultValue={medical?.normal_signs ?? ""} rows={2} placeholder="Sleeps a lot in the afternoon. Occasional soft stool. Snores loudly." />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="unusual_signs">This is unusual — watch out</Label>
+                <Textarea id="unusual_signs" name="unusual_signs" defaultValue={medical?.unusual_signs ?? ""} rows={2} placeholder="Not eating for a whole day. Limping. Hiding away." />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="call_owner_if">Call me if…</Label>
+                <Textarea id="call_owner_if" name="call_owner_if" defaultValue={medical?.call_owner_if ?? ""} rows={2} placeholder="They skip two meals, seem low, or anything worries you." />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="call_vet_if">Call the vet urgently if…</Label>
+                <Textarea id="call_vet_if" name="call_vet_if" defaultValue={medical?.call_vet_if ?? ""} rows={2} placeholder="Difficulty breathing, collapse, seizure, repeated vomiting, or a suspected toxin." />
+              </div>
             </div>
           </div>
 

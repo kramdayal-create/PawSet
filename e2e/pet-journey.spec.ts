@@ -40,6 +40,7 @@ test("save the pet's routine and see it persist", async ({ page }) => {
 
   await page.getByLabel("Feeding schedule").fill("Morning 7am, Evening 6pm");
   await page.getByLabel("Food brand / type").fill("Royal Canin Adult");
+  await page.getByLabel("Foods to avoid / never feed").fill("No chocolate, grapes or onions");
   await page.getByRole("button", { name: "Save routine" }).click();
 
   await expect(page.getByText("Changes saved successfully.")).toBeVisible();
@@ -50,6 +51,26 @@ test("save the pet's routine and see it persist", async ({ page }) => {
   await page.getByText(petName).click();
   await page.getByRole("link", { name: "Routine", exact: true }).click();
   await expect(page.getByLabel("Feeding schedule")).toHaveValue("Morning 7am, Evening 6pm");
+  await expect(page.getByLabel("Foods to avoid / never feed")).toHaveValue("No chocolate, grapes or onions");
+});
+
+test("save medical health-watch and escalation", async ({ page }) => {
+  await page.goto("/dashboard/pets");
+  await page.getByText(petName).click();
+  await page.getByRole("link", { name: "Medical & Vet", exact: true }).click();
+
+  await page.getByLabel("Vet phone").fill("01234 567890");
+  await page.getByLabel("Call the vet urgently if…").fill("Difficulty breathing, collapse or a seizure");
+  await page.getByRole("button", { name: "Save medical details" }).click();
+
+  await expect(page.getByText("Changes saved successfully.")).toBeVisible();
+
+  await page.goto("/dashboard/pets");
+  await page.getByText(petName).click();
+  await page.getByRole("link", { name: "Medical & Vet", exact: true }).click();
+  await expect(page.getByLabel("Call the vet urgently if…")).toHaveValue(
+    "Difficulty breathing, collapse or a seizure",
+  );
 });
 
 test("add a trusted contact", async ({ page }) => {
@@ -81,8 +102,9 @@ test("create a share link and open the public care guide", async ({ page, contex
 
   await page.getByLabel("Link title (optional)").fill(`Weekend care — ${TAG}`);
   // Don't rely on the default checked state — explicitly include the routine
-  // so the public guide is guaranteed to show it.
+  // and medical so the public guide is guaranteed to show them.
   await page.getByRole("checkbox", { name: "Daily routine" }).check();
+  await page.getByRole("checkbox", { name: "Medical & vet details" }).check();
   await page.getByRole("button", { name: "Create share link" }).click();
 
   // Confirmation appears (this is the flow that used to fail on base64url).
@@ -98,6 +120,10 @@ test("create a share link and open the public care guide", async ({ page, contex
   // The routine section rendered means include_routine took effect end-to-end.
   await expect(guide.getByRole("heading", { name: "Daily Routine" })).toBeVisible();
   await expect(guide.getByText("Morning 7am, Evening 6pm")).toBeVisible();
+  // Handover extras from the pack: do-not-feed and the vet-escalation trigger.
+  await expect(guide.getByText("No chocolate, grapes or onions")).toBeVisible();
+  await expect(guide.getByRole("heading", { name: "When to get help" })).toBeVisible();
+  await expect(guide.getByText("Difficulty breathing, collapse or a seizure")).toBeVisible();
 });
 
 test("printable sitter guide and emergency card render standalone", async ({ page }) => {
@@ -119,5 +145,8 @@ test("printable sitter guide and emergency card render standalone", async ({ pag
   await expect(page.getByText(/Emergency Card/)).toBeVisible();
   await expect(page.getByText("Pet owner")).toBeVisible();
   await expect(page.getByText(contactName)).toBeVisible();
+  // The vet-escalation trigger carries onto the emergency card.
+  await expect(page.getByText("Call the vet urgently if")).toBeVisible();
+  await expect(page.getByText("Difficulty breathing, collapse or a seizure")).toBeVisible();
   await expect(page.getByRole("link", { name: "Dashboard" })).toHaveCount(0);
 });

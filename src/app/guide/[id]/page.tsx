@@ -105,6 +105,7 @@ export default async function PrintGuidePage({ params }: { params: { id: string 
             {routine.favourite_toys && <div><dt>Favourite toys</dt><dd>{routine.favourite_toys}</dd></div>}
             {routine.comfort_items && <div><dt>Comfort items</dt><dd>{routine.comfort_items}</dd></div>}
           </dl>
+          {routine.unsafe_foods && <div className="note"><strong>Do not feed:</strong> {routine.unsafe_foods}</div>}
         </>
       )}
 
@@ -120,6 +121,7 @@ export default async function PrintGuidePage({ params }: { params: { id: string 
             {behaviour.escape_risk && <div><dt>Escape risk</dt><dd>{behaviour.escape_risk}</dd></div>}
             {behaviour.safety_notes && <div><dt>Safety notes</dt><dd>{behaviour.safety_notes}</dd></div>}
           </dl>
+          {behaviour.never_do_rules && <div className="note"><strong>Never:</strong> {behaviour.never_do_rules}</div>}
         </>
       )}
 
@@ -140,6 +142,23 @@ export default async function PrintGuidePage({ params }: { params: { id: string 
           )}
           {medical.special_care_notes && (
             <div className="note"><strong>Special care:</strong> {medical.special_care_notes}</div>
+          )}
+        </>
+      )}
+
+      {medical && (medical.normal_signs || medical.unusual_signs || medical.call_owner_if || medical.call_vet_if) && (
+        <>
+          <h2>When to get help</h2>
+          <dl>
+            {medical.normal_signs && <div><dt>This is normal</dt><dd>{medical.normal_signs}</dd></div>}
+            {medical.unusual_signs && <div><dt>This is unusual</dt><dd>{medical.unusual_signs}</dd></div>}
+          </dl>
+          {medical.call_owner_if && <div className="note"><strong>Call the owner if:</strong> {medical.call_owner_if}</div>}
+          {medical.call_vet_if && (
+            <div className="note" style={{ borderLeftColor: "#B23B3B", background: "#FBEAEA" }}>
+              <strong>Call the vet urgently if:</strong> {medical.call_vet_if}
+              {medical.vet_phone && <> — {medical.vet_phone}</>}
+            </div>
           )}
         </>
       )}

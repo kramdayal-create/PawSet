@@ -142,6 +142,11 @@ export default async function SharePage({ params }: { params: { token: string } 
               <Field label="Favourite toys" value={routine.favourite_toys} />
               <Field label="Comfort items" value={routine.comfort_items} />
             </div>
+            {routine.unsafe_foods && (
+              <div className="bg-destructive/10 border border-destructive/20 rounded-2xl p-3 text-sm text-destructive">
+                <strong>Do not feed:</strong> {routine.unsafe_foods}
+              </div>
+            )}
           </Section>
         )}
 
@@ -162,6 +167,11 @@ export default async function SharePage({ params }: { params: { token: string } 
             {behaviour.safety_notes && (
               <div className="bg-paw-yellowsoft rounded-2xl p-3 text-sm text-warning-foreground">
                 <strong>Safety note:</strong> {behaviour.safety_notes}
+              </div>
+            )}
+            {behaviour.never_do_rules && (
+              <div className="bg-destructive/10 border border-destructive/20 rounded-2xl p-3 text-sm text-destructive">
+                <strong>Never:</strong> {behaviour.never_do_rules}
               </div>
             )}
           </Section>
@@ -195,6 +205,33 @@ export default async function SharePage({ params }: { params: { token: string } 
             </p>
           </Section>
         )}
+
+        {/* When to get help */}
+        {shareLink.include_medical &&
+          (medical?.normal_signs || medical?.unusual_signs || medical?.call_owner_if || medical?.call_vet_if) && (
+            <Section title="When to get help" icon={AlertTriangle}>
+              <div className="grid sm:grid-cols-2 gap-3">
+                <Field label="This is normal for them" value={medical?.normal_signs} />
+                <Field label="This is unusual — watch out" value={medical?.unusual_signs} />
+              </div>
+              {medical?.call_owner_if && (
+                <div className="bg-paw-yellowsoft rounded-2xl p-3 text-sm text-warning-foreground">
+                  <strong>Call the owner if:</strong> {medical.call_owner_if}
+                </div>
+              )}
+              {medical?.call_vet_if && (
+                <div className="bg-destructive/10 border border-destructive/20 rounded-2xl p-3 text-sm text-destructive">
+                  <strong>Call the vet urgently if:</strong> {medical.call_vet_if}
+                  {medical?.vet_phone && (
+                    <>
+                      {" — "}
+                      <a href={`tel:${medical.vet_phone}`} className="underline font-medium">{medical.vet_phone}</a>
+                    </>
+                  )}
+                </div>
+              )}
+            </Section>
+          )}
 
         {/* Contacts */}
         {contacts.length > 0 && shareLink.include_contacts && (

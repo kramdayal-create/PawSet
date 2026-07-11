@@ -132,6 +132,7 @@ export async function upsertRoutine(petId: string, formData: FormData) {
     food_type: String(formData.get("food_type") ?? "").trim() || null,
     portion_size: String(formData.get("portion_size") ?? "").trim() || null,
     treat_rules: String(formData.get("treat_rules") ?? "").trim() || null,
+    unsafe_foods: String(formData.get("unsafe_foods") ?? "").trim() || null,
     water_notes: String(formData.get("water_notes") ?? "").trim() || null,
     exercise_routine: String(formData.get("exercise_routine") ?? "").trim() || null,
     toilet_routine: String(formData.get("toilet_routine") ?? "").trim() || null,
@@ -174,6 +175,7 @@ export async function upsertBehaviour(petId: string, formData: FormData) {
     escape_risk: String(formData.get("escape_risk") ?? "").trim() || null,
     noise_sensitivity: String(formData.get("noise_sensitivity") ?? "").trim() || null,
     safety_notes: String(formData.get("safety_notes") ?? "").trim() || null,
+    never_do_rules: String(formData.get("never_do_rules") ?? "").trim() || null,
     updated_at: new Date().toISOString(),
   };
 
@@ -211,6 +213,10 @@ export async function upsertMedical(petId: string, formData: FormData) {
     allergies: String(formData.get("allergies") ?? "").trim() || null,
     vaccination_notes: String(formData.get("vaccination_notes") ?? "").trim() || null,
     special_care_notes: String(formData.get("special_care_notes") ?? "").trim() || null,
+    normal_signs: String(formData.get("normal_signs") ?? "").trim() || null,
+    unusual_signs: String(formData.get("unusual_signs") ?? "").trim() || null,
+    call_owner_if: String(formData.get("call_owner_if") ?? "").trim() || null,
+    call_vet_if: String(formData.get("call_vet_if") ?? "").trim() || null,
     updated_at: new Date().toISOString(),
   };
 
