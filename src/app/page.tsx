@@ -16,23 +16,23 @@ import {
 const steps = [
   {
     step: "1",
-    title: "Add your furbaby",
-    description: "Their name, their face, and all the little things that make them family.",
+    title: "Add them",
+    description: "Their name, their face, and the small things that make them who they are.",
   },
   {
     step: "2",
     title: "Capture their world",
-    description: "Meals, walks, meds, and the quirks only family would ever know.",
+    description: "Meals, walks, medication, and the particular ways only you would know.",
   },
   {
     step: "3",
     title: "Add their people",
-    description: "Your vet, sitter, dog walker, the grandparents — everyone who loves them too.",
+    description: "Your vet, sitter, dog walker, the grandparents — everyone who looks after them.",
   },
   {
     step: "4",
     title: "Share in one tap",
-    description: "A care guide anyone can follow, plus a wallet card for the just-in-case.",
+    description: "A care guide anyone can follow, and a wallet card for the just-in-case.",
   },
 ];
 
@@ -40,7 +40,7 @@ const features = [
   {
     icon: Heart,
     title: "Their daily rhythm",
-    description: "Meals, walks, naps, favourite toys, and the little habits a sitter could never guess.",
+    description: "Meals, walks, naps, favourite toys, and the habits a sitter would never think to ask.",
   },
   {
     icon: Stethoscope,
@@ -50,12 +50,12 @@ const features = [
   {
     icon: Users,
     title: "Their whole village",
-    description: "Everyone who loves them too — with who has a spare key and who to call first.",
+    description: "Everyone who looks after them, with who holds a spare key and who to call first.",
   },
   {
     icon: Share2,
-    title: "One link, total peace of mind",
-    description: "A read-only guide for whoever's watching them — and you choose exactly what shows.",
+    title: "One link, quiet confidence",
+    description: "A read-only guide for whoever has them — and you decide exactly what it shows.",
   },
   {
     icon: FileText,
@@ -88,9 +88,9 @@ export default function HomePage() {
       {/* Nav */}
       <nav className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl">🐾</span>
-            <span className="font-display text-xl tracking-wide text-card-foreground">PawSet</span>
+          <Link href="/" className="flex items-baseline gap-2">
+            <span className="font-display text-2xl font-semibold tracking-wide text-card-foreground">Nami</span>
+            <span className="text-muted-foreground text-sm">波</span>
           </Link>
           <div className="flex items-center gap-3">
             <Link href="/login">
@@ -105,34 +105,33 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 pt-20 pb-16 text-center">
-        <div className="inline-flex items-center gap-2 bg-card text-card-foreground rounded-full px-4 py-1.5 text-xs font-semibold mb-6 shadow-card eyebrow">
-          <span>🐾</span>
-          Because they're family, not pets
+        <div className="inline-flex items-center gap-2 bg-card text-card-foreground rounded-full px-4 py-1.5 text-xs mb-6 shadow-card eyebrow">
+          Because they are family
         </div>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl text-canvas leading-[1.05] mb-6">
-          Whoever&apos;s watching your furbaby{" "}
-          <span className="text-terra">will care for them just like you.</span>
+          The people who love them{" "}
+          <span className="text-terra">can care for them, exactly the way you do.</span>
         </h1>
         <p className="text-lg sm:text-xl text-canvas-muted max-w-2xl mx-auto mb-10">
-          Their meals, their meds, their favourite spot on the couch, their vet,
-          their people — all in one place. Hand it to a sitter or your mum in one
-          tap, and never lie awake wondering if they got it right.
+          Their routine, their health, their small particular ways, their vet, their
+          people — kept in one considered place. Share it with a sitter or a friend
+          in a single tap, and leave knowing nothing was left unsaid.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link href="/signup">
             <Button size="lg" className="px-8">
-              Get started free
+              Begin their profile
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
           <Link href="#whats-included">
             <Button size="lg" variant="outline" className="px-8">
-              See what&apos;s included
+              See what&apos;s inside
             </Button>
           </Link>
         </div>
         <p className="text-sm text-canvas-muted mt-4">
-          Free to start · No credit card · Ready before your next trip
+          Free to begin · No card required · Ready before you go
         </p>
       </section>
 
@@ -141,24 +140,23 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <div className="flex items-center justify-center gap-2 text-terra mb-4">
             <Heart className="h-5 w-5" />
-            <span className="font-semibold text-sm uppercase tracking-wider">Why PawSet</span>
+            <span className="font-semibold text-sm uppercase tracking-wider">Why Nami</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-            Everything about them, out of your head and into one calm place
+            Everything about them, out of your head and into one place
           </h2>
           <p className="text-muted-foreground text-lg">
-            The feeding quirks. The 3pm meds. Which treats are a hard no. The vet&apos;s number and
-            the neighbour with the spare key. Right now it all lives in your memory and a mess of
-            text threads — until the one time you&apos;re not there. PawSet keeps it together, ready
-            to hand over.
+            The feeding quirks. The 3pm medication. Which treats are a firm no. The vet&apos;s number,
+            the neighbour with the spare key. Right now it lives in your memory and a scatter of text
+            threads — until the one time you are not there. Nami keeps it together, ready to hand over.
           </p>
           <div className="mt-8 p-5 bg-paw-yellowsoft rounded-2xl text-left">
             <p className="text-foreground font-medium mb-2">
-              &ldquo;Leaving them with a sitter? Just send one link.&rdquo;
+              &ldquo;Leaving them with a sitter? Send a single link.&rdquo;
             </p>
             <p className="text-muted-foreground text-sm">
-              They&apos;ll see exactly how your furbaby likes things — and you can finally relax,
-              knowing nothing got lost in translation.
+              They will see exactly how your dog likes things — and you can settle in elsewhere,
+              knowing nothing was lost along the way.
             </p>
           </div>
         </div>
@@ -168,7 +166,7 @@ export default function HomePage() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-20">
         <div className="text-center mb-12">
           <h2 className="text-4xl text-canvas mb-3">How it works</h2>
-          <p className="text-canvas-muted">Set it up once. Ready every time you have to leave them.</p>
+          <p className="text-canvas-muted">Set it up once. Ready each time you have to leave them.</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s) => (
@@ -187,8 +185,8 @@ export default function HomePage() {
       <section className="bg-card border-y border-border py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl text-foreground mb-3">Everything their carer needs — nothing they don&apos;t</h2>
-            <p className="text-muted-foreground">Organised, always current, and ready the moment you share it.</p>
+            <h2 className="text-4xl text-foreground mb-3">Everything their carer needs</h2>
+            <p className="text-muted-foreground">Considered, always current, and ready the moment you share it.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((f) => (
@@ -212,8 +210,8 @@ export default function HomePage() {
           <div>
             <h2 className="text-4xl text-canvas mb-4">What&apos;s included</h2>
             <p className="text-canvas-muted mb-8">
-              From their morning routine to the vet&apos;s number — everything whoever&apos;s
-              watching them could need, ready to hand over in a tap.
+              From their morning routine to the vet&apos;s number — everything the person
+              caring for them could need, ready to hand over in a tap.
             </p>
             <ul className="space-y-2.5">
               {included.map((item) => (
@@ -277,15 +275,15 @@ export default function HomePage() {
       {/* CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-20 text-center">
         <h2 className="text-4xl sm:text-5xl text-canvas mb-4">
-          Give them your care, even when you can&apos;t be there
+          Your care, in their corner, even when you cannot be there
         </h2>
         <p className="text-canvas-muted mb-8 max-w-xl mx-auto">
-          Ten minutes now buys a lifetime of easier goodbyes. Set it up once, and every
-          trip, sitter, and just-in-case is already handled.
+          Ten quiet minutes now, and every trip, sitter, and just-in-case is already handled.
+          Set it up once. Update it in seconds.
         </p>
         <Link href="/signup">
           <Button size="lg" className="px-10">
-            Get started free
+            Begin their profile
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </Link>
@@ -294,12 +292,12 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="border-t border-border py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span>🐾</span>
-            <span className="font-display tracking-wide text-canvas">PawSet</span>
+          <div className="flex items-baseline gap-2">
+            <span className="font-display text-lg font-semibold tracking-wide text-canvas">Nami</span>
+            <span className="text-canvas-muted text-xs">波</span>
           </div>
           <p className="text-sm text-canvas-muted">
-            Because they&apos;re family.
+            Because they are family.
           </p>
           <div className="flex gap-4 text-sm text-canvas-muted">
             <Link href="/login" className="hover:text-canvas transition-colors">Sign in</Link>

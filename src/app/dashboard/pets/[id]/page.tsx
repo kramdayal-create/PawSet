@@ -374,7 +374,7 @@ export default async function PetDetailPage({
         <form action={upsertMedicalForPet} className="space-y-4">
           <div className="bg-paw-yellowsoft rounded-3xl p-4 text-sm text-warning-foreground">
             <p className="font-medium mb-0.5">Important</p>
-            <p>PawSet stores your notes only — it does not provide veterinary advice or diagnose health conditions.</p>
+            <p>Nami stores your notes only — it does not provide veterinary advice or diagnose health conditions.</p>
           </div>
 
           <div className="bg-card rounded-3xl p-5 shadow-card space-y-4">

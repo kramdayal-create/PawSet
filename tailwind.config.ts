@@ -72,17 +72,17 @@ const config: Config = {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
         },
-        /* Restrained warm accents: evergreen, clay, sage, amber —
+        /* Nami shibori accents: wave indigo, aged gold, slate, mist —
            with barely-there tints for soft surfaces. */
         paw: {
-          sky: "#5E8E86",    /* dusty teal */
-          pink: "#C0714F",   /* clay */
-          lime: "#4E7A5E",   /* evergreen */
-          yellow: "#C7973F", /* muted amber */
-          skysoft: "#E7EEEB",
-          pinksoft: "#F3E7DE",
-          limesoft: "#E7EFE7",
-          yellowsoft: "#F2EBD9",
+          sky: "#3E5CA8",    /* wave indigo */
+          pink: "#B89448",   /* aged gold */
+          lime: "#6C7DA8",   /* slate indigo */
+          yellow: "#C7A24E", /* light gold */
+          skysoft: "#E6ECF8",  /* morning mist */
+          pinksoft: "#F2ECDC",  /* gold tint */
+          limesoft: "#E9ECF3",  /* slate tint */
+          yellowsoft: "#F3ECD8", /* sand-gold */
         },
       },
       borderRadius: {

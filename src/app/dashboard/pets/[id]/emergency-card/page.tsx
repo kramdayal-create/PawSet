@@ -100,9 +100,9 @@ export default async function EmergencyCardPage({ params }: { params: { id: stri
           )}
 
           <div className="footer">
-            Full care guide available at pawset.app
+            Full care guide available at nami.pet
             <br />
-            Generated with PawSet
+            Generated with Nami
           </div>
         </div>
       </body>

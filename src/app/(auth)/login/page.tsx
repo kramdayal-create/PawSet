@@ -19,8 +19,8 @@ export default function LoginPage({
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2 mb-6">
-            <span className="text-2xl">🐾</span>
-            <span className="text-xl font-bold text-primary">PawSet</span>
+            <span className="font-display text-2xl font-semibold text-foreground">Nami</span>
+            <span className="text-muted-foreground text-sm">波</span>
           </Link>
           <h1 className="text-3xl text-canvas">Welcome back</h1>
           <p className="text-canvas-muted mt-1 text-sm">

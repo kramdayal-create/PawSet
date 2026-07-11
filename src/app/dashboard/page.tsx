@@ -110,7 +110,7 @@ export default async function DashboardPage() {
     {
       href: "/dashboard/pets/new",
       emoji: "🐶",
-      title: "Add your first furbaby",
+      title: "Add your first companion",
       hint: "Their name, kind, and the basics",
       done: hasPets,
       fill: "bg-paw-pinksoft",
@@ -153,10 +153,10 @@ export default async function DashboardPage() {
         </h1>
         <p className="text-canvas-muted mt-2 text-sm">
           {allDone
-            ? "Everything's in place — your whole family's covered. 🎉"
+            ? "Everything is in place. Your whole family is covered."
             : hasPets
-              ? "Here's how your furbabies are looking today."
-              : "Let's get your furbaby's world organised — it only takes a few minutes."}
+              ? "Here is how your family is looking today."
+              : "Let's get their world in order — it only takes a few minutes."}
         </p>
       </div>
 
@@ -167,7 +167,7 @@ export default async function DashboardPage() {
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-paw-yellowsoft text-foreground">
               <PawPrint className="h-3.5 w-3.5" />
             </span>
-            Furbabies
+            Family
           </div>
           <p className="text-2xl font-bold text-foreground">{petScores.length}</p>
         </div>
@@ -201,11 +201,11 @@ export default async function DashboardPage() {
       {hasPets ? (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl text-canvas">Your furbabies</h2>
+            <h2 className="text-xl text-canvas">Your family</h2>
             <Link href="/dashboard/pets/new">
               <Button size="sm" variant="outline" className="gap-1.5">
                 <Plus className="h-3.5 w-3.5" />
-                Add furbaby
+                Add companion
               </Button>
             </Link>
           </div>
@@ -263,7 +263,7 @@ export default async function DashboardPage() {
         /* Empty state */
         <div className="bg-card border border-dashed border-border rounded-2xl p-10 text-center">
           <div className="text-4xl mb-4">🐾</div>
-          <h2 className="text-lg font-semibold text-foreground mb-2">Let&apos;s add your furbaby</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2">Let&apos;s add your companion</h2>
           <p className="text-muted-foreground text-sm mb-6 max-w-sm mx-auto">
             Add their details, routine, and the people who love them — and you&apos;ll have a
             care guide ready to share the moment you have to leave them.
@@ -271,7 +271,7 @@ export default async function DashboardPage() {
           <Link href="/dashboard/pets/new">
             <Button size="lg" className="gap-2">
               <Plus className="h-4 w-4" />
-              Add my furbaby
+              Add a companion
             </Button>
           </Link>
         </div>
@@ -282,7 +282,7 @@ export default async function DashboardPage() {
         <div className="bg-paw-limesoft rounded-3xl p-5 shadow-card flex items-center gap-4">
           <span className="text-3xl">🎉</span>
           <div className="flex-1 min-w-0">
-            <p className="font-semibold text-foreground">You&apos;re all set!</p>
+            <p className="font-semibold text-foreground">You&apos;re all set.</p>
             <p className="text-xs text-muted-foreground mt-0.5">
               Pets, people, and plans — anyone helping out will know exactly
               what to do.

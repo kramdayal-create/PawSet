@@ -237,9 +237,9 @@ export default async function SharePage({ params }: { params: { token: string } 
 
         {/* Footer */}
         <div className="text-center text-xs text-muted-foreground pt-4 border-t border-border">
-          <p>Generated with PawSet · Last updated: {today}</p>
+          <p>Generated with Nami · Last updated: {today}</p>
           <p className="mt-1">
-            <a href="/" className="hover:text-foreground transition-colors">🐾 pawset.app</a>
+            <a href="/" className="hover:text-foreground transition-colors">Nami · nami.pet</a>
           </p>
         </div>
       </div>

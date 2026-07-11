@@ -224,7 +224,7 @@ create table if not exists share_links (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users(id) on delete cascade,
   pet_id uuid not null references pets(id) on delete cascade,
-  token text unique not null default encode(gen_random_bytes(24), 'base64url'),
+  token text unique not null default encode(gen_random_bytes(24), 'hex'),
   title text,
   include_basic_details boolean not null default true,
   include_routine boolean not null default true,

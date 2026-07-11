@@ -13,7 +13,7 @@ import {
 
 const navLinks = [
   { href: "/dashboard", label: "Dashboard", short: "Home", icon: LayoutDashboard, chip: "bg-paw-pinksoft" },
-  { href: "/dashboard/pets", label: "My Furbabies", short: "Family", icon: PawPrint, chip: "bg-paw-yellowsoft" },
+  { href: "/dashboard/pets", label: "Family", short: "Family", icon: PawPrint, chip: "bg-paw-yellowsoft" },
   { href: "/dashboard/contacts", label: "Contacts", short: "Contacts", icon: Users, chip: "bg-paw-skysoft" },
   { href: "/dashboard/emergency-plan", label: "Care Plan", short: "Plan", icon: ClipboardList, chip: "bg-paw-limesoft" },
   { href: "/dashboard/settings", label: "Settings", short: "Settings", icon: Settings, chip: "bg-muted" },
@@ -38,15 +38,15 @@ export function SidebarNav() {
               "group flex items-center gap-3 rounded-full px-3 py-2 text-sm font-medium transition-colors",
               active
                 ? "bg-sidebar-accent text-sidebar-accent-foreground font-semibold"
-                : "text-sidebar-foreground hover:bg-muted hover:text-foreground",
+                : "text-sidebar-foreground hover:bg-white/10 hover:text-white",
             )}
           >
             <span
               className={cn(
                 "flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors",
                 active
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-muted text-sidebar-foreground group-hover:bg-secondary",
+                  ? "bg-sidebar text-sidebar-accent"
+                  : "bg-white/10 text-sidebar-foreground group-hover:bg-white/15",
               )}
             >
               <link.icon className="h-4 w-4" />

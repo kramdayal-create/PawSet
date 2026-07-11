@@ -37,16 +37,16 @@ export default async function DashboardLayout({
     <div className="flex min-h-screen flex-col md:flex-row">
       {/* Desktop sidebar */}
       <aside className="hidden md:flex w-60 shrink-0 flex-col bg-sidebar text-sidebar-foreground border-r border-sidebar-border">
-        <div className="px-5 py-5">
-          <Link href="/dashboard" className="flex items-center gap-2">
-            <span className="text-xl">🐾</span>
-            <span className="font-display text-xl font-semibold text-foreground">PawSet</span>
+        <div className="px-5 py-6">
+          <Link href="/dashboard" className="flex items-baseline gap-2">
+            <span className="font-display text-2xl font-semibold tracking-wide text-sidebar-accent">Nami</span>
+            <span className="text-sidebar-foreground/70 text-sm">波</span>
           </Link>
         </div>
         <SidebarNav />
         <div className="border-t border-sidebar-border p-3">
           <div className="flex items-center gap-2.5 px-2 py-2 mb-1">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sidebar-accent text-xs font-bold text-sidebar-accent-foreground">
               {initials(displayName)}
             </div>
             <div className="min-w-0 flex-1">
@@ -57,7 +57,7 @@ export default async function DashboardLayout({
             <Button
               variant="ghost"
               size="sm"
-              className="w-full justify-start gap-2 text-sidebar-foreground hover:bg-muted hover:text-foreground text-xs"
+              className="w-full justify-start gap-2 text-sidebar-foreground hover:bg-white/10 hover:text-white text-xs"
               type="submit"
             >
               <LogOut className="h-3.5 w-3.5" /> Sign out
@@ -68,15 +68,15 @@ export default async function DashboardLayout({
 
       {/* Mobile header */}
       <header className="md:hidden border-b border-border bg-card px-4 py-3 flex items-center justify-between">
-        <Link href="/dashboard" className="flex items-center gap-2">
-          <span className="text-xl">🐾</span>
-          <span className="font-bold text-base text-foreground">PawSet</span>
+        <Link href="/dashboard" className="flex items-baseline gap-1.5">
+          <span className="font-display text-xl font-semibold text-foreground">Nami</span>
+          <span className="text-muted-foreground text-xs">波</span>
         </Link>
         <div className="flex items-center gap-1.5">
           <Link
             href="/dashboard/pets/new"
             className="flex h-9 w-9 items-center justify-center rounded-full bg-paw-yellowsoft text-foreground"
-            aria-label="Add a furbaby"
+            aria-label="Add a companion"
           >
             <PawPrint className="h-4 w-4" />
           </Link>
