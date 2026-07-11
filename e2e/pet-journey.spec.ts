@@ -35,7 +35,8 @@ test("add a companion, then see it on the dashboard", async ({ page }) => {
 test("save the pet's routine and see it persist", async ({ page }) => {
   await page.goto("/dashboard/pets");
   await page.getByText(petName).click();
-  await page.getByRole("link", { name: "Routine" }).click();
+  // Exact match: the overview quick-links also link to ?tab=routine ("Daily routine").
+  await page.getByRole("link", { name: "Routine", exact: true }).click();
 
   await page.getByLabel("Feeding schedule").fill("Morning 7am, Evening 6pm");
   await page.getByLabel("Food brand / type").fill("Royal Canin Adult");
@@ -68,7 +69,8 @@ test("write a care plan", async ({ page }) => {
 test("create a share link and open the public care guide", async ({ page, context }) => {
   await page.goto("/dashboard/pets");
   await page.getByText(petName).click();
-  await page.getByRole("link", { name: "Share" }).click();
+  // Exact match: the overview quick-links also link to ?tab=share ("Share & print").
+  await page.getByRole("link", { name: "Share", exact: true }).click();
 
   await page.getByLabel("Link title (optional)").fill(`Weekend care — ${TAG}`);
   await page.getByRole("button", { name: "Create share link" }).click();

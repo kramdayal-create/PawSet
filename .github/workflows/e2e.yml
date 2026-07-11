@@ -26,7 +26,9 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # Node 22+ ships native WebSocket, which @supabase/realtime-js needs
+          # when the teardown client is constructed.
+          node-version: 22
           cache: npm
 
       - name: Check service-role key
