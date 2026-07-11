@@ -37,3 +37,9 @@ next-env.d.ts
 # supabase
 .branches
 .temp
+
+# playwright
+/test-results
+/playwright-report
+/playwright/.cache
+/.env.local
