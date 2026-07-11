@@ -47,7 +47,8 @@ test("save the pet's routine and see it persist", async ({ page }) => {
 });
 
 test("add a trusted contact", async ({ page }) => {
-  await page.goto("/dashboard/contacts");
+  // ?add=1 forces the contact form open (it's otherwise hidden when contacts exist).
+  await page.goto("/dashboard/contacts?add=1");
   await page.getByLabel("Name *").fill(contactName);
   await page.getByLabel("Phone").fill("07700 900123");
   await page.getByText("Can be contacted in an emergency").click();
