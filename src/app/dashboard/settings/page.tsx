@@ -15,20 +15,33 @@ function db() {
 
 async function updateProfile(formData: FormData) {
   "use server";
-  if (env.bypassAuth) return redirect("/dashboard/settings?saved=1");
+  const supabase = db();
 
-  const supabase = createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect("/login");
+  let userId = "00000000-0000-0000-0000-000000000000";
+  let email = "demo@pawset.app";
+  if (!env.bypassAuth) {
+    const { data: { user } } = await createClient().auth.getUser();
+    if (!user) redirect("/login");
+    userId = user.id;
+    email = user.email ?? "";
+  }
 
   const fullName = String(formData.get("full_name") ?? "").trim();
 
-  await supabase
+  const { error } = await supabase
     .from("profiles")
-    .update({ full_name: fullName, updated_at: new Date().toISOString() })
-    .eq("id", user.id);
+    .upsert(
+      { id: userId, full_name: fullName, email, updated_at: new Date().toISOString() },
+      { onConflict: "id" },
+    );
+
+  if (error) {
+    redirect(`/dashboard/settings?error=${encodeURIComponent(error.message)}`);
+  }
 
   revalidatePath("/dashboard/settings");
+  // The dashboard greeting reads the same profile name.
+  revalidatePath("/dashboard");
   redirect("/dashboard/settings?saved=1");
 }
 
@@ -38,7 +51,7 @@ export const dynamic = "force-dynamic";
 export default async function SettingsPage({
   searchParams,
 }: {
-  searchParams: { saved?: string };
+  searchParams: { saved?: string; error?: string };
 }) {
   const supabase = db();
   let userId = "00000000-0000-0000-0000-000000000000";
@@ -68,6 +81,11 @@ export default async function SettingsPage({
       {searchParams.saved && (
         <div className="p-3 rounded-lg bg-success/10 border border-success/20 text-success text-sm">
           Settings saved.
+        </div>
+      )}
+      {searchParams.error && (
+        <div className="p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-destructive text-sm">
+          {decodeURIComponent(searchParams.error)}
         </div>
       )}
 
