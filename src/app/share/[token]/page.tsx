@@ -7,6 +7,9 @@ const speciesEmoji: Record<string, string> = {
   dog: "🐶", cat: "🐱", rabbit: "🐰", bird: "🐦", other: "🐾",
 };
 
+
+export const dynamic = "force-dynamic";
+
 export default async function SharePage({ params }: { params: { token: string } }) {
   const supabase = createAdminClient();
 

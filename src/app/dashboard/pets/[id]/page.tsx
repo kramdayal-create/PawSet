@@ -54,6 +54,9 @@ async function getPetData(petId: string, userId: string) {
   };
 }
 
+
+export const dynamic = "force-dynamic";
+
 export default async function PetDetailPage({
   params,
   searchParams,

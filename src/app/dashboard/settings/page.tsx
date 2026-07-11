@@ -32,6 +32,9 @@ async function updateProfile(formData: FormData) {
   redirect("/dashboard/settings?saved=1");
 }
 
+
+export const dynamic = "force-dynamic";
+
 export default async function SettingsPage({
   searchParams,
 }: {

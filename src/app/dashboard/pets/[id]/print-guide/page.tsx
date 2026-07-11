@@ -12,6 +12,9 @@ const speciesEmoji: Record<string, string> = {
   dog: "🐶", cat: "🐱", rabbit: "🐰", bird: "🐦", other: "🐾",
 };
 
+
+export const dynamic = "force-dynamic";
+
 export default async function PrintGuidePage({ params }: { params: { id: string } }) {
   let userId = "00000000-0000-0000-0000-000000000000";
   if (!env.bypassAuth) {

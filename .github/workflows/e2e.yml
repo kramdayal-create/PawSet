@@ -10,9 +10,13 @@ permissions:
   contents: read
 
 env:
-  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN || secrets.VERCEL }}
-  VERCEL_SCOPE: team_A7UzxmiDete44DbGVHO8kL28
-  PLAYWRIGHT_BROWSERS_PATH: /opt/pw-browsers
+  # Public project URL + anon key (anon is unused in demo/bypass mode).
+  NEXT_PUBLIC_SUPABASE_URL: https://jjgutfdwsjjqvksjqtup.supabase.co
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: e2e-anon-unused-in-bypass
+  # Service-role key drives the demo-mode DB and the cleanup teardown.
+  SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.PAWSET }}
+  # Force demo mode so the journey needs no login.
+  BYPASS_AUTH: "true"
 
 jobs:
   e2e:
@@ -25,10 +29,10 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Check VERCEL_TOKEN
+      - name: Check service-role key
         run: |
-          if [ -z "$VERCEL_TOKEN" ]; then
-            echo "::error::VERCEL_TOKEN secret is not set — needed to pull the app's env for the live-database E2E run."
+          if [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "::error::SUPABASE_SERVICE_ROLE_KEY secret is not set — needed for the live-database E2E run."
             exit 1
           fi
 
@@ -37,24 +41,6 @@ jobs:
 
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
-
-      - name: Pull PawSet production env from Vercel
-        run: |
-          npm i -g vercel@latest
-          vercel link --yes --project pawset --scope "$VERCEL_SCOPE" --token "$VERCEL_TOKEN"
-          vercel env pull .env.local --environment=production --yes --token "$VERCEL_TOKEN"
-
-      - name: Export env for the test runner
-        run: |
-          while IFS= read -r line; do
-            case "$line" in
-              NEXT_PUBLIC_SUPABASE_URL=*|NEXT_PUBLIC_SUPABASE_ANON_KEY=*|SUPABASE_SERVICE_ROLE_KEY=*|APP_SECRET=*)
-                k="${line%%=*}"; v="${line#*=}"; v="${v%\"}"; v="${v#\"}"
-                echo "$k=$v" >> "$GITHUB_ENV" ;;
-            esac
-          done < .env.local
-          # Force demo mode so the journey needs no login.
-          echo "BYPASS_AUTH=true" >> "$GITHUB_ENV"
 
       - name: Build
         run: npm run build

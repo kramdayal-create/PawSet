@@ -18,6 +18,9 @@ const speciesEmoji: Record<string, string> = {
   other: "🐾",
 };
 
+
+export const dynamic = "force-dynamic";
+
 export default async function PetsPage() {
   const supabase = db();
   let userId = "00000000-0000-0000-0000-000000000000";

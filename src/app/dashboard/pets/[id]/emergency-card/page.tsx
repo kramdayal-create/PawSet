@@ -8,6 +8,9 @@ function db() {
   return env.bypassAuth ? createAdminClient() : createClient();
 }
 
+
+export const dynamic = "force-dynamic";
+
 export default async function EmergencyCardPage({ params }: { params: { id: string } }) {
   let userId = "00000000-0000-0000-0000-000000000000";
   if (!env.bypassAuth) {
