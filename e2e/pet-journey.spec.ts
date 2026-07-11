@@ -43,6 +43,12 @@ test("save the pet's routine and see it persist", async ({ page }) => {
   await page.getByRole("button", { name: "Save routine" }).click();
 
   await expect(page.getByText("Changes saved successfully.")).toBeVisible();
+
+  // Reload from scratch so we assert the value came back from the database,
+  // not a form input that simply kept what we typed.
+  await page.goto("/dashboard/pets");
+  await page.getByText(petName).click();
+  await page.getByRole("link", { name: "Routine", exact: true }).click();
   await expect(page.getByLabel("Feeding schedule")).toHaveValue("Morning 7am, Evening 6pm");
 });
 

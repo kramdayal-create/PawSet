@@ -18,6 +18,31 @@ function db() {
   return env.bypassAuth ? createAdminClient() : createClient();
 }
 
+/**
+ * Save a one-row-per-pet detail table (routine / behaviour / medical).
+ *
+ * These tables have no unique constraint on pet_id, so `.upsert(..., { onConflict:
+ * "pet_id" })` errors at the database and silently loses the write. Do an explicit
+ * select-then-update/insert instead, and return any error so the caller can surface it.
+ */
+async function saveByPetId(
+  supabase: ReturnType<typeof db>,
+  table: string,
+  petId: string,
+  payload: Record<string, unknown>,
+): Promise<{ error: { message: string } | null }> {
+  const { data: existing } = await supabase
+    .from(table)
+    .select("id")
+    .eq("pet_id", petId)
+    .maybeSingle();
+
+  if (existing) {
+    return supabase.from(table).update(payload).eq("id", existing.id);
+  }
+  return supabase.from(table).insert(payload);
+}
+
 export async function createPet(formData: FormData) {
   const userId = await getUserId();
   const supabase = db();
@@ -116,9 +141,10 @@ export async function upsertRoutine(petId: string, formData: FormData) {
     updated_at: new Date().toISOString(),
   };
 
-  await supabase
-    .from("pet_routines")
-    .upsert(payload, { onConflict: "pet_id" });
+  const { error } = await saveByPetId(supabase, "pet_routines", petId, payload);
+  if (error) {
+    redirect(`/dashboard/pets/${petId}?tab=routine&error=${encodeURIComponent(error.message)}`);
+  }
 
   revalidatePath(`/dashboard/pets/${petId}`);
   redirect(`/dashboard/pets/${petId}?tab=routine&saved=1`);
@@ -151,9 +177,10 @@ export async function upsertBehaviour(petId: string, formData: FormData) {
     updated_at: new Date().toISOString(),
   };
 
-  await supabase
-    .from("pet_behaviour")
-    .upsert(payload, { onConflict: "pet_id" });
+  const { error } = await saveByPetId(supabase, "pet_behaviour", petId, payload);
+  if (error) {
+    redirect(`/dashboard/pets/${petId}?tab=behaviour&error=${encodeURIComponent(error.message)}`);
+  }
 
   revalidatePath(`/dashboard/pets/${petId}`);
   redirect(`/dashboard/pets/${petId}?tab=behaviour&saved=1`);
@@ -187,9 +214,10 @@ export async function upsertMedical(petId: string, formData: FormData) {
     updated_at: new Date().toISOString(),
   };
 
-  await supabase
-    .from("pet_medical")
-    .upsert(payload, { onConflict: "pet_id" });
+  const { error } = await saveByPetId(supabase, "pet_medical", petId, payload);
+  if (error) {
+    redirect(`/dashboard/pets/${petId}?tab=medical&error=${encodeURIComponent(error.message)}`);
+  }
 
   revalidatePath(`/dashboard/pets/${petId}`);
   redirect(`/dashboard/pets/${petId}?tab=medical&saved=1`);
