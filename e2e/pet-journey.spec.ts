@@ -74,6 +74,9 @@ test("create a share link and open the public care guide", async ({ page, contex
   await page.getByRole("link", { name: "Share", exact: true }).click();
 
   await page.getByLabel("Link title (optional)").fill(`Weekend care — ${TAG}`);
+  // Don't rely on the default checked state — explicitly include the routine
+  // so the public guide is guaranteed to show it.
+  await page.getByRole("checkbox", { name: "Daily routine" }).check();
   await page.getByRole("button", { name: "Create share link" }).click();
 
   // Confirmation appears (this is the flow that used to fail on base64url).
@@ -86,5 +89,7 @@ test("create a share link and open the public care guide", async ({ page, contex
   ]);
   await guide.waitForLoadState("domcontentloaded");
   await expect(guide.getByRole("heading", { name: /Care Guide|Weekend care/ })).toBeVisible();
+  // The routine section rendered means include_routine took effect end-to-end.
+  await expect(guide.getByRole("heading", { name: "Daily Routine" })).toBeVisible();
   await expect(guide.getByText("Morning 7am, Evening 6pm")).toBeVisible();
 });

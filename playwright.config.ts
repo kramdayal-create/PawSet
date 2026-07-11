@@ -13,7 +13,10 @@ export default defineConfig({
   workers: 1,
   fullyParallel: false,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 1 : 0,
+  // No retries: the journey is serial and creates data, so a retry would
+  // re-run from scratch and duplicate the tagged pet. A clean single failure
+  // is easier to diagnose (teardown still cleans up by RUN_TAG either way).
+  retries: 0,
   timeout: 60_000,
   expect: { timeout: 15_000 },
   reporter: process.env.CI ? [["list"], ["html", { open: "never" }]] : "list",
