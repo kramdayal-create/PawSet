@@ -193,7 +193,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl text-foreground mb-3">Everything their carer needs</h2>
-            <p className="text-muted-foreground">Considered, always current, and ready the moment you share it.</p>
+            <p className="text-muted-foreground">Easy to keep up to date, and ready to share in a tap.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((f, i) => {

@@ -2,14 +2,14 @@
   "name": "pawset",
   "version": "1.0.0",
   "private": true,
-  "description": "PawSet — emergency & care planning app for solo pet parents",
+  "description": "PawSet \u2014 emergency & care planning app for solo pet parents",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run --passWithNoTests",
+    "test": "vitest run",
     "test:watch": "vitest"
   },
   "dependencies": {

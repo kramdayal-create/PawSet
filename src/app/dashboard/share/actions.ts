@@ -1,17 +1,11 @@
 "use server";
 
-import { randomBytes } from "crypto";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { makeShareToken } from "@/lib/pawset/token";
 import { env } from "@/lib/env";
-
-/** URL-safe share token, generated in-app (the DB column's default used an
- *  encoding Postgres doesn't support, so we always supply the token here). */
-function makeShareToken(): string {
-  return randomBytes(24).toString("base64url");
-}
 
 async function getUserId(): Promise<string> {
   if (env.bypassAuth) return "00000000-0000-0000-0000-000000000000";
