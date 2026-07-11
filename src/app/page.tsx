@@ -89,7 +89,7 @@ export default function HomePage() {
       <nav className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
           <Link href="/" className="flex items-baseline gap-1.5">
-            <span className="font-display text-2xl font-bold tracking-tight text-primary">PawSet</span>
+            <span className="font-logo text-2xl font-bold tracking-tight text-primary">PawSet</span>
           </Link>
           <div className="flex items-center gap-3">
             <Link href="/login">
@@ -104,17 +104,20 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 pt-20 pb-16 text-center">
-        <div className="inline-flex items-center gap-2 bg-card text-card-foreground rounded-full px-4 py-1.5 text-xs mb-6 shadow-card eyebrow">
-          Because they are family
+        <div className="inline-flex items-center gap-2 bg-card text-card-foreground rounded-full px-4 py-1.5 text-xs mb-5 shadow-card eyebrow">
+          <Heart className="h-3.5 w-3.5 text-paw-pink" /> Made with love, for pet parents
         </div>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl text-canvas leading-[1.05] mb-6">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl text-canvas leading-[1.05] mb-3">
           The people who love them{" "}
-          <span className="text-terra">can care for them, exactly the way you do.</span>
+          <span className="text-terra">can care for them, just the way you do.</span>
         </h1>
-        <p className="text-lg sm:text-xl text-canvas-muted max-w-2xl mx-auto mb-10">
-          Their routine, their health, their small particular ways, their vet, their
-          people — kept in one considered place. Share it with a sitter or a friend
-          in a single tap, and leave knowing nothing was left unsaid.
+        <p className="font-script text-terra text-2xl sm:text-3xl mb-6">
+          for the ones who love you right back
+        </p>
+        <p className="text-lg sm:text-xl text-canvas-muted max-w-2xl mx-auto mb-9">
+          Every meal, every quirk, every &ldquo;don&apos;t forget to&hellip;&rdquo; — kept in one
+          warm place. Share it with a sitter or a friend in a single tap, and head out
+          with a light heart, knowing they&apos;re in good hands.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link href="/signup">
@@ -132,6 +135,12 @@ export default function HomePage() {
         <p className="text-sm text-canvas-muted mt-4">
           Free to begin · No card required · Ready before you go
         </p>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm font-medium text-canvas-muted">
+          <span className="inline-flex items-center gap-2"><Heart className="h-4 w-4 text-paw-pink" /> Made with love</span>
+          <span className="inline-flex items-center gap-2"><Shield className="h-4 w-4 text-paw-lime" /> Private &amp; yours</span>
+          <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-paw-yellow" /> Ready in minutes</span>
+          <span className="inline-flex items-center gap-2"><Users className="h-4 w-4 text-paw-sky" /> Loved by pet parents</span>
+        </div>
       </section>
 
       {/* Problem statement */}
@@ -188,17 +197,28 @@ export default function HomePage() {
             <p className="text-muted-foreground">Considered, always current, and ready the moment you share it.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {features.map((f) => (
+            {features.map((f, i) => {
+              const tones = [
+                { bg: "bg-paw-pinksoft", fg: "text-paw-pink" },
+                { bg: "bg-paw-yellowsoft", fg: "text-[hsl(38_70%_44%)]" },
+                { bg: "bg-paw-limesoft", fg: "text-[hsl(150_45%_38%)]" },
+                { bg: "bg-paw-skysoft", fg: "text-paw-sky" },
+                { bg: "bg-paw-pinksoft", fg: "text-paw-pink" },
+                { bg: "bg-paw-yellowsoft", fg: "text-[hsl(38_70%_44%)]" },
+              ];
+              const t = tones[i % tones.length];
+              return (
               <div key={f.title} className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-2xl bg-paw-pinksoft flex items-center justify-center">
-                  <f.icon className="h-5 w-5 text-paw-pink" />
+                <div className={`flex-shrink-0 w-11 h-11 rounded-2xl ${t.bg} flex items-center justify-center`}>
+                  <f.icon className={`h-5 w-5 ${t.fg}`} />
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">{f.title}</h3>
                   <p className="text-sm text-muted-foreground">{f.description}</p>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -273,8 +293,9 @@ export default function HomePage() {
 
       {/* CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-20 text-center">
+        <p className="font-script text-terra text-2xl sm:text-3xl mb-2">happy pets, happy you</p>
         <h2 className="text-4xl sm:text-5xl text-canvas mb-4">
-          Your care, in their corner, even when you cannot be there
+          Your care in their corner, even when you can&apos;t be there
         </h2>
         <p className="text-canvas-muted mb-8 max-w-xl mx-auto">
           Ten quiet minutes now, and every trip, sitter, and just-in-case is already handled.
@@ -292,10 +313,10 @@ export default function HomePage() {
       <footer className="border-t border-border py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-baseline gap-1.5">
-            <span className="font-display text-lg font-bold text-primary">PawSet</span>
+            <span className="font-logo text-lg font-bold text-primary">PawSet</span>
           </div>
-          <p className="text-sm text-canvas-muted">
-            Because they are family.
+          <p className="text-sm text-canvas-muted inline-flex items-center gap-1.5">
+            Made with <Heart className="h-3.5 w-3.5 text-paw-pink" /> for people who love their pets
           </p>
           <div className="flex gap-4 text-sm text-canvas-muted">
             <Link href="/login" className="hover:text-canvas transition-colors">Sign in</Link>

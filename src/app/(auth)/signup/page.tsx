@@ -19,7 +19,7 @@ export default function SignupPage({
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2 mb-6">
-            <span className="font-display text-2xl font-bold text-primary">PawSet</span>
+            <span className="font-logo text-2xl font-bold text-primary">PawSet</span>
           </Link>
           <h1 className="text-3xl text-canvas">Create your pet plan</h1>
           <p className="text-canvas-muted mt-1 text-sm">

@@ -39,7 +39,7 @@ export default async function DashboardLayout({
       <aside className="hidden md:flex w-60 shrink-0 flex-col bg-sidebar text-sidebar-foreground border-r border-sidebar-border">
         <div className="px-5 py-6">
           <Link href="/dashboard" className="flex items-baseline gap-1.5">
-            <span className="font-display text-2xl font-bold tracking-tight text-sidebar-accent">PawSet</span>
+            <span className="font-logo text-2xl font-bold tracking-tight text-sidebar-accent">PawSet</span>
           </Link>
         </div>
         <SidebarNav />
@@ -68,7 +68,7 @@ export default async function DashboardLayout({
       {/* Mobile header */}
       <header className="md:hidden border-b border-border bg-card px-4 py-3 flex items-center justify-between">
         <Link href="/dashboard" className="flex items-baseline gap-1.5">
-          <span className="font-display text-xl font-bold text-primary">PawSet</span>
+          <span className="font-logo text-xl font-bold text-primary">PawSet</span>
         </Link>
         <div className="flex items-center gap-1.5">
           <Link

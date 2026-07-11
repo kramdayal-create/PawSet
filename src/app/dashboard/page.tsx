@@ -118,24 +118,24 @@ export default async function DashboardPage() {
     {
       href: "/dashboard/contacts",
       emoji: "💛",
-      title: "Add a trusted contact",
-      hint: "Someone they can count on",
+      title: "Add someone they trust",
+      hint: "A sitter, neighbour, or your vet",
       done: emergencyContacts.length > 0,
       fill: "bg-paw-yellowsoft",
     },
     {
       href: "/dashboard/emergency-plan",
       emoji: "📋",
-      title: "Set up your care plan",
-      hint: "The essentials, written down once",
+      title: "Write their care plan",
+      hint: "The essentials, in one calm place",
       done: hasEmergencyPlan,
       fill: "bg-paw-skysoft",
     },
     {
       href: hasPets ? `/dashboard/pets/${petScores[0].pet.id}?tab=share` : "/dashboard/pets/new",
       emoji: "💌",
-      title: "Share a sitter guide",
-      hint: "A care link for sitters & family",
+      title: "Share their care guide",
+      hint: "One link, whenever you head out",
       done: hasShareLink,
       fill: "bg-paw-limesoft",
     },
@@ -147,16 +147,16 @@ export default async function DashboardPage() {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <p className="eyebrow text-xs text-canvas/80 mb-2">Dashboard</p>
+        <p className="font-script text-terra text-2xl leading-none mb-1">welcome back</p>
         <h1 className="text-3xl sm:text-4xl text-canvas">
           {firstName ? `${greeting()}, ${firstName}` : greeting()}
         </h1>
         <p className="text-canvas-muted mt-2 text-sm">
           {allDone
-            ? "Everything is in place. Your whole family is covered."
+            ? "Everything is in place — they're in wonderful hands. 🐾"
             : hasPets
-              ? "Here is how your family is looking today."
-              : "Let's get their world in order — it only takes a few minutes."}
+              ? "Here's how your little family is looking today."
+              : "Let's get them settled in — just a few minutes and they're covered."}
         </p>
       </div>
 
@@ -282,10 +282,10 @@ export default async function DashboardPage() {
         <div className="bg-paw-limesoft rounded-3xl p-5 shadow-card flex items-center gap-4">
           <span className="text-3xl">🎉</span>
           <div className="flex-1 min-w-0">
-            <p className="font-semibold text-foreground">You&apos;re all set.</p>
+            <p className="font-semibold text-foreground">They&apos;re all set. 🎉</p>
             <p className="text-xs text-muted-foreground mt-0.5">
-              Pets, people, and plans — anyone helping out will know exactly
-              what to do.
+              Their people, their plan, their whole world — anyone stepping in will
+              know just what to do. Go enjoy your time away.
             </p>
           </div>
           <CheckCircle2 className="h-6 w-6 text-success flex-shrink-0" />
@@ -293,7 +293,7 @@ export default async function DashboardPage() {
       ) : (
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl text-canvas">Get set up</h2>
+            <h2 className="text-xl text-canvas">Let&apos;s get them settled in</h2>
             <span className="text-xs font-semibold text-card-foreground bg-card rounded-full px-3 py-1 shadow-card">
               {doneCount} of {setupSteps.length} done
             </span>

@@ -17,7 +17,8 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
-        display: ["var(--font-display)", "var(--font-sans)", ...fontFamily.sans],
+        display: ["var(--font-display)", "Georgia", "serif"],
+        logo: ["var(--font-logo)", "var(--font-sans)", ...fontFamily.sans],
         script: ["var(--font-script)", "cursive"],
       },
       colors: {
