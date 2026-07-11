@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Fraunces, Fredoka, Caveat } from "next/font/google";
+import { Manrope, Playfair_Display, Fredoka, Caveat } from "next/font/google";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -8,11 +8,10 @@ const manrope = Manrope({
   display: "swap",
 });
 
-// Canela stand-in — warm, elegant serif for headings
-const fraunces = Fraunces({
+// Canela stand-in — elegant, clean serif for headings
+const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
@@ -43,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${fraunces.variable} ${fredoka.variable} ${caveat.variable}`}
+      className={`${manrope.variable} ${playfair.variable} ${fredoka.variable} ${caveat.variable}`}
     >
       <body className="min-h-screen bg-background font-sans antialiased">
         {children}

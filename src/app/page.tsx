@@ -27,7 +27,7 @@ const steps = [
   {
     step: "3",
     title: "Add their people",
-    description: "Your vet, sitter, dog walker, the grandparents — everyone who looks after them.",
+    description: "Your vet, sitter, and everyone who looks after them.",
   },
   {
     step: "4",
@@ -108,16 +108,15 @@ export default function HomePage() {
           <Heart className="h-3.5 w-3.5 text-paw-pink" /> Made with love, for pet parents
         </div>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl text-canvas leading-[1.05] mb-3">
-          The people who love them{" "}
-          <span className="text-terra">can care for them, just the way you do.</span>
+          So they&apos;re always in{" "}
+          <span className="text-terra">loving hands.</span>
         </h1>
         <p className="font-script text-terra text-2xl sm:text-3xl mb-6">
-          for the ones who love you right back
+          for the ones who love you back
         </p>
-        <p className="text-lg sm:text-xl text-canvas-muted max-w-2xl mx-auto mb-9">
-          Every meal, every quirk, every &ldquo;don&apos;t forget to&hellip;&rdquo; — kept in one
-          warm place. Share it with a sitter or a friend in a single tap, and head out
-          with a light heart, knowing they&apos;re in good hands.
+        <p className="text-lg sm:text-xl text-canvas-muted max-w-xl mx-auto mb-9">
+          Their routine, their quirks, their favourite people — all in one place.
+          Share it in a tap, and head out with a light heart.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link href="/signup">
@@ -151,20 +150,20 @@ export default function HomePage() {
             <span className="font-semibold text-sm uppercase tracking-wider">Why PawSet</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-            Everything about them, out of your head and into one place
+            Everything about them, in one place
           </h2>
           <p className="text-muted-foreground text-lg">
-            The feeding quirks. The 3pm medication. Which treats are a firm no. The vet&apos;s number,
-            the neighbour with the spare key. Right now it lives in your memory and a scatter of text
-            threads — until the one time you are not there. PawSet keeps it together, ready to hand over.
+            The feeding quirks. The 3pm medication. The vet&apos;s number, the neighbour with the
+            spare key. Right now it lives in your head and a dozen texts — until the day you&apos;re
+            away. PawSet keeps it together.
           </p>
           <div className="mt-8 p-5 bg-paw-yellowsoft rounded-2xl text-left">
             <p className="text-foreground font-medium mb-2">
               &ldquo;Leaving them with a sitter? Send a single link.&rdquo;
             </p>
             <p className="text-muted-foreground text-sm">
-              They will see exactly how your dog likes things — and you can settle in elsewhere,
-              knowing nothing was lost along the way.
+              They&apos;ll see just how your dog likes things — and you can relax, knowing
+              nothing got lost.
             </p>
           </div>
         </div>
@@ -229,8 +228,8 @@ export default function HomePage() {
           <div>
             <h2 className="text-4xl text-canvas mb-4">What&apos;s included</h2>
             <p className="text-canvas-muted mb-8">
-              From their morning routine to the vet&apos;s number — everything the person
-              caring for them could need, ready to hand over in a tap.
+              From their morning routine to the vet&apos;s number — everything their carer
+              could need, ready to share in a tap.
             </p>
             <ul className="space-y-2.5">
               {included.map((item) => (
@@ -281,12 +280,11 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Shield className="h-5 w-5 text-primary" />
-            <span className="font-semibold text-foreground">Private by default, always</span>
+            <span className="font-semibold text-foreground">Yours, and only yours</span>
           </div>
           <p className="text-muted-foreground">
-            Your pet&apos;s details are only ever visible to you. When you share, the link shows
-            just what you choose — sensitive things like spare-key notes stay hidden unless you
-            say so. Change your mind? Switch any link off in a tap.
+            Their details are private to you. When you share, the link shows only what you
+            choose — and you can switch it off anytime.
           </p>
         </div>
       </section>
@@ -295,11 +293,11 @@ export default function HomePage() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-20 text-center">
         <p className="font-script text-terra text-2xl sm:text-3xl mb-2">happy pets, happy you</p>
         <h2 className="text-4xl sm:text-5xl text-canvas mb-4">
-          Your care in their corner, even when you can&apos;t be there
+          Go with a light heart
         </h2>
-        <p className="text-canvas-muted mb-8 max-w-xl mx-auto">
-          Ten quiet minutes now, and every trip, sitter, and just-in-case is already handled.
-          Set it up once. Update it in seconds.
+        <p className="text-canvas-muted mb-8 max-w-md mx-auto">
+          Set it up once, and they&apos;re covered — whoever&apos;s caring for them, whenever
+          you&apos;re away.
         </p>
         <Link href="/signup">
           <Button size="lg" className="px-10">
