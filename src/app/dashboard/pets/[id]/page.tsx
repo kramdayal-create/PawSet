@@ -444,13 +444,13 @@ export default async function PetDetailPage({
         <div className="space-y-6">
           {/* Print buttons */}
           <div className="flex flex-wrap gap-3">
-            <Link href={`/dashboard/pets/${pet.id}/print-guide`} target="_blank">
+            <Link href={`/guide/${pet.id}`} target="_blank">
               <Button variant="outline" className="gap-2">
                 <Printer className="h-4 w-4" />
                 Print sitter guide
               </Button>
             </Link>
-            <Link href={`/dashboard/pets/${pet.id}/emergency-card`} target="_blank">
+            <Link href={`/emergency-card/${pet.id}`} target="_blank">
               <Button variant="outline" className="gap-2">
                 <AlertTriangle className="h-4 w-4" />
                 Print emergency card

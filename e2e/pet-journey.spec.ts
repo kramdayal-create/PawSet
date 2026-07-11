@@ -99,3 +99,25 @@ test("create a share link and open the public care guide", async ({ page, contex
   await expect(guide.getByRole("heading", { name: "Daily Routine" })).toBeVisible();
   await expect(guide.getByText("Morning 7am, Evening 6pm")).toBeVisible();
 });
+
+test("printable sitter guide and emergency card render standalone", async ({ page }) => {
+  await page.goto("/dashboard/pets");
+  await page.getByText(petName).click();
+  await expect(page).toHaveURL(/\/dashboard\/pets\/[0-9a-f-]+/);
+  const petId = page.url().match(/pets\/([0-9a-f-]+)/)![1];
+
+  // Sitter guide: standalone page (no app sidebar), with populated basics + routine.
+  await page.goto(`/guide/${petId}`);
+  await expect(page.getByRole("heading", { name: /Care Guide/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Basic details" })).toBeVisible();
+  await expect(page.getByText("Morning 7am, Evening 6pm")).toBeVisible();
+  // The dashboard sidebar must not bleed into the print view.
+  await expect(page.getByRole("link", { name: "Dashboard" })).toHaveCount(0);
+
+  // Emergency card: standalone, shows the owner and the emergency contact.
+  await page.goto(`/emergency-card/${petId}`);
+  await expect(page.getByText(/Emergency Card/)).toBeVisible();
+  await expect(page.getByText("Pet owner")).toBeVisible();
+  await expect(page.getByText(contactName)).toBeVisible();
+  await expect(page.getByRole("link", { name: "Dashboard" })).toHaveCount(0);
+});
