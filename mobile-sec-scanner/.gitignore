@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+samples/*.apk
+samples/*.ipa
+samples/*.aab
+*.security-report.json

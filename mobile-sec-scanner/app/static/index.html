@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mobile App Security Scanner</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">🛡️</span>
+      <div>
+        <h1>Mobile App Security Scanner</h1>
+        <p class="tagline">Static analysis for APK &amp; IPA · SAST · secrets · dependencies</p>
+      </div>
+    </div>
+    <a class="ghost-btn" href="https://owasp.org/www-project-mobile-top-10/" target="_blank" rel="noopener">OWASP Mobile Top 10 ↗</a>
+  </header>
+
+  <main>
+    <section class="auth-banner" role="note">
+      <strong>Authorized use only.</strong> Analyze binaries you own or have written
+      permission to test. Reverse-engineering or testing third-party apps without
+      authorization may breach their terms and local law.
+    </section>
+
+    <section id="upload-card" class="card">
+      <h2>Scan a binary</h2>
+      <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Choose or drop an APK or IPA file">
+        <input id="file-input" type="file" accept=".apk,.ipa,.aab" hidden />
+        <div class="dz-inner">
+          <div class="dz-icon">📦</div>
+          <p class="dz-main">Drop an <code>.apk</code> or <code>.ipa</code> here</p>
+          <p class="dz-sub">or click to browse · max 400 MB</p>
+          <p id="file-name" class="file-name" hidden></p>
+        </div>
+      </div>
+
+      <label class="consent">
+        <input id="authorized" type="checkbox" />
+        <span>I confirm I am <strong>authorized</strong> to analyze this binary (my own app,
+        or one I have written permission to test).</span>
+      </label>
+
+      <button id="scan-btn" class="primary-btn" disabled>Run security scan</button>
+      <p id="form-error" class="form-error" hidden></p>
+    </section>
+
+    <section id="progress" class="card" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <p id="progress-text">Analyzing binary…</p>
+    </section>
+
+    <section id="results" hidden>
+      <!-- Summary -->
+      <div class="summary-grid">
+        <div class="card grade-card">
+          <div id="grade" class="grade">–</div>
+          <div class="grade-meta">
+            <div class="risk-label">Risk score</div>
+            <div class="risk-bar"><div id="risk-fill" class="risk-fill"></div></div>
+            <div id="risk-value" class="risk-value">0 / 100</div>
+          </div>
+        </div>
+        <div class="card app-card">
+          <h3 id="app-label">—</h3>
+          <dl id="app-meta" class="app-meta"></dl>
+        </div>
+        <div class="card sev-card">
+          <h3>Findings by severity</h3>
+          <div id="sev-chips" class="sev-chips"></div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls card">
+        <div id="filters" class="filters"></div>
+        <div class="control-right">
+          <input id="search" type="search" placeholder="Filter findings…" />
+          <button id="download" class="ghost-btn">Download JSON</button>
+        </div>
+      </div>
+
+      <!-- Findings -->
+      <div id="findings" class="findings"></div>
+
+      <!-- Scan notes / errors -->
+      <div id="notes" class="card notes" hidden>
+        <h3>Scan notes</h3>
+        <ul id="notes-list"></ul>
+      </div>
+
+      <p class="disclaimer">
+        Static analysis finds indicators, not proof of exploitability. Validate findings
+        manually. Absence of findings is not a guarantee of security. This tool does not
+        perform dynamic/runtime testing.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Static APK/IPA analyzer · findings mapped to OWASP MASVS &amp; Mobile Top 10</span>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
